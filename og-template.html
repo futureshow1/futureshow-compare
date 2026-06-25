@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OG Template</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Serif+Display:ital@0;1&family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0a0a0a;--paper:#fafaf7;--red:#ff2d00;--yellow:#f0ff00;
+  --display:'Archivo Black',Impact,sans-serif;
+  --serif:'DM Serif Display',Georgia,serif;
+  --mono:'JetBrains Mono',monospace;
+}
+html,body{width:1200px;height:630px;overflow:hidden;background:var(--ink);color:var(--paper);font-family:Inter,sans-serif}
+.og{position:relative;width:100%;height:100%;padding:54px 64px;display:flex;flex-direction:column;justify-content:space-between;background:var(--ink);background-image:radial-gradient(ellipse at top right,rgba(255,45,0,0.08),transparent 60%)}
+
+/* Masthead */
+.og__top{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(250,250,247,0.5);border-bottom:1px solid rgba(250,250,247,0.18);padding-bottom:18px}
+.og__brand{font-family:var(--display);font-size:18px;color:var(--paper);text-transform:uppercase;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px}
+.og__brand::after{content:'';width:9px;height:9px;background:var(--red);border-radius:50%}
+.og__num{background:var(--red);color:var(--paper);padding:5px 12px;font-weight:700;letter-spacing:0.2em}
+
+/* Body */
+.og__body{flex:1;display:flex;flex-direction:column;justify-content:center}
+.og__chips{display:flex;gap:8px;margin-bottom:18px}
+.og__chip{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:5px 10px;background:var(--paper);color:var(--ink)}
+.og__chip.red{background:var(--red);color:var(--paper)}
+.og__chip.yellow{background:var(--yellow);color:var(--ink)}
+.og__chip.outline{background:transparent;color:var(--paper);border:1px solid rgba(250,250,247,0.4)}
+.og__headline{font-family:var(--display);font-size:84px;line-height:0.9;letter-spacing:-0.035em;text-transform:uppercase;color:var(--paper);margin-bottom:24px;max-width:18ch}
+.og__headline em{color:var(--red);font-style:normal}
+.og__headline .outline{-webkit-text-stroke:1.5px var(--paper);color:transparent}
+.og__deck{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.35;color:rgba(250,250,247,0.8);max-width:55ch}
+.og__deck em{color:var(--red);font-style:italic}
+
+/* Bottom */
+.og__bot{display:flex;justify-content:space-between;align-items:flex-end;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,250,247,0.5)}
+.og__bot strong{color:var(--paper);font-weight:600}
+.og__cta{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:var(--red);color:var(--paper);padding:11px 18px}
+
+/* Per-project hidden by default */
+.project{display:none}
+.project.active{display:contents}
+</style>
+</head>
+<body>
+
+<!-- CARDIOSIM -->
+<div class="og" id="cardiosim">
+  <div class="og__top">
+    <div class="og__brand">FutureShow</div>
+    <div><span class="og__num">FEAT. 01</span> &nbsp;·&nbsp; Medical Simulation</div>
+  </div>
+  <div class="og__body">
+    <div class="og__chips">
+      <span class="og__chip red">Medical</span>
+      <span class="og__chip">Pharmacology</span>
+      <span class="og__chip outline">2026</span>
+    </div>
+    <div class="og__headline">A working <em>pharmacology lab,</em> in a browser tab.</div>
+    <div class="og__deck">Ten cardiovascular drugs, eight scenarios, real-time hemodynamics — verified against Circulation, EJCTS, StatPearls.</div>
+  </div>
+  <div class="og__bot">
+    <div><strong>CardioSim Pro</strong> &nbsp;·&nbsp; FutureShow Studio · 2026</div>
+    <div class="og__cta">Launch simulation →</div>
+  </div>
+</div>
+
+<!-- ATLAS -->
+<div class="og" id="atlas" style="display:none">
+  <div class="og__top">
+    <div class="og__brand">FutureShow</div>
+    <div><span class="og__num">FEAT. 02</span> &nbsp;·&nbsp; Data Investigation</div>
+  </div>
+  <div class="og__body">
+    <div class="og__chips">
+      <span class="og__chip yellow">Investigation</span>
+      <span class="og__chip">Geopolitics</span>
+      <span class="og__chip outline">2026</span>
+    </div>
+    <div class="og__headline">Where the world's <em>energy</em> actually moves.</div>
+    <div class="og__deck">Seven interactive maps. 240+ pipelines, fields, LNG terminals. Status-aware. Source-cited. Open.</div>
+  </div>
+  <div class="og__bot">
+    <div><strong>Oil &amp; Gas Atlas</strong> &nbsp;·&nbsp; FutureShow Studio · 2026</div>
+    <div class="og__cta">Open the atlas →</div>
+  </div>
+</div>
+
+<!-- HINTON -->
+<div class="og" id="hinton" style="display:none">
+  <div class="og__top">
+    <div class="og__brand">FutureShow</div>
+    <div><span class="og__num">FEAT. 03</span> &nbsp;·&nbsp; Interactive Education</div>
+  </div>
+  <div class="og__body">
+    <div class="og__chips">
+      <span class="og__chip">Education</span>
+      <span class="og__chip red">AI</span>
+      <span class="og__chip outline">2026</span>
+    </div>
+    <div class="og__headline">The <em>Nobel laureate's</em> primer on how AI works.</div>
+    <div class="og__deck">Fifteen sections, three editions, bilingual EN/PL. Geoffrey Hinton on the open web.</div>
+  </div>
+  <div class="og__bot">
+    <div><strong>Hinton AI Portal</strong> &nbsp;·&nbsp; FutureShow Studio · 2026</div>
+    <div class="og__cta">Explore the portal →</div>
+  </div>
+</div>
+
+<!-- SCHIZOANALIZA -->
+<div class="og" id="schizoanaliza" style="display:none">
+  <div class="og__top">
+    <div class="og__brand">FutureShow</div>
+    <div><span class="og__num">FEAT. 04</span> &nbsp;·&nbsp; Philosophy as Graph</div>
+  </div>
+  <div class="og__body">
+    <div class="og__chips">
+      <span class="og__chip yellow">Philosophy</span>
+      <span class="og__chip">Education</span>
+      <span class="og__chip outline">2026</span>
+    </div>
+    <div class="og__headline">Anti-Oedipus, <em>navigable.</em></div>
+    <div class="og__deck">45 concepts of Deleuze &amp; Guattari as a rhizomatic constellation. 50 quizzes. Three social machines.</div>
+  </div>
+  <div class="og__bot">
+    <div><strong>Schizoanaliza</strong> &nbsp;·&nbsp; FutureShow Studio · 2026</div>
+    <div class="og__cta">Enter the rhizome →</div>
+  </div>
+</div>
+
+<!-- SECTIO AUREA -->
+<div class="og" id="sectio-aurea" style="display:none">
+  <div class="og__top">
+    <div class="og__brand">FutureShow</div>
+    <div><span class="og__num">FEAT. 05</span> &nbsp;·&nbsp; Art · Editorial</div>
+  </div>
+  <div class="og__body">
+    <div class="og__chips">
+      <span class="og__chip yellow">Art</span>
+      <span class="og__chip">Editorial</span>
+      <span class="og__chip outline">2026</span>
+    </div>
+    <div class="og__headline">A <em>dodecahedron</em> you can walk into.</div>
+    <div class="og__deck">3D atlas of the Golden Ratio. Twelve chambers, seven playable rooms. Matila Ghyka, 1931, made walkable.</div>
+  </div>
+  <div class="og__bot">
+    <div><strong>Sectio Aurea</strong> &nbsp;·&nbsp; FutureShow Studio · 2026</div>
+    <div class="og__cta">Enter the solid →</div>
+  </div>
+</div>
+
+<!-- MATRYCA -->
+<div class="og" id="matryca" style="display:none">
+  <div class="og__top">
+    <div class="og__brand">FutureShow</div>
+    <div><span class="og__num">FEAT. 06</span> &nbsp;·&nbsp; Investigation Portal</div>
+  </div>
+  <div class="og__body">
+    <div class="og__chips">
+      <span class="og__chip">Investigation</span>
+      <span class="og__chip red">Big Tech</span>
+      <span class="og__chip outline">2026</span>
+    </div>
+    <div class="og__headline">The <em>Big Tech</em> scandal index.</div>
+    <div class="og__deck">33 documented cases. 480+ sources. Searchable, comparative, source-cited. PL/EN. Free to cite.</div>
+  </div>
+  <div class="og__bot">
+    <div><strong>Matryca</strong> &nbsp;·&nbsp; FutureShow Studio · 2026</div>
+    <div class="og__cta">Open Matryca →</div>
+  </div>
+</div>
+
+<script>
+// Show only the project matching ?p=X
+const params = new URLSearchParams(location.search);
+const which = params.get('p') || location.hash.replace('#','') || 'cardiosim';
+document.querySelectorAll('.og').forEach(el => el.style.display = (el.id === which) ? 'flex' : 'none');
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+.DS_Store
+*.log
+.cache/
+node_modules/
+v2/.DS_Store
+v2/**/.DS_Store

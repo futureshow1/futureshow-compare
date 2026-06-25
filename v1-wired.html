@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FutureShow — Play With Knowledge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --ink:#0a0a0a;
+  --paper:#fafaf7;
+  --paper2:#f0ede5;
+  --red:#ff2d00;
+  --yellow:#f0ff00;
+  --rule:rgba(0,0,0,0.12);
+  --text-mute:#666;
+  --display:'Archivo Black','Archivo',Impact,sans-serif;
+  --serif:'DM Serif Display',Georgia,serif;
+  --body:'Inter',-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* Cursor */
+.cursor{position:fixed;top:0;left:0;width:24px;height:24px;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .25s,height .25s}
+.cursor::before,.cursor::after{content:'';position:absolute;background:#fff}
+.cursor::before{left:50%;top:0;width:1.5px;height:100%;transform:translateX(-50%)}
+.cursor::after{top:50%;left:0;height:1.5px;width:100%;transform:translateY(-50%)}
+.cursor.hover{width:60px;height:60px}
+@media(hover:none){.cursor{display:none}}
+a,button{cursor:none}
+@media(hover:none){a,button,body{cursor:auto}}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i,0)*80ms)}
+.reveal.in{opacity:1;transform:none}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 36px;background:var(--paper);border-bottom:1px solid var(--ink)}
+.nav__brand{font-family:var(--display);font-size:1.05rem;letter-spacing:-0.01em;color:var(--ink);text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.nav__brand::after{content:'';width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulseRed 1.6s ease-in-out infinite}
+@keyframes pulseRed{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.5}}
+.nav__links{display:flex;gap:30px;list-style:none}
+.nav__links a{font-family:var(--mono);font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);transition:color .2s}
+.nav__links a:hover{color:var(--red)}
+.nav__cta{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:11px 22px;background:var(--red);color:var(--paper);transition:all .2s;border:1px solid var(--red)}
+.nav__cta:hover{background:var(--ink);border-color:var(--ink)}
+
+/* COVER */
+.cover{background:var(--ink);color:var(--paper);min-height:100vh;padding:120px 36px 60px;position:relative;display:flex;flex-direction:column;justify-content:space-between}
+.cover__masthead{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid rgba(250,250,247,0.2);padding-bottom:24px;margin-bottom:48px;font-family:var(--mono);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,250,247,0.55);flex-wrap:wrap;gap:16px}
+.cover__masthead strong{color:var(--paper);font-weight:600}
+.cover__masthead .issue{background:var(--red);color:var(--paper);padding:5px 12px;font-weight:700;letter-spacing:0.2em}
+.cover__main{display:grid;grid-template-columns:1fr 380px;gap:80px;align-items:flex-end;flex:1}
+.cover__headline{font-family:var(--display);font-size:clamp(3rem,13vw,13rem);line-height:0.84;letter-spacing:-0.05em;color:var(--paper);text-transform:uppercase}
+.cover__headline span.red{color:var(--red)}
+.cover__headline span.outline{-webkit-text-stroke:1.5px var(--paper);color:transparent}
+.cover__sidebar{border-left:1px solid rgba(250,250,247,0.2);padding-left:28px}
+.cover__deck{font-family:var(--serif);font-size:1.4rem;line-height:1.3;font-style:italic;color:var(--paper);margin-bottom:36px}
+.cover__deck em{color:var(--red);font-style:italic}
+.cover__byline{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,250,247,0.55);margin-bottom:32px;border-top:1px solid rgba(250,250,247,0.2);padding-top:20px}
+.cover__byline strong{color:var(--paper)}
+.cover__cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn-red{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:14px 22px;background:var(--red);color:var(--paper);display:inline-flex;align-items:center;gap:10px;transition:all .2s;border:1px solid var(--red)}
+.btn-red:hover{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.btn-outline{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:14px 22px;background:transparent;color:var(--paper);border:1px solid var(--paper);transition:all .2s}
+.btn-outline:hover{background:var(--paper);color:var(--ink)}
+
+.cover__ticker{position:absolute;bottom:18px;left:0;right:0;font-family:var(--mono);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,250,247,0.4);white-space:nowrap;overflow:hidden;border-top:1px solid rgba(250,250,247,0.1);padding:14px 36px}
+.ticker-track{display:inline-block;animation:scroll 60s linear infinite}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-track span{margin-right:60px}
+.ticker-track .dot{color:var(--red);margin:0 24px}
+
+@media(max-width:900px){
+  .cover{padding:100px 20px 60px}
+  .cover__main{grid-template-columns:1fr;gap:40px}
+  .cover__sidebar{border-left:none;border-top:1px solid rgba(250,250,247,0.2);padding-left:0;padding-top:24px}
+  .nav__links{display:none}
+  .nav{padding:14px 20px}
+}
+
+/* INTRO with drop cap */
+.intro{background:var(--paper);padding:120px 36px 80px;border-bottom:1px solid var(--ink)}
+.intro__inner{max-width:780px;margin:0 auto}
+.intro__kicker{display:inline-block;font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:5px 12px;margin-bottom:32px}
+.intro__lede{font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.4;color:var(--ink);font-style:italic}
+.intro__lede::first-letter{font-family:var(--display);font-size:5em;float:left;line-height:0.85;margin:6px 14px -4px 0;color:var(--red);font-style:normal}
+.intro__sig{margin-top:48px;font-family:var(--mono);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mute);display:flex;align-items:center;gap:14px}
+.intro__sig::before{content:'';width:48px;height:1px;background:var(--ink)}
+
+/* TRUST */
+.trust{background:var(--paper);padding:60px 0 50px;border-bottom:1px solid var(--ink)}
+.trust__header{max-width:1280px;margin:0 auto 32px;padding:0 36px;display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
+.trust__label{font-family:var(--mono);font-size:0.72rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:14px}
+.trust__label::before{content:'';display:inline-block;width:34px;height:1px;background:var(--ink)}
+.trust__meta{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-mute)}
+
+.logo-marquee{overflow:hidden;position:relative;mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%)}
+.logo-marquee__track{display:inline-flex;align-items:center;gap:80px;padding:8px 0;animation:logoScroll 40s linear infinite;white-space:nowrap}
+.logo-marquee:hover .logo-marquee__track{animation-play-state:paused}
+@keyframes logoScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.client-logo{display:inline-flex;align-items:center;flex-shrink:0;color:var(--ink);transition:opacity .2s}
+.client-logo:hover{opacity:0.55}
+.client-logo img{height:34px;width:auto;display:block;filter:grayscale(1) contrast(1.05);mix-blend-mode:multiply;opacity:0.88}
+.client-logo--big img{height:42px}
+.client-logo--badge img{height:48px;border-radius:50%}
+.client-logo--text{font-weight:400;line-height:1.05;letter-spacing:-0.01em}
+.client-logo--niaiu{font-family:var(--mono);font-weight:500;font-size:1.1rem;letter-spacing:0.04em}
+.client-logo--niaiu .sub{display:block;font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-mute);font-weight:400;margin-top:3px}
+.client-logo--td{font-family:var(--serif);font-style:italic;font-size:1.1rem;letter-spacing:0.005em;line-height:1.05}
+.client-logo--td .sub{display:block;font-size:0.5rem;letter-spacing:0.16em;font-style:normal;text-transform:uppercase;color:var(--text-mute);font-family:var(--mono);margin-top:3px}
+.client-logo--polin{font-family:var(--display);font-size:1.6rem;letter-spacing:0.06em;text-transform:uppercase;line-height:1.05}
+.client-logo--polin .sub{display:block;font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-mute);font-weight:400;font-family:var(--mono);margin-top:3px}
+
+/* APPROACH */
+.approach{background:var(--paper2);padding:120px 36px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.approach__inner{max-width:1280px;margin:0 auto}
+.approach__head{margin-bottom:48px;display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:end}
+.approach__kicker{font-family:var(--mono);font-size:0.72rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:14px}
+.approach__kicker::before{content:'';display:inline-block;width:24px;height:1px;background:currentColor}
+.approach__deck{font-family:var(--display);font-size:clamp(2rem,5vw,4.4rem);line-height:0.92;letter-spacing:-0.035em;color:var(--ink);text-transform:uppercase}
+.approach__deck em{color:var(--red);font-style:normal}
+.approach__lede{max-width:780px;margin:0 auto 80px}
+.approach__lede p{font-family:var(--serif);font-size:clamp(1.2rem,1.8vw,1.55rem);line-height:1.45;color:var(--ink);font-style:italic}
+.approach__lede p::first-letter{font-family:var(--display);font-size:5em;float:left;line-height:0.85;margin:6px 14px -4px 0;color:var(--red);font-style:normal}
+.approach__principles{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;border-top:2px solid var(--ink);padding-top:48px}
+.principle__num{font-family:var(--display);font-size:1.8rem;line-height:1;-webkit-text-stroke:1.2px var(--ink);color:transparent;margin-bottom:14px}
+.principle h3{font-family:var(--display);font-size:clamp(1.1rem,1.6vw,1.4rem);text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:10px;color:var(--ink)}
+.principle p{font-size:0.92rem;line-height:1.55;color:#222}
+@media(max-width:900px){.approach{padding:60px 20px}.approach__head{grid-template-columns:1fr;gap:16px}.approach__lede{margin-bottom:48px}.approach__principles{grid-template-columns:1fr 1fr;gap:24px}}
+@media(max-width:600px){.approach__principles{grid-template-columns:1fr}}
+
+/* FEATURES */
+.features{background:var(--paper);padding:80px 36px 60px}
+.features__inner{max-width:1280px;margin:0 auto}
+.features__rule{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:60px}
+.features__title{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);text-transform:uppercase;letter-spacing:-0.02em;color:var(--ink)}
+.features__count{font-family:var(--mono);font-size:0.72rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mute)}
+
+.feat{padding:80px 0;border-bottom:1px solid var(--ink)}
+.feat:last-child{border-bottom:none}
+
+.feat__head{display:grid;grid-template-columns:140px 1fr;gap:40px;margin-bottom:40px;align-items:start}
+.feat__num{font-family:var(--display);font-size:clamp(4rem,8vw,7rem);line-height:0.85;color:var(--ink);-webkit-text-stroke:2px var(--ink);color:transparent}
+.feat__title-area{padding-top:8px}
+.feat__chip-row{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:5px 10px;background:var(--ink);color:var(--paper)}
+.chip.red{background:var(--red)}
+.chip.yellow{background:var(--yellow);color:var(--ink)}
+.chip.outline{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+
+.feat__title{font-family:var(--display);font-size:clamp(2rem,3.6vw,3.4rem);text-transform:uppercase;line-height:0.95;letter-spacing:-0.025em;color:var(--ink);margin-bottom:24px}
+.feat__title em{color:var(--red);font-style:normal}
+.feat__deck{font-family:var(--serif);font-size:1.15rem;line-height:1.5;color:var(--ink);font-style:italic;max-width:55ch}
+
+/* THE FEATURE IMAGE — 16:9 full bleed within feature */
+.feat__image{display:block;aspect-ratio:16/9;background:#0a0a0a;border:1px solid var(--ink);overflow:hidden;margin-bottom:40px;position:relative;transition:transform .5s cubic-bezier(.16,1,.3,1);text-decoration:none;color:inherit}
+.feat__image:hover{transform:translateY(-4px)}
+.feat__image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.feat__image:hover img{transform:scale(1.02)}
+.feat__image::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,0.15));pointer-events:none}
+.feat__image-caption{font-family:var(--mono);font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mute);margin-top:8px;display:flex;justify-content:space-between}
+.feat__image-caption span:last-child{color:var(--ink)}
+
+.feat__body{display:grid;grid-template-columns:140px 1.4fr 1fr;gap:40px;align-items:start}
+.feat__body > :first-child{grid-column:2}
+.feat__body > :last-child{grid-column:3}
+
+.feat__body-text{font-size:0.95rem;line-height:1.7;color:#222;margin-bottom:32px}
+.feat__cta{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:13px 22px;display:inline-flex;align-items:center;gap:10px;transition:all .2s}
+.feat__cta::after{content:'→';transition:transform .25s}
+.feat__cta:hover{background:var(--red)}
+.feat__cta:hover::after{transform:translateX(4px)}
+
+.feat__aside{background:var(--ink);color:var(--paper);padding:36px 28px;position:relative}
+.feat__aside::before{content:'STATS';position:absolute;top:-1px;left:0;font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.25em;background:var(--red);color:var(--paper);padding:5px 10px}
+.feat__aside-grid{display:grid;gap:24px;margin-top:36px}
+.feat__stat{border-top:1px solid rgba(250,250,247,0.18);padding-top:16px}
+.feat__stat:first-child{border-top:none;padding-top:0}
+.feat__stat-num{font-family:var(--display);font-size:2.4rem;line-height:1;color:var(--paper)}
+.feat__stat-num.red{color:var(--red)}
+.feat__stat-label{font-family:var(--mono);font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,250,247,0.6);margin-top:6px}
+
+.feat__pullquote{margin:0;padding:64px 60px;background:var(--paper2);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-family:var(--serif);font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.15;color:var(--ink);font-style:italic;text-align:center}
+.feat__pullquote::before{content:'"';display:block;font-family:var(--display);font-size:3rem;color:var(--red);line-height:0.5;margin-bottom:10px;font-style:normal}
+
+@media(max-width:900px){
+  .feat{padding:50px 0}
+  .feat__head{grid-template-columns:1fr;gap:14px;margin-bottom:24px}
+  .feat__num{font-size:3rem}
+  .feat__title-area{padding-top:0}
+  .feat__body{grid-template-columns:1fr;gap:32px}
+  .feat__body > :first-child,.feat__body > :last-child{grid-column:1}
+  .feat__pullquote{padding:40px 24px;font-size:1.6rem}
+  .features{padding:60px 20px 40px}
+}
+
+/* BANNER */
+.banner{background:var(--yellow);color:var(--ink);padding:70px 36px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.banner__inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.banner__text{font-family:var(--display);font-size:clamp(1.6rem,3.5vw,2.8rem);text-transform:uppercase;line-height:1;letter-spacing:-0.02em}
+.banner__text em{font-style:normal;color:var(--red)}
+.btn-banner{font-family:var(--mono);font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:16px 26px;background:var(--ink);color:var(--yellow);display:inline-flex;align-items:center;gap:12px;transition:all .2s;border:1px solid var(--ink)}
+.btn-banner:hover{background:var(--red);color:var(--paper);border-color:var(--red)}
+@media(max-width:700px){.banner__inner{grid-template-columns:1fr;gap:24px;text-align:left}.banner{padding:50px 20px}}
+
+/* ARCHIVE */
+.archive{background:var(--paper);padding:90px 36px 100px}
+.archive__inner{max-width:1280px;margin:0 auto}
+.archive__head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:32px;flex-wrap:wrap;gap:20px}
+.archive__title{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.4rem);text-transform:uppercase;letter-spacing:-0.02em}
+.archive__toggle{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:11px 18px;display:inline-flex;align-items:center;gap:10px;transition:all .2s;border:none}
+.archive__toggle:hover{background:var(--red)}
+.archive__toggle::after{content:'+';display:inline-block;transition:transform .25s}
+.archive__toggle.open::after{transform:rotate(45deg)}
+.archive__list{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.archive__list.open{max-height:1500px}
+.archive__list ul{list-style:none;padding-top:0}
+.archive__list li{display:grid;grid-template-columns:80px 1fr 160px 60px;gap:24px;padding:18px 12px;border-bottom:1px solid var(--rule);align-items:baseline;transition:background .25s,padding .25s}
+.archive__list li:hover{background:var(--ink);color:var(--paper);padding-left:24px}
+.archive__list .yr{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em}
+.archive__list .nm{font-family:var(--display);font-size:1.1rem;text-transform:uppercase;letter-spacing:-0.01em}
+.archive__list .nm em{font-family:var(--body);font-style:italic;color:var(--text-mute);font-size:0.9rem;margin-left:10px;text-transform:none;font-weight:400}
+.archive__list li:hover .nm em{color:rgba(250,250,247,0.7)}
+.archive__list .tg{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);text-align:right}
+.archive__list li:hover .tg{color:var(--yellow)}
+.archive__list .ar{font-family:var(--display);font-size:1.1rem;text-align:right;transition:transform .25s}
+.archive__list li:hover .ar{transform:translateX(6px)}
+@media(max-width:800px){.archive{padding:60px 20px 70px}.archive__list li{grid-template-columns:60px 1fr 30px;gap:14px}.archive__list .tg{display:none}}
+
+/* FOOTER */
+.footer{background:var(--ink);color:var(--paper);padding:100px 36px 32px}
+.footer__inner{max-width:1280px;margin:0 auto}
+.footer__big{font-family:var(--display);font-size:clamp(2.2rem,6vw,5.5rem);text-transform:uppercase;line-height:0.92;letter-spacing:-0.03em;margin-bottom:52px;max-width:18ch}
+.footer__big em{color:var(--red);font-style:normal}
+.footer__big .underline{position:relative;display:inline-block}
+.footer__big .underline::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:6px;background:var(--yellow);z-index:-1}
+.footer__cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-top:36px;border-top:1px solid rgba(250,250,247,0.15)}
+.footer__col h4{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.footer__col ul{list-style:none}
+.footer__col li{margin-bottom:8px;font-size:0.88rem;color:rgba(250,250,247,0.75)}
+.footer__col a:hover{color:var(--yellow)}
+.footer__bottom{margin-top:56px;padding-top:22px;border-top:1px solid rgba(250,250,247,0.15);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,250,247,0.45);flex-wrap:wrap;gap:14px}
+@media(max-width:900px){.footer{padding:60px 20px 28px}.footer__cols{grid-template-columns:1fr 1fr;gap:32px}}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand">FutureShow</a>
+  <ul class="nav__links">
+    <li><a href="#features">Work</a></li>
+    <li><a href="#archive">Archive</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#studio">Studio</a></li>
+  </ul>
+  <a href="#contact" class="nav__cta">Start a project</a>
+</nav>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover__masthead reveal">
+    <div><span class="issue">No. 01</span> &nbsp;&nbsp;&nbsp; Vol. I · 2026 · <strong>Architecture of Interactive Narratives</strong></div>
+    <div>Warsaw · Remote</div>
+  </div>
+
+  <div class="cover__main">
+    <h1 class="cover__headline reveal" style="--i:1">
+      <span>Play</span><br>
+      <span class="outline">with</span><br>
+      <span class="red">knowledge.</span>
+    </h1>
+    <aside class="cover__sidebar reveal" style="--i:2">
+      <p class="cover__deck">A studio for <em>interactive narratives</em>. We turn complex subjects — medical, geopolitical, philosophical — into things people actually finish.</p>
+      <div class="cover__byline">By <strong>FutureShow Studio</strong> · Est. 2025 · For museums, media, NGOs &amp; companies</div>
+      <div class="cover__cta-row">
+        <a href="#features" class="btn-red">See the work →</a>
+        <a href="#approach" class="btn-outline">How we work</a>
+      </div>
+    </aside>
+  </div>
+
+  <div class="cover__ticker reveal" style="--i:3">
+    <div class="ticker-track">
+      <span>FutureShow ▸ Play with knowledge</span>
+      <span class="dot">●</span>
+      <span>CardioSim — 10 drugs, literature-verified</span>
+      <span class="dot">●</span>
+      <span>Oil &amp; Gas Atlas — 240+ assets, 6 continents</span>
+      <span class="dot">●</span>
+      <span>Hinton AI Portal — Nobel laureate explains AI</span>
+      <span class="dot">●</span>
+      <span>Schizoanaliza — Deleuze &amp; Guattari, navigable</span>
+      <span class="dot">●</span>
+      <span>Matryca — 33 Big Tech cases, PL/EN</span>
+      <span class="dot">●</span>
+      <span>FutureShow ▸ Play with knowledge</span>
+      <span class="dot">●</span>
+      <span>CardioSim — 10 drugs, literature-verified</span>
+      <span class="dot">●</span>
+      <span>Oil &amp; Gas Atlas — 240+ assets, 6 continents</span>
+      <span class="dot">●</span>
+      <span>Hinton AI Portal — Nobel laureate explains AI</span>
+      <span class="dot">●</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro__inner">
+    <span class="intro__kicker reveal">Manifesto · 60 seconds</span>
+    <p class="intro__lede reveal" style="--i:1">FutureShow is a studio for interactive narratives. We treat each project as an architecture problem: how do you make a difficult subject — pharmacology, oligarchic finance, post-structuralist philosophy — into something a person can <em>play with</em>, not just read about? The answer is rarely a longer article. It's almost always a different kind of object.</p>
+    <div class="intro__sig reveal" style="--i:2">FutureShow Studio · 2026</div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="trust__header reveal">
+    <div class="trust__label">Trusted by · client work</div>
+    <div class="trust__meta">Film · graphic · interactive · 2008–2026</div>
+  </div>
+  <div class="logo-marquee reveal" style="--i:1">
+    <div class="logo-marquee__track">
+      <!-- track 1 -->
+      <a class="client-logo client-logo--big" href="#" aria-label="HBO"><img src="logos/hbo.svg" alt="HBO"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="MGM"><img src="logos/mgm.jpeg" alt="MGM"></a>
+      <a class="client-logo" href="#" aria-label="KGHM"><img src="logos/kghm.svg" alt="KGHM"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="TVN"><img src="logos/tvn.svg" alt="TVN"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="POLIN Museum"><img src="logos/polin.png" alt="POLIN Museum"></a>
+      <a class="client-logo client-logo--badge" href="#" aria-label="Trans/Wizje"><img src="logos/transwizje.png" alt="Trans/Wizje"></a>
+      <a class="client-logo" href="#" aria-label="Uniwersytet Warszawski"><img src="logos/uw.svg" alt="UW"></a>
+      <span class="client-logo client-logo--text client-logo--niaiu">NIAiU</span>
+      <span class="client-logo client-logo--text client-logo--td">Teatr Dramatyczny</span>
+      <!-- track 2 (duplicate for seamless loop) -->
+      <a class="client-logo client-logo--big" href="#" aria-label="HBO"><img src="logos/hbo.svg" alt="HBO"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="MGM"><img src="logos/mgm.jpeg" alt="MGM"></a>
+      <a class="client-logo" href="#" aria-label="KGHM"><img src="logos/kghm.svg" alt="KGHM"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="TVN"><img src="logos/tvn.svg" alt="TVN"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="POLIN Museum"><img src="logos/polin.png" alt="POLIN Museum"></a>
+      <a class="client-logo client-logo--badge" href="#" aria-label="Trans/Wizje"><img src="logos/transwizje.png" alt="Trans/Wizje"></a>
+      <a class="client-logo" href="#" aria-label="Uniwersytet Warszawski"><img src="logos/uw.svg" alt="UW"></a>
+      <span class="client-logo client-logo--text client-logo--niaiu">NIAiU</span>
+      <span class="client-logo client-logo--text client-logo--td">Teatr Dramatyczny</span>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="approach__inner">
+    <div class="approach__head">
+      <div class="approach__kicker reveal">How we work</div>
+      <h2 class="approach__deck reveal" style="--i:1">We build <em>direct</em> communication.<br>For you and your company.</h2>
+    </div>
+    <div class="approach__lede reveal" style="--i:2">
+      <p>Not another website. Not another deck. A new kind of object — interactive, browser-native, owned by you — that lets your audience walk through what you do, not just read about it.</p>
+    </div>
+    <div class="approach__principles">
+      <div class="principle reveal"><div class="principle__num">01</div><h3>Direct.</h3><p>No intermediaries. Your audience meets your idea face to face. Web pages out, web places in.</p></div>
+      <div class="principle reveal" style="--i:1"><div class="principle__num">02</div><h3>Browser-native.</h3><p>Zero install. Zero login. Zero dependencies. Lives where attention already is.</p></div>
+      <div class="principle reveal" style="--i:2"><div class="principle__num">03</div><h3>Yours to keep.</h3><p>You own the source. You own the data. You own the relationship with your audience.</p></div>
+      <div class="principle reveal" style="--i:3"><div class="principle__num">04</div><h3>Fast to ship.</h3><p>AI as creative partner. From brief to ship: 2–6 weeks, not months.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="features__inner">
+    <div class="features__rule">
+      <h2 class="features__title">Selected work</h2>
+      <div class="features__count">Six features · 2024–2026</div>
+    </div>
+
+    <!-- 01 CARDIOSIM -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">01</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip red">Medical</span>
+            <span class="chip">Simulation</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">A working <em>pharmacology lab</em>, in a browser tab.</h3>
+          <p class="feat__deck">Ten cardiovascular drugs, eight clinical scenarios, real-time hemodynamics — verified against Circulation, EJCTS, StatPearls.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/cardiosim.html">
+        <img src="screens/cardiosim.png" alt="CardioSim Pro" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      </a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">Most medical simulators live behind paywalls and PhD logins. CardioSim is what happens when a non-physician obsesses over a cardiologist's brief: real Frank-Starling mechanics, real onset dynamics, real drug interactions — animated, observable, free, and stuck in a single HTML file you can email a student. It runs offline. It costs zero. It is being used.</p>
+          <a href="projects/cardiosim.html" class="feat__cta">Read the case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">10</div><div class="feat__stat-label">Drugs modelled</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">8</div><div class="feat__stat-label">Clinical scenarios</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">25KB</div><div class="feat__stat-label">Total weight</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">0</div><div class="feat__stat-label">Dependencies</div></div>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <div class="feat__pullquote reveal">Most medical sims live behind paywalls. We mailed this one to a resident in three minutes.</div>
+
+    <!-- 02 ATLAS -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">02</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip yellow">Investigation</span>
+            <span class="chip">Geopolitics</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">Where the world's <em>energy</em> actually moves.</h3>
+          <p class="feat__deck">Seven interactive maps. 240+ pipelines, fields, LNG terminals, chokepoints. Status-aware: damaged, shut, active, proposed.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/atlas.html">
+        <img src="screens/atlas.png" alt="Oil and Gas Atlas" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      </a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">After 2022, every newsroom in Europe needed a way to talk about gas flows that wasn't either a Reuters wire or a Stratfor PDF. The Atlas is the third option: open, source-cited, status-aware. Hover any line; see who built it, who shut it, what year, what for. Geopolitics through what's actually on the ground.</p>
+          <a href="projects/atlas.html" class="feat__cta">Read the case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">240+</div><div class="feat__stat-label">Infrastructure assets</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">7</div><div class="feat__stat-label">Continental maps</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">90+</div><div class="feat__stat-label">Pipelines mapped</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">110+</div><div class="feat__stat-label">LNG terminals</div></div>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <div class="feat__pullquote reveal">Geopolitics through what's actually on the ground.</div>
+
+    <!-- 03 HINTON -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">03</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip">Education</span>
+            <span class="chip red">AI</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">The Nobel laureate's <em>primer</em> on how AI works.</h3>
+          <p class="feat__deck">Fifteen sections drawn from Geoffrey Hinton's step-by-step explanations. Three visual editions. Bilingual EN/PL.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/hinton.html">
+        <img src="screens/hinton.png" alt="Hinton AI Portal" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      </a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">Hinton walked away from Google to warn the public about AI. The portal does what he no longer has time to: it sits you down, opens the hood, and shows you backpropagation, neural networks, and existential risk in his own words. Not marketing. Not hype. The teacher himself, on the open web.</p>
+          <a href="projects/hinton.html" class="feat__cta">Read the case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">15</div><div class="feat__stat-label">Sections</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">3</div><div class="feat__stat-label">Editions</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">EN/PL</div><div class="feat__stat-label">Languages</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">2024</div><div class="feat__stat-label">Nobel year</div></div>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <div class="feat__pullquote reveal">The teacher himself, on the open web.</div>
+
+    <!-- 04 SCHIZOANALIZA -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">04</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip yellow">Philosophy</span>
+            <span class="chip">Education</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">Anti-Oedipus, <em>navigable.</em></h3>
+          <p class="feat__deck">45 key concepts of Deleuze &amp; Guattari mapped as a rhizomatic constellation. 50 quiz questions. Three social machines.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/schizoanaliza.html">
+        <img src="screens/schizoanaliza.png" alt="Schizoanaliza" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      </a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">Everyone buys "A Thousand Plateaus." Almost nobody finishes it. The interactive constellation lets you walk the concepts as a graph rather than a 600-page sequential text: pick a node (the Rhizome, the Body without Organs, the Anomalous), see what it connects to, why, and what it costs. Philosophy made into a place.</p>
+          <a href="projects/schizoanaliza.html" class="feat__cta">Read the case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">45</div><div class="feat__stat-label">Concepts</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">50+</div><div class="feat__stat-label">Quiz questions</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">3</div><div class="feat__stat-label">Social machines</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">2</div><div class="feat__stat-label">Source volumes</div></div>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <div class="feat__pullquote reveal">Everyone buys A Thousand Plateaus. Almost nobody finishes it.</div>
+
+    <!-- 05 SECTIO AUREA -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">05</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip yellow">Art</span>
+            <span class="chip">Editorial</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">A <em>dodecahedron</em> you can walk into.</h3>
+          <p class="feat__deck">Sectio Aurea — an interactive 3D atlas of the Golden Ratio. Twelve chambers, seven playable rooms, gold-and-rank progression. From Matila Ghyka's 1931 treatise to a walkable, modern object.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/sectio-aurea.html">
+        <img src="screens/sectio.png" alt="Sectio Aurea" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      </a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">Ghyka's <em>Złota Liczba</em> is a 400-page treatise on number, proportion, beauty and cosmos. Practically unreadable end-to-end. Sectio Aurea reorganises it as a 3D dodecahedron-navigator: each of the twelve pentagonal faces opens onto a chamber. Seven of them are fully playable — Number (audio), Proportion, Pentada (shader), Solids, Garden, Lodge (constellation), Probierz (myth-game) — with a gold currency, ranks, and badges. Philosophy of beauty, finally walkable.</p>
+          <a href="projects/sectio-aurea.html" class="feat__cta">Read the case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">12</div><div class="feat__stat-label">Chambers</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">7</div><div class="feat__stat-label">Playable rooms</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">3D</div><div class="feat__stat-label">Navigator</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">1931</div><div class="feat__stat-label">Source year</div></div>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <div class="feat__pullquote reveal">Philosophy of beauty, finally walkable.</div>
+
+    <!-- 06 MATRYCA -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">06</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip">Investigation</span>
+            <span class="chip red">Big Tech</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">The <em>Big Tech</em> scandal index.</h3>
+          <p class="feat__deck">33 documented cases across platform misconduct, privacy breaches, antitrust, labour practice. Searchable, comparative, source-cited. PL/EN.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/matryca.html">
+        <img src="screens/matryca.png" alt="Matryca" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      </a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">The next person writing a thesis on platform power shouldn't have to start from page one of every story. Matryca is the index that doesn't exist anywhere else: each case mapped to its evidence, its outcome, its repeating pattern. Built once, maintained forever. Free to cite.</p>
+          <a href="projects/matryca.html" class="feat__cta">Read the case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">33</div><div class="feat__stat-label">Cases</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">PL/EN</div><div class="feat__stat-label">Languages</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">Live</div><div class="feat__stat-label">Updates</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">0$</div><div class="feat__stat-label">To cite</div></div>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- BANNER -->
+<section class="banner">
+  <div class="banner__inner">
+    <div class="banner__text reveal">Working on <em>something hard</em><br>that the public can't yet enter?</div>
+    <a href="#contact" class="btn-banner reveal" style="--i:1">Start a project →</a>
+  </div>
+</section>
+
+<!-- OTHERS -->
+<section class="archive" id="archive">
+  <div class="archive__inner">
+    <div class="archive__head">
+      <h2 class="archive__title">Also from the studio</h2>
+      <button class="archive__toggle" id="moreToggle">Show 15 more</button>
+    </div>
+    <div class="archive__list" id="moreList">
+      <ul>
+        <li><span class="yr">2026</span><span class="nm">MNEMO <em>memory architecture · personal knowledge graph</em></span><span class="tg">Lab · New</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Mondrian / Malewicz <em>interactive 3D triptych · 42 quotes</em></span><span class="tg">Art · New</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">SEJM — Influence Simulator <em>3,834-vote TF-IDF engine</em></span><span class="tg">Lab · New</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Złota Liczba — Ghyka kompendium <em>long-form annotated edition</em></span><span class="tg">Editorial</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Świtkowski — Okultyzm &amp; magja (1939) <em>kompendium</em></span><span class="tg">Editorial</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Digital Cosmos <em>immersive 3D WebGL</em></span><span class="tg">Lab</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Cosmos Catalogue <em>3D techniques library</em></span><span class="tg">Lab</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Cambridge Analytica — Timeline <em>investigative chronology</em></span><span class="tg">Investigation</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">40 Largest Polish Scandals <em>1988–2026, network atlas</em></span><span class="tg">Investigation</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Panama Papers — Visualization <em>shell entity network</em></span><span class="tg">Investigation</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Habermas — Educational Game <em>chapter graph</em></span><span class="tg">Education</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">N-Body Gravitational Simulation <em>28,000 particles</em></span><span class="tg">Simulation</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">FutureShow Films — AI reel <em>10+ shorts</em></span><span class="tg">Film</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Jan Świdziński archive <em>contextual art</em></span><span class="tg">Archive</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Bronisław Przyłuski archive <em>cultural archive</em></span><span class="tg">Archive</span><span class="ar">→</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__big">Have a <em>complex subject</em><br>the public <span class="underline">can't get</span><br>a foothold on?</div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="mailto:hello@futureshow.studio">hello@futureshow.studio</a></li>
+          <li>Warsaw / Remote</li>
+          <li>Available · Q1 2027</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Work</h4>
+        <ul>
+          <li><a href="#features">Selected</a></li>
+          <li><a href="#archive">Archive</a></li>
+          <li><a href="#">Process</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Approach</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Vimeo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div>© FutureShow Studio 2026 · Play with knowledge.</div>
+      <div>Privacy · Cookies · Imprint</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(()=>{
+  const c=document.getElementById('cursor');
+  let x=window.innerWidth/2,y=window.innerHeight/2,tx=x,ty=y;
+  window.addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY});
+  const tick=()=>{x+=(tx-x)*0.25;y+=(ty-y)*0.25;c.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%)`;requestAnimationFrame(tick)};
+  tick();
+  document.querySelectorAll('a,button,[data-hover]').forEach(el=>{
+    el.addEventListener('pointerenter',()=>c.classList.add('hover'));
+    el.addEventListener('pointerleave',()=>c.classList.remove('hover'));
+  });
+})();
+
+(()=>{
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:0.05});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  window.addEventListener('load',()=>{
+    setTimeout(()=>{
+      document.querySelectorAll('.reveal:not(.in)').forEach(el=>{
+        const r=el.getBoundingClientRect();
+        if(r.top<window.innerHeight && r.bottom>0) el.classList.add('in');
+      });
+    },150);
+  });
+})();
+
+(()=>{
+  const btn=document.getElementById('moreToggle'),list=document.getElementById('moreList');
+  btn.addEventListener('click',()=>{
+    const open=list.classList.toggle('open');
+    btn.classList.toggle('open',open);
+    btn.firstChild.textContent=open?'Show less':'Show 15 more';
+  });
+})();
+</script>
+</body>
+</html>

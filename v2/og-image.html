@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face { font-family:'Inter'; font-weight:100 900; src:url('fonts/Inter-var-latin.woff2') format('woff2'); }
+  @font-face { font-family:'JBMono'; font-weight:100 800; src:url('fonts/JBMono-var-latin.woff2') format('woff2'); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1200px; height:630px; background:#05070c; overflow:hidden; position:relative;
+         font-family:'Inter',sans-serif; color:#e9edf5; }
+  .glow1 { position:absolute; width:900px; height:600px; left:-200px; top:-260px;
+           background:radial-gradient(closest-side, rgba(111,214,255,.14), transparent); }
+  .glow2 { position:absolute; width:800px; height:600px; right:-220px; bottom:-280px;
+           background:radial-gradient(closest-side, rgba(167,139,250,.13), transparent); }
+  .grid { position:absolute; inset:0; opacity:.55;
+    background:
+      repeating-linear-gradient(0deg, transparent 0 71px, rgba(148,163,184,.07) 71px 72px),
+      repeating-linear-gradient(90deg, transparent 0 71px, rgba(148,163,184,.07) 71px 72px);
+    -webkit-mask-image:radial-gradient(ellipse 80% 80% at 42% 40%, #000 30%, transparent 78%); }
+  .wrap { position:absolute; inset:0; padding:74px 84px; display:flex; flex-direction:column; }
+  .brand { display:flex; align-items:center; gap:14px; font-family:'JBMono',monospace;
+           font-weight:800; font-size:26px; letter-spacing:.14em; }
+  .brand i { width:11px; height:11px; border-radius:50%; background:#6fd6ff; box-shadow:0 0 14px #6fd6ff; }
+  .brand b { background:linear-gradient(92deg,#6fd6ff,#a78bfa); -webkit-background-clip:text; color:transparent; }
+  h1 { margin-top:84px; font-size:95px; font-weight:800; letter-spacing:-.035em; line-height:1.02; }
+  h1 span { background:linear-gradient(92deg,#6fd6ff,#a78bfa); -webkit-background-clip:text; color:transparent; }
+  .sub { margin-top:34px; font-size:30px; color:#aab4c6; font-weight:500; }
+  .foot { margin-top:auto; display:flex; justify-content:space-between; align-items:baseline;
+          font-family:'JBMono',monospace; font-size:20px; color:#7a8499; letter-spacing:.06em; }
+  .foot b { color:#f2c94c; font-weight:700; }
+  svg.net { position:absolute; right:64px; top:96px; width:330px; height:330px; opacity:.9; }
+</style>
+</head>
+<body>
+  <div class="glow1"></div><div class="glow2"></div><div class="grid"></div>
+  <svg class="net" viewBox="0 0 200 200" fill="none">
+    <g stroke="rgba(111,214,255,.35)" stroke-width="1">
+      <path d="M40 60 L100 30 M100 30 L160 70 M40 60 L90 110 M90 110 L160 70 M90 110 L60 165 M160 70 L150 150 M60 165 L150 150 M40 60 L160 70 M100 30 L90 110"/>
+    </g>
+    <circle cx="40" cy="60" r="7" fill="#6fd6ff"/>
+    <circle cx="100" cy="30" r="6" fill="#a78bfa"/>
+    <circle cx="160" cy="70" r="8" fill="#6fd6ff"/>
+    <circle cx="90" cy="110" r="6" fill="#3ddc97"/>
+    <circle cx="60" cy="165" r="6" fill="#a78bfa"/>
+    <circle cx="150" cy="150" r="7" fill="#f2c94c"/>
+  </svg>
+  <div class="wrap">
+    <div class="brand"><i></i>FUTURE<b>SHOW</b></div>
+    <h1>Complex ideas,<br><span>made interactive.</span></h1>
+    <div class="sub">Investigations · educational games · simulations · AI films<br>for museums, media, education &amp; NGOs</div>
+    <div class="foot">
+      <span><b>WARSAW / EU</b> · PL / EN</span>
+      <span>futureshow1.github.io/futureshow</span>
+    </div>
+  </div>
+</body>
+</html>

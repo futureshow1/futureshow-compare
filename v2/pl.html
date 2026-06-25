@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FutureShow — Interaktywne doświadczenia, dane i filmy AI | Warszawa</title>
+  <meta name="description" content="Warszawskie studio zamieniające badania i dane w interaktywne doświadczenia — śledztwa, gry edukacyjne, symulacje i filmy AI dla muzeów, mediów, edukacji i NGO w całej UE.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="canonical" href="https://futureshow1.github.io/futureshow/pl.html">
+  <link rel="alternate" hreflang="en" href="https://futureshow1.github.io/futureshow/">
+  <link rel="alternate" hreflang="pl" href="https://futureshow1.github.io/futureshow/pl.html">
+  <link rel="alternate" hreflang="x-default" href="https://futureshow1.github.io/futureshow/">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:site_name" content="FutureShow">
+  <meta property="og:title" content="FutureShow — Złożone idee, interaktywnie.">
+  <meta property="og:description" content="Interaktywne śledztwa, gry edukacyjne, symulacje i filmy AI dla muzeów, mediów, edukacji i NGO. Studio z Warszawy, projekty w całej UE.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://futureshow1.github.io/futureshow/pl.html">
+  <meta property="og:image" content="https://futureshow1.github.io/futureshow/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FutureShow — Złożone idee, interaktywnie.">
+  <meta name="twitter:description" content="Interaktywne śledztwa, gry edukacyjne, symulacje i filmy AI dla muzeów, mediów, edukacji i NGO. Studio z Warszawy, projekty w całej UE.">
+  <meta name="twitter:image" content="https://futureshow1.github.io/futureshow/og-image.png">
+  <meta name="theme-color" content="#05070c">
+
+  <!-- Self-hosted fonts: no Google connection, GDPR-clean, faster -->
+  <link rel="preload" href="fonts/Inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/JBMono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Structured data: lets Google show FutureShow as a service business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://futureshow1.github.io/futureshow/#studio",
+        "name": "FutureShow",
+        "url": "https://futureshow1.github.io/futureshow/",
+        "description": "Studio turning research and data into interactive web experiences: investigations, educational games, scientific simulations, data visualizations and AI films.",
+        "email": "futureshow@proton.me",
+        "knowsLanguage": ["pl", "en"],
+        "areaServed": ["Poland", "European Union"],
+        "address": { "@type": "PostalAddress", "addressLocality": "Warsaw", "addressCountry": "PL" },
+        "founder": { "@id": "https://futureshow1.github.io/futureshow/#jan" },
+        "sameAs": [
+          "https://github.com/futureshow1",
+          "https://www.linkedin.com/in/jan-lubicz-przyluski-10460580/",
+          "https://vimeo.com/janjan"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interactive explainer & data visualization" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Educational game or simulation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Investigation & knowledge portal" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI film & motion" } }
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://futureshow1.github.io/futureshow/#jan",
+        "name": "Jan Lubicz-Przyłuski",
+        "jobTitle": "Film director, art historian, AI-native developer",
+        "worksFor": { "@id": "https://futureshow1.github.io/futureshow/#studio" },
+        "award": [
+          "European Film Award nomination — Best Short Documentary (editor of Glass Trap), 2009",
+          "Polish Ministry of Culture Award for The Art of Action, 2007"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/jan-lubicz-przyluski-10460580/",
+          "https://github.com/futureshow1",
+          "https://vimeo.com/janjan"
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "Selected work",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "Matryca — Big Tech Files", "url": "https://futureshow1.github.io/matryca/" } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Sejm Symulator — Polish Parliament Power Map", "url": "https://sejm-178-104-197-58.nip.io/" } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "CardioSim Pro — Cardiovascular Simulation", "url": "https://futureshow1.github.io/futureshow/projects/cardiosim-intro.html" } },
+          { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "Global Oil & Gas Infrastructure Atlas", "url": "https://futureshow1.github.io/oil-gas-atlas/" } },
+          { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "MNEMO — The Art of Memory", "url": "https://futureshow1.github.io/mnemo/" } },
+          { "@type": "ListItem", "position": 6, "item": { "@type": "CreativeWork", "name": "AI Explained — Hinton Portal", "url": "https://futureshow1.github.io/hinton-ai-portal/" } }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ================= FONTS (self-hosted variable fonts) ================= */
+    @font-face { font-family:'Inter'; font-style:normal; font-weight:100 900; font-display:swap;
+      src:url('fonts/Inter-var-latin.woff2') format('woff2');
+      unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family:'Inter'; font-style:normal; font-weight:100 900; font-display:swap;
+      src:url('fonts/Inter-var-latin-ext.woff2') format('woff2');
+      unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'JBMono'; font-style:normal; font-weight:100 800; font-display:swap;
+      src:url('fonts/JBMono-var-latin.woff2') format('woff2');
+      unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family:'JBMono'; font-style:normal; font-weight:100 800; font-display:swap;
+      src:url('fonts/JBMono-var-latin-ext.woff2') format('woff2');
+      unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+
+    /* ================= TOKENS ================= */
+    :root {
+      --bg0:#05070c; --bg1:#0a0e17; --panel:#0d1322; --panel2:#111a2e;
+      --line:rgba(148,163,184,.10); --line2:rgba(148,163,184,.22);
+      --tx:#e9edf5; --tx2:#aab4c6; --tx3:#7a8499;
+      --cy:#6fd6ff; --vi:#a78bfa; --em:#3ddc97; --au:#f2c94c;
+      --grad:linear-gradient(92deg,var(--cy),var(--vi));
+      --mono:'JBMono',ui-monospace,SFMono-Regular,Menlo,monospace;
+      --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      --r:16px; --max:1180px;
+    }
+
+    *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    html:focus-within { scroll-behavior:smooth; }
+    body {
+      font-family:var(--sans); background:var(--bg0); color:var(--tx);
+      line-height:1.65; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+      font-size:16px;
+    }
+    ::selection { background:rgba(111,214,255,.25); }
+    a { color:inherit; text-decoration:none; }
+    ul { list-style:none; }
+    button { font-family:inherit; cursor:pointer; }
+    :focus-visible { outline:2px solid var(--cy); outline-offset:3px; border-radius:4px; }
+
+    /* language switching: the inactive language is hidden */
+    html[lang="en"] [data-lang="pl"] { display:none !important; }
+    html[lang="pl"] [data-lang="en"] { display:none !important; }
+
+    /* ================= BACKGROUND TEXTURE ================= */
+    body::before {
+      content:''; position:fixed; inset:0; z-index:-2; pointer-events:none;
+      background:
+        radial-gradient(900px 600px at 12% -8%, rgba(111,214,255,.07), transparent 60%),
+        radial-gradient(800px 600px at 88% 12%, rgba(167,139,250,.06), transparent 60%),
+        radial-gradient(700px 500px at 50% 110%, rgba(61,220,151,.04), transparent 60%);
+    }
+    body::after {
+      content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.5;
+      background:
+        repeating-linear-gradient(0deg, transparent 0 71px, rgba(148,163,184,.05) 71px 72px),
+        repeating-linear-gradient(90deg, transparent 0 71px, rgba(148,163,184,.05) 71px 72px);
+      mask-image:radial-gradient(ellipse 90% 70% at 50% 20%, #000 30%, transparent 75%);
+      -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 20%, #000 30%, transparent 75%);
+    }
+
+    .skip-link {
+      position:absolute; left:-9999px; top:12px; z-index:300;
+      background:var(--cy); color:#04121d; padding:10px 18px; border-radius:8px; font-weight:700;
+    }
+    .skip-link:focus { left:12px; }
+
+    /* ================= NAV ================= */
+    .nav {
+      position:fixed; top:0; left:0; right:0; z-index:100; height:64px;
+      display:flex; align-items:center;
+      background:rgba(5,7,12,.72); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+      transition:background .3s;
+    }
+    .nav__inner {
+      width:100%; max-width:var(--max); margin:0 auto; padding:0 24px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .nav__brand { display:flex; align-items:center; gap:10px; }
+    .nav__dot { width:7px; height:7px; border-radius:50%; background:var(--cy); animation:pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1; box-shadow:0 0 6px var(--cy);} 50%{opacity:.35; box-shadow:0 0 12px var(--cy);} }
+    .nav__logo { font-family:var(--mono); font-weight:800; font-size:.92rem; letter-spacing:.13em; color:#fff; }
+    .nav__logo b { background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .nav__links { display:flex; gap:26px; align-items:center; }
+    .nav__links a {
+      font-size:.82rem; font-weight:500; color:var(--tx2); letter-spacing:.02em;
+      position:relative; padding:4px 0; transition:color .2s;
+    }
+    .nav__links a::after {
+      content:''; position:absolute; left:0; bottom:0; height:1.5px; width:0;
+      background:var(--grad); transition:width .25s;
+    }
+    .nav__links a:hover { color:var(--tx); }
+    .nav__links a:hover::after { width:100%; }
+    .nav__right { display:flex; align-items:center; gap:14px; }
+    .lang {
+      display:flex; border:1px solid var(--line2); border-radius:8px; overflow:hidden;
+      font-family:var(--mono); font-size:.68rem; font-weight:700; letter-spacing:.08em;
+    }
+    .lang button {
+      background:transparent; border:none; color:var(--tx3); padding:6px 10px; transition:all .2s;
+    }
+    .lang button[aria-pressed="true"] { background:rgba(111,214,255,.14); color:var(--cy); }
+    .lang button:hover { color:var(--tx); }
+    .nav__cta { display:inline-flex; }
+    .nav__burger {
+      display:none; flex-direction:column; gap:5px; background:none; border:none; padding:8px;
+    }
+    .nav__burger span { width:22px; height:2px; background:var(--tx); border-radius:2px; transition:transform .25s, opacity .25s; }
+    .nav__burger[aria-expanded="true"] span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .nav__burger[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+    .nav__burger[aria-expanded="true"] span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .nav__menu { display:contents; }
+
+    /* ================= BUTTONS ================= */
+    .btn {
+      display:inline-flex; align-items:center; gap:9px;
+      background:var(--grad); color:#04121d; font-weight:700; font-size:.92rem;
+      padding:13px 26px; border-radius:11px; border:none;
+      transition:transform .2s, box-shadow .2s, filter .2s;
+      box-shadow:0 4px 24px rgba(111,214,255,.18);
+    }
+    .btn:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(111,214,255,.3); filter:brightness(1.06); }
+    .btn--sm { padding:8px 16px; font-size:.78rem; border-radius:9px; }
+    .btn--ghost {
+      background:transparent; color:var(--tx); border:1px solid var(--line2); box-shadow:none;
+    }
+    .btn--ghost:hover { border-color:var(--cy); color:var(--cy); box-shadow:none; background:rgba(111,214,255,.06); }
+
+    /* ================= LAYOUT PRIMITIVES ================= */
+    .container { max-width:var(--max); margin:0 auto; padding:0 24px; }
+    section { padding:104px 0; position:relative; }
+    .sec-head { max-width:720px; margin-bottom:56px; }
+    .eyebrow {
+      font-family:var(--mono); font-size:.7rem; font-weight:700; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--cy); display:flex; align-items:center; gap:10px;
+      margin-bottom:18px;
+    }
+    .eyebrow::before { content:''; width:24px; height:1px; background:var(--cy); }
+    h2 { font-size:clamp(1.7rem,3.2vw,2.5rem); font-weight:800; letter-spacing:-.025em; line-height:1.15; }
+    .sec-head p { color:var(--tx2); margin-top:16px; font-size:1.04rem; max-width:60ch; }
+
+    .reveal { opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:none; }
+
+    /* ================= HERO ================= */
+    .hero { padding:172px 0 84px; }
+    .hero__grid {
+      display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+      gap:56px; align-items:center;
+    }
+    .hero__badge {
+      display:inline-flex; align-items:center; gap:10px;
+      font-family:var(--mono); font-size:.68rem; font-weight:700; letter-spacing:.16em;
+      text-transform:uppercase; color:var(--tx2);
+      border:1px solid var(--line2); border-radius:999px; padding:8px 16px;
+      margin-bottom:28px; background:rgba(13,19,34,.5);
+    }
+    .hero__badge i { width:7px; height:7px; border-radius:50%; background:var(--em); animation:pulse 2s ease-in-out infinite; }
+    h1 { font-size:clamp(2.6rem,5.6vw,4.3rem); font-weight:800; letter-spacing:-.035em; line-height:1.05; }
+    h1 .grad { background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .hero__lede { margin-top:24px; font-size:1.12rem; color:var(--tx2); max-width:58ch; }
+    .hero__lede b { color:var(--tx); font-weight:600; }
+    .hero__chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+    .chip {
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:.78rem; font-weight:600; color:var(--tx2);
+      border:1px solid var(--line); border-radius:999px; padding:7px 14px;
+      background:rgba(13,19,34,.45);
+    }
+    .chip svg { width:13px; height:13px; stroke:var(--em); flex:none; }
+    .hero__ctas { display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+    .hero__proof {
+      display:flex; flex-wrap:wrap; gap:0 44px; row-gap:18px; margin-top:46px;
+      padding-top:30px; border-top:1px solid var(--line);
+    }
+    .stat { min-width:90px; }
+    .stat b { display:block; font-family:var(--mono); font-size:1.45rem; font-weight:700; color:var(--tx); letter-spacing:-.02em; }
+    .stat b em { font-style:normal; color:var(--cy); }
+    .stat span { font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; color:var(--tx3); font-weight:600; }
+    .hero__cred {
+      margin-top:26px; font-family:var(--mono); font-size:.7rem; line-height:2;
+      color:var(--tx3); letter-spacing:.02em;
+    }
+    .hero__cred b { color:var(--au); font-weight:700; }
+
+    /* hero canvas panel */
+    .orb {
+      position:relative; aspect-ratio:1/1; max-width:560px; margin-left:auto; width:100%;
+      border:1px solid var(--line); border-radius:20px; overflow:hidden;
+      background:linear-gradient(160deg, rgba(17,26,46,.65), rgba(5,7,12,.4));
+      box-shadow:inset 0 0 80px rgba(111,214,255,.04), 0 24px 64px rgba(0,0,0,.4);
+    }
+    .orb canvas { position:absolute; inset:0; width:100%; height:100%; }
+    .orb__tag {
+      position:absolute; top:14px; left:16px; font-family:var(--mono); font-size:.64rem;
+      font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--tx3);
+    }
+    .orb__tag b { color:var(--cy); }
+    .orb__live {
+      position:absolute; top:14px; right:16px; display:flex; align-items:center; gap:7px;
+      font-family:var(--mono); font-size:.62rem; font-weight:700; letter-spacing:.14em; color:var(--tx3);
+    }
+    .orb__live i { width:6px; height:6px; border-radius:50%; background:var(--em); animation:pulse 1.6s infinite; }
+    .orb__modes {
+      position:absolute; bottom:14px; left:16px; right:16px;
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+    .orb__modes button {
+      font-family:var(--mono); font-size:.62rem; font-weight:700; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--tx3); background:rgba(5,7,12,.6);
+      border:1px solid var(--line); border-radius:7px; padding:6px 11px; transition:all .2s;
+    }
+    .orb__modes button[aria-pressed="true"] { color:var(--cy); border-color:rgba(111,214,255,.45); background:rgba(111,214,255,.1); }
+    .orb__modes button:hover { color:var(--tx); }
+
+    /* ================= VALUE PROPS ================= */
+    .values { padding-top:0; }
+    .values__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .vcard {
+      border:1px solid var(--line); border-radius:var(--r); padding:30px 28px;
+      background:linear-gradient(170deg, rgba(17,26,46,.5), rgba(13,19,34,.25));
+      transition:transform .25s, border-color .25s;
+    }
+    .vcard:hover { transform:translateY(-4px); border-color:var(--line2); }
+    .vcard svg { width:30px; height:30px; margin-bottom:18px; }
+    .vcard h3 { font-size:1.07rem; font-weight:700; letter-spacing:-.01em; margin-bottom:10px; }
+    .vcard p { font-size:.93rem; color:var(--tx2); }
+
+    /* ================= CASE STUDIES ================= */
+    .case {
+      display:grid; grid-template-columns:minmax(0,46%) minmax(0,1fr); gap:48px;
+      align-items:center; padding:44px 0; border-top:1px solid var(--line);
+    }
+    .case:last-of-type { border-bottom:1px solid var(--line); }
+    .case--flip .case__cover { order:2; }
+    .case__cover {
+      aspect-ratio:4/3; border-radius:var(--r); border:1px solid var(--line);
+      background:linear-gradient(150deg, #0c1322, #080d18); overflow:hidden; position:relative;
+      transition:transform .3s, border-color .3s, box-shadow .3s; display:block;
+    }
+    .case__cover:hover { transform:translateY(-5px); border-color:rgba(111,214,255,.35); box-shadow:0 20px 48px rgba(0,0,0,.45); }
+    .case__cover svg { width:100%; height:100%; display:block; }
+    .case__tag {
+      font-family:var(--mono); font-size:.66rem; font-weight:700; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--cy); margin-bottom:14px; display:flex; gap:10px; align-items:center;
+    }
+    .case__tag .sector { color:var(--tx3); }
+    .case h3 { font-size:1.55rem; font-weight:800; letter-spacing:-.02em; margin-bottom:14px; }
+    .case p { color:var(--tx2); font-size:.97rem; max-width:56ch; }
+    .case__metrics { display:flex; flex-wrap:wrap; gap:0 36px; row-gap:14px; margin:24px 0; }
+    .case__why {
+      border-left:2px solid var(--vi); padding:2px 0 2px 16px; margin:20px 0 24px;
+      font-size:.9rem; color:var(--tx2); font-style:italic; max-width:54ch;
+    }
+    .case__links { display:flex; flex-wrap:wrap; gap:18px; align-items:center; }
+    .case__links .go {
+      display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:.9rem; color:var(--cy);
+    }
+    .case__links .go::after { content:'↗'; transition:transform .2s; }
+    .case__links .go:hover::after { transform:translate(2px,-2px); }
+    .case__links .alt { font-size:.82rem; color:var(--tx3); border-bottom:1px dotted var(--line2); transition:color .2s; }
+    .case__links .alt:hover { color:var(--tx); }
+
+    /* ================= PROJECT INDEX (collapsible) ================= */
+    .archive { margin-top:48px; border:1px solid var(--line); border-radius:var(--r); background:rgba(13,19,34,.35); }
+    .archive summary {
+      list-style:none; cursor:pointer; padding:22px 28px; display:flex; align-items:center; gap:14px;
+      font-family:var(--mono); font-size:.78rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--tx2);
+      transition:color .2s;
+    }
+    .archive summary:hover { color:var(--cy); }
+    .archive summary::-webkit-details-marker { display:none; }
+    .archive summary::before { content:'+'; font-size:1.1rem; color:var(--cy); width:18px; }
+    .archive[open] summary::before { content:'−'; }
+    .archive__grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:2px 40px; padding:6px 28px 26px;
+    }
+    .archive__grid a, .archive__grid span.row {
+      display:flex; justify-content:space-between; gap:16px; align-items:baseline;
+      padding:9px 2px; border-bottom:1px dashed var(--line); font-size:.86rem; color:var(--tx2);
+      transition:color .2s;
+    }
+    .archive__grid a:hover { color:var(--cy); }
+    .archive__grid i { font-family:var(--mono); font-style:normal; font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:var(--tx3); flex:none; }
+
+    /* ================= SERVICES ================= */
+    .services__grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .svc {
+      border:1px solid var(--line); border-radius:var(--r); padding:32px;
+      background:linear-gradient(170deg, rgba(17,26,46,.5), rgba(13,19,34,.2));
+      display:flex; flex-direction:column; gap:0;
+      transition:transform .25s, border-color .25s;
+      position:relative; overflow:hidden;
+    }
+    .svc::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:var(--grad); opacity:0; transition:opacity .3s;
+    }
+    .svc:hover { transform:translateY(-4px); border-color:var(--line2); }
+    .svc:hover::before { opacity:1; }
+    .svc__head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:6px; }
+    .svc__head svg { width:38px; height:38px; flex:none; }
+    .svc__for { font-family:var(--mono); font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--tx3); text-align:right; line-height:1.7; }
+    .svc h3 { font-size:1.18rem; font-weight:800; letter-spacing:-.015em; margin:14px 0 8px; }
+    .svc > p { font-size:.9rem; color:var(--tx2); margin-bottom:16px; }
+    .svc ul { display:flex; flex-direction:column; gap:7px; margin-bottom:22px; }
+    .svc ul li { font-size:.87rem; color:var(--tx2); padding-left:18px; position:relative; }
+    .svc ul li::before { content:'—'; position:absolute; left:0; color:var(--cy); }
+    .svc__meta {
+      margin-top:auto; padding-top:18px; border-top:1px solid var(--line);
+      display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap;
+      font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; color:var(--tx3);
+    }
+    .svc__meta b { color:var(--au); font-size:.86rem; font-weight:700; }
+    .services__note { margin-top:26px; font-size:.88rem; color:var(--tx3); max-width:72ch; }
+    .services__note a { color:var(--cy); border-bottom:1px dotted var(--cy); }
+
+    /* ================= SECTORS (tabs) ================= */
+    .sectors__tabs { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:34px; }
+    .sectors__tabs button {
+      font-size:.85rem; font-weight:600; color:var(--tx2); background:rgba(13,19,34,.45);
+      border:1px solid var(--line); border-radius:999px; padding:10px 20px; transition:all .2s;
+    }
+    .sectors__tabs button[aria-selected="true"] {
+      color:#04121d; background:var(--grad); border-color:transparent; font-weight:700;
+    }
+    .sectors__tabs button:not([aria-selected="true"]):hover { color:var(--tx); border-color:var(--line2); }
+    .sector-panel { display:none; border:1px solid var(--line); border-radius:var(--r); padding:36px; background:rgba(13,19,34,.35); }
+    .sector-panel.active { display:grid; grid-template-columns:1.2fr .8fr; gap:40px; }
+    .sector-panel h3 { font-size:.72rem; font-family:var(--mono); letter-spacing:.16em; text-transform:uppercase; color:var(--cy); margin-bottom:12px; font-weight:700; }
+    .sector-panel .pain { font-size:1.02rem; color:var(--tx); margin-bottom:22px; max-width:56ch; }
+    .sector-panel ul { display:flex; flex-direction:column; gap:8px; }
+    .sector-panel ul li { font-size:.9rem; color:var(--tx2); padding-left:18px; position:relative; }
+    .sector-panel ul li::before { content:'→'; position:absolute; left:0; color:var(--em); }
+    .sector-panel .works { display:flex; flex-direction:column; gap:10px; }
+    .sector-panel .works a {
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      border:1px solid var(--line); border-radius:10px; padding:12px 16px;
+      font-size:.86rem; color:var(--tx2); transition:all .2s;
+    }
+    .sector-panel .works a:hover { color:var(--cy); border-color:rgba(111,214,255,.35); transform:translateX(3px); }
+    .sector-panel .works a::after { content:'↗'; color:var(--tx3); }
+
+    /* ================= PROCESS ================= */
+    .process__grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; counter-reset:step; }
+    .step {
+      border:1px solid var(--line); border-radius:var(--r); padding:28px 24px;
+      background:linear-gradient(170deg, rgba(17,26,46,.45), rgba(13,19,34,.2));
+      position:relative; transition:transform .25s, border-color .25s;
+    }
+    .step:hover { transform:translateY(-4px); border-color:var(--line2); }
+    .step__num {
+      font-family:var(--mono); font-weight:800; font-size:1.9rem;
+      background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+      display:block; margin-bottom:14px;
+    }
+    .step h3 { font-size:1rem; font-weight:700; margin-bottom:8px; }
+    .step p { font-size:.86rem; color:var(--tx2); }
+    .step__note { font-family:var(--mono); font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:var(--em); display:block; margin-top:14px; }
+
+    /* ================= ABOUT ================= */
+    .about__grid { display:grid; grid-template-columns:320px 1fr; gap:48px; align-items:start; }
+    .about__card {
+      border:1px solid var(--line); border-radius:var(--r); padding:30px;
+      background:linear-gradient(170deg, rgba(17,26,46,.55), rgba(13,19,34,.3));
+      text-align:center; position:sticky; top:96px;
+    }
+    .about__card svg { width:120px; height:120px; margin:6px auto 18px; display:block; }
+    .about__card h3 { font-size:1.12rem; font-weight:800; letter-spacing:-.01em; }
+    .about__card .role { font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--cy); margin:8px 0 18px; line-height:1.9; }
+    .about__tags { display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:22px; }
+    .about__tags span { font-size:.68rem; font-weight:600; color:var(--tx3); border:1px solid var(--line); border-radius:999px; padding:4px 11px; }
+    .about__social { display:flex; justify-content:center; gap:12px; }
+    .about__social a {
+      font-family:var(--mono); font-size:.7rem; font-weight:700; letter-spacing:.08em;
+      color:var(--tx2); border:1px solid var(--line2); border-radius:8px; padding:7px 13px; transition:all .2s;
+    }
+    .about__social a:hover { color:var(--cy); border-color:var(--cy); }
+    .about__body > p { color:var(--tx2); font-size:.99rem; max-width:64ch; margin-bottom:18px; }
+    .about__body > p b { color:var(--tx); font-weight:600; }
+    .creds { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:30px; }
+    .cred {
+      border:1px solid var(--line); border-left:2px solid var(--au); border-radius:12px;
+      padding:18px 20px; background:rgba(13,19,34,.4);
+    }
+    .cred b { display:block; font-size:.92rem; font-weight:700; margin-bottom:5px; }
+    .cred span { font-size:.82rem; color:var(--tx3); }
+
+    /* ================= CONTACT ================= */
+    .contact { padding-bottom:120px; }
+    .contact__card {
+      position:relative; border-radius:24px; padding:64px 48px; text-align:center; overflow:hidden;
+      background:linear-gradient(170deg, rgba(17,26,46,.7), rgba(10,14,23,.6));
+      border:1px solid var(--line2);
+    }
+    .contact__card::before {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background:radial-gradient(600px 280px at 50% -10%, rgba(111,214,255,.12), transparent 70%);
+    }
+    .contact__card h2 { font-size:clamp(1.7rem,3.4vw,2.6rem); margin-bottom:18px; }
+    .contact__card > p { color:var(--tx2); max-width:54ch; margin:0 auto 34px; font-size:1.03rem; }
+    .contact__ctas { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-bottom:30px; }
+    .contact__small {
+      font-family:var(--mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--tx3); display:flex; flex-wrap:wrap; gap:8px 22px; justify-content:center;
+    }
+    .contact__small b { color:var(--em); font-weight:700; }
+
+    /* ================= FOOTER ================= */
+    footer { border-top:1px solid var(--line); padding:48px 0 40px; }
+    .footer__grid { display:flex; flex-wrap:wrap; gap:28px; justify-content:space-between; align-items:flex-start; }
+    .footer__brand p { font-size:.82rem; color:var(--tx3); margin-top:10px; max-width:34ch; }
+    .footer__links { display:flex; gap:34px; flex-wrap:wrap; }
+    .footer__links div { display:flex; flex-direction:column; gap:8px; }
+    .footer__links b { font-family:var(--mono); font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--tx3); margin-bottom:4px; }
+    .footer__links a { font-size:.84rem; color:var(--tx2); transition:color .2s; }
+    .footer__links a:hover { color:var(--cy); }
+    .footer__bottom {
+      margin-top:40px; padding-top:24px; border-top:1px solid var(--line);
+      display:flex; flex-wrap:wrap; gap:10px 28px; justify-content:space-between;
+      font-family:var(--mono); font-size:.68rem; letter-spacing:.06em; color:var(--tx3);
+    }
+    .footer__bottom b { color:var(--tx2); font-weight:600; }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width:1024px) {
+      .hero__grid { grid-template-columns:1fr; gap:48px; }
+      .orb { margin:0 auto; max-width:480px; }
+      .values__grid { grid-template-columns:1fr; }
+      .process__grid { grid-template-columns:1fr 1fr; }
+      .about__grid { grid-template-columns:1fr; }
+      .about__card { position:static; max-width:420px; }
+    }
+    @media (max-width:860px) {
+      .nav__menu {
+        display:none; position:absolute; top:64px; left:0; right:0;
+        background:#070a12;
+        border-bottom:1px solid var(--line2); padding:18px 24px 26px;
+        box-shadow:0 24px 48px rgba(0,0,0,.55);
+      }
+      .nav__menu.open { display:block; }
+      .nav__links { flex-direction:column; align-items:flex-start; gap:4px; }
+      .nav__links a { font-size:1.02rem; padding:11px 0; width:100%; }
+      .nav__burger { display:flex; }
+      .nav__cta { display:none; }
+      .case, .case--flip { grid-template-columns:1fr; gap:28px; padding:36px 0; }
+      .case--flip .case__cover { order:0; }
+      .services__grid { grid-template-columns:1fr; }
+      .sector-panel.active { grid-template-columns:1fr; gap:28px; }
+      .archive__grid { grid-template-columns:1fr; }
+      .creds { grid-template-columns:1fr; }
+    }
+    @media (max-width:560px) {
+      section { padding:72px 0; }
+      .hero { padding:140px 0 64px; }
+      .process__grid { grid-template-columns:1fr; }
+      .hero__proof { gap:0 28px; }
+      .contact__card { padding:48px 22px; }
+    }
+
+    /* ================= REDUCED MOTION ================= */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { animation-duration:.001s !important; transition-duration:.001s !important; }
+      .reveal { opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main"><span data-lang="en">Skip to content</span><span data-lang="pl">Przejdź do treści</span></a>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top" aria-label="FutureShow — home">
+      <span class="nav__dot" aria-hidden="true"></span>
+      <span class="nav__logo">FUTURE<b>SHOW</b></span>
+    </a>
+    <nav class="nav__menu" id="navMenu" aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="#work"><span data-lang="en">Work</span><span data-lang="pl">Realizacje</span></a></li>
+        <li><a href="#services"><span data-lang="en">Services</span><span data-lang="pl">Usługi</span></a></li>
+        <li><a href="#sectors"><span data-lang="en">Sectors</span><span data-lang="pl">Sektory</span></a></li>
+        <li><a href="#process"><span data-lang="en">Process</span><span data-lang="pl">Proces</span></a></li>
+        <li><a href="films.html"><span data-lang="en">Films</span><span data-lang="pl">Filmy</span></a></li>
+        <li><a href="#about"><span data-lang="en">About</span><span data-lang="pl">O mnie</span></a></li>
+      </ul>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-setlang="en" aria-pressed="true">EN</button>
+        <button type="button" data-setlang="pl" aria-pressed="false">PL</button>
+      </div>
+      <a class="btn btn--sm nav__cta" href="#contact"><span data-lang="en">Start a project</span><span data-lang="pl">Zacznij projekt</span></a>
+      <button class="nav__burger" aria-expanded="false" aria-controls="navMenu" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="container hero__grid">
+    <div>
+      <p class="hero__badge"><i aria-hidden="true"></i>
+        <span data-lang="en">Warsaw · working across the EU · booking Q3–Q4 2026</span>
+        <span data-lang="pl">Warszawa · projekty w całej UE · rezerwacje Q3–Q4 2026</span>
+      </p>
+      <h1>
+        <span data-lang="en">Complex ideas,<br><span class="grad">made interactive.</span></span>
+        <span data-lang="pl">Złożone idee,<br><span class="grad">interaktywnie.</span></span>
+      </h1>
+      <p class="hero__lede">
+        <span data-lang="en">FutureShow is the studio practice of <b>Jan Lubicz-Przyłuski</b> — film director, art historian and AI-native developer. I turn research, data and difficult subjects into interactive web experiences: <b>investigations, educational games, scientific simulations and AI films</b>.</span>
+        <span data-lang="pl">FutureShow to studio <b>Jana Lubicz-Przyłuskiego</b> — reżysera, historyka sztuki i twórcy pracującego z AI od pierwszego dnia rewolucji. Zamieniam badania, dane i trudne tematy w interaktywne doświadczenia: <b>śledztwa, gry edukacyjne, symulacje naukowe i filmy AI</b>.</span>
+      </p>
+      <div class="hero__chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          <span data-lang="en">First prototype in days</span><span data-lang="pl">Pierwszy prototyp w kilka dni</span></span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
+          <span data-lang="en">Zero-dependency — runs for years</span><span data-lang="pl">Zero zależności — działa latami</span></span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>
+          <span data-lang="en">No cookies, no trackers</span><span data-lang="pl">Bez cookies i trackerów</span></span>
+      </div>
+      <div class="hero__ctas">
+        <a class="btn" href="#contact"><span data-lang="en">Start a project</span><span data-lang="pl">Zacznij projekt</span></a>
+        <a class="btn btn--ghost" href="#work"><span data-lang="en">See the work ↓</span><span data-lang="pl">Zobacz realizacje ↓</span></a>
+      </div>
+      <div class="hero__proof">
+        <div class="stat"><b>24</b><span data-lang="en">shipped projects</span><span data-lang="pl">zrealizowane projekty</span></div>
+        <div class="stat"><b>480<em>+</em></b><span data-lang="en">primary sources</span><span data-lang="pl">źródła pierwotne</span></div>
+        <div class="stat"><b>10</b><span data-lang="en">AI films</span><span data-lang="pl">filmów AI</span></div>
+        <div class="stat"><b>PL<em>·</em>EN</b><span data-lang="en">every project bilingual</span><span data-lang="pl">każdy projekt dwujęzyczny</span></div>
+      </div>
+      <p class="hero__cred">
+        <span data-lang="en"><b>European Film Award</b> nominee (2009) · video for <b>Krystian Lupa's</b> „Persona" · <b>Ministry of Culture</b> award · lecturer: Charles University Prague, Bezalel Tel Aviv</span>
+        <span data-lang="pl">Nominacja do <b>Europejskiej Nagrody Filmowej</b> (2009) · wideo do „Persony" <b>Krystiana Lupy</b> · nagroda <b>Ministra Kultury</b> · wykłady: Uniwersytet Karola, Bezalel Tel Awiw</span>
+      </p>
+    </div>
+    <div class="orb reveal" aria-hidden="true">
+      <canvas id="orbCanvas"></canvas>
+      <span class="orb__tag">MODE — <b id="orbMode">NETWORK</b></span>
+      <span class="orb__live"><i></i>LIVE</span>
+      <div class="orb__modes" id="orbModes">
+        <button type="button" data-mode="0" aria-pressed="true"><span data-lang="en">Investigations</span><span data-lang="pl">Śledztwa</span></button>
+        <button type="button" data-mode="1" aria-pressed="false"><span data-lang="en">Simulations</span><span data-lang="pl">Symulacje</span></button>
+        <button type="button" data-mode="2" aria-pressed="false"><span data-lang="en">Data</span><span data-lang="pl">Dane</span></button>
+        <button type="button" data-mode="3" aria-pressed="false"><span data-lang="en">AI Films</span><span data-lang="pl">Filmy AI</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALUE PROPS ================= -->
+<section class="values" aria-label="Why FutureShow">
+  <div class="container values__grid">
+    <div class="vcard reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#6fd6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8"/></svg>
+      <h3><span data-lang="en">Director's eye, historian's rigor</span><span data-lang="pl">Oko reżysera, warsztat historyka</span></h3>
+      <p><span data-lang="en">25+ years in experimental film, theatre and digital media. Every project is built like a documentary: primary sources, verified claims, narrative structure — not decoration.</span><span data-lang="pl">Ponad 25 lat w filmie eksperymentalnym, teatrze i mediach cyfrowych. Każdy projekt budowany jak dokument: źródła pierwotne, zweryfikowane fakty, struktura narracyjna — nie dekoracja.</span></p>
+    </div>
+    <div class="vcard reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+      <h3><span data-lang="en">AI-native speed</span><span data-lang="pl">Szybkość natywnej pracy z AI</span></h3>
+      <p><span data-lang="en">Working with AI as a creative partner since 2023. A working prototype lands in your inbox within days — you react to something real, not to slideware. Budgets a fraction of agency rates.</span><span data-lang="pl">Pracuję z AI jako partnerem kreatywnym od 2023 roku. Działający prototyp trafia do Ciebie w kilka dni — reagujesz na coś realnego, nie na slajdy. Budżety to ułamek stawek agencyjnych.</span></p>
+    </div>
+    <div class="vcard reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#3ddc97" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>
+      <h3><span data-lang="en">Built to outlive the news cycle</span><span data-lang="pl">Zbudowane, by przetrwać</span></h3>
+      <p><span data-lang="en">Pure HTML/CSS/JS. No frameworks, no servers, no maintenance bills. One file that runs for years on any hosting — and ships with zero cookies and zero trackers, GDPR-clean by design.</span><span data-lang="pl">Czysty HTML/CSS/JS. Bez frameworków, serwerów i kosztów utrzymania. Jeden plik, który działa latami na dowolnym hostingu — bez cookies i trackerów, zgodny z RODO z założenia.</span></p>
+    </div>
+  </div>
+</section>
+<!-- ================= CASE STUDIES ================= -->
+<section id="work">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow"><span data-lang="en">Selected work</span><span data-lang="pl">Wybrane realizacje</span></p>
+      <h2><span data-lang="en">Seven projects, seven proofs.</span><span data-lang="pl">Siedem projektów, siedem dowodów.</span></h2>
+      <p><span data-lang="en">Every piece below is live — click through and use it. Each one answers the same question: can a difficult subject hold someone's attention for twenty minutes? </span><span data-lang="pl">Wszystko poniżej działa na żywo — kliknij i używaj. Każdy projekt odpowiada na to samo pytanie: czy trudny temat potrafi utrzymać czyjąś uwagę przez dwadzieścia minut?</span></p>
+    </div>
+
+    <!-- 1. MATRYCA -->
+    <article class="case reveal">
+      <a class="case__cover" href="https://futureshow1.github.io/matryca/" target="_blank" rel="noopener" aria-label="Matryca — Big Tech Files">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="mx-g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6fd6ff"/><stop offset="1" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="#0a0f1c"/>
+          <g stroke="#1c2740" stroke-width="1">
+            <path d="M0 75h400M0 150h400M0 225h400M100 0v300M200 0v300M300 0v300"/>
+          </g>
+          <g stroke="#28344f" stroke-width="1" opacity=".9">
+            <path d="M70 80 L160 132 M160 132 L255 96 M255 96 L330 168 M160 132 L140 216 M255 96 L255 210 M140 216 L255 210 M70 80 L255 96"/>
+          </g>
+          <g font-family="JBMono,monospace" font-size="9" letter-spacing="2">
+            <rect x="40" y="58" width="60" height="44" rx="4" fill="#101a30" stroke="#2c3a58"/>
+            <rect x="48" y="68" width="44" height="5" fill="#f87171" opacity=".85"/>
+            <rect x="48" y="78" width="30" height="4" fill="#33415e"/>
+            <rect x="48" y="86" width="38" height="4" fill="#33415e"/>
+            <rect x="130" y="110" width="60" height="44" rx="4" fill="#101a30" stroke="#2c3a58"/>
+            <rect x="138" y="120" width="44" height="5" fill="#33415e"/>
+            <rect x="138" y="130" width="44" height="4" fill="#f87171" opacity=".7"/>
+            <rect x="138" y="138" width="26" height="4" fill="#33415e"/>
+            <rect x="225" y="74" width="60" height="44" rx="4" fill="#101a30" stroke="#2c3a58"/>
+            <rect x="233" y="84" width="44" height="5" fill="#33415e"/>
+            <rect x="233" y="94" width="36" height="4" fill="#33415e"/>
+            <rect x="233" y="102" width="44" height="4" fill="#f87171" opacity=".6"/>
+            <rect x="300" y="146" width="60" height="44" rx="4" fill="#101a30" stroke="#2c3a58"/>
+            <rect x="308" y="156" width="44" height="5" fill="#33415e"/>
+            <rect x="308" y="166" width="40" height="4" fill="#33415e"/>
+            <rect x="110" y="194" width="60" height="44" rx="4" fill="#101a30" stroke="#2c3a58"/>
+            <rect x="118" y="204" width="44" height="5" fill="#33415e"/>
+            <rect x="118" y="214" width="32" height="4" fill="#f87171" opacity=".5"/>
+            <rect x="225" y="188" width="60" height="44" rx="4" fill="#101a30" stroke="#2c3a58"/>
+            <rect x="233" y="198" width="44" height="5" fill="#33415e"/>
+            <rect x="233" y="208" width="44" height="4" fill="#33415e"/>
+          </g>
+          <circle cx="70" cy="80" r="3.5" fill="#6fd6ff"/>
+          <circle cx="160" cy="132" r="3.5" fill="#a78bfa"/>
+          <circle cx="255" cy="96" r="3.5" fill="#6fd6ff"/>
+          <circle cx="330" cy="168" r="3.5" fill="#f87171"/>
+          <circle cx="140" cy="216" r="3.5" fill="#6fd6ff"/>
+          <circle cx="255" cy="210" r="3.5" fill="#a78bfa"/>
+          <text x="40" y="34" font-family="JBMono,monospace" font-size="11" fill="#6fd6ff" letter-spacing="4">AKTA · DOSSIER</text>
+          <text x="40" y="278" font-family="JBMono,monospace" font-size="22" font-weight="700" fill="url(#mx-g)" letter-spacing="2">BIG TECH FILES</text>
+          <text x="318" y="34" font-family="JBMono,monospace" font-size="11" fill="#f87171" letter-spacing="3">33 CASES</text>
+        </svg>
+      </a>
+      <div>
+        <p class="case__tag">Matryca <span class="sector">· <span data-lang="en">investigative portal — media / NGO</span><span data-lang="pl">portal śledczy — media / NGO</span></span></p>
+        <h3><span data-lang="en">Big Tech Files — 33 cases, with the paperwork</span><span data-lang="pl">Big Tech Files — 33 sprawy, z dokumentami</span></h3>
+        <p><span data-lang="en">Cambridge Analytica, Pegasus, Clearview AI, the 533M Meta leak — each case reconstructed from primary sources: regulator decisions, court filings, whistleblower disclosures. Plus a 16-scene narrative timeline, 12 whistleblower profiles and 33 silent animated explainers. A portal about surveillance that doesn't surveil: no cookies, no analytics.</span><span data-lang="pl">Cambridge Analytica, Pegasus, Clearview AI, wyciek 533 mln kont Meta — każda sprawa zrekonstruowana ze źródeł pierwotnych: decyzji regulatorów, akt sądowych, ujawnień sygnalistów. Do tego 16-scenowa oś czasu, 12 sylwetek sygnalistów i 33 nieme animowane explainery. Portal o nadzorze, który nie nadzoruje: bez cookies, bez analityki.</span></p>
+        <div class="case__metrics">
+          <div class="stat"><b>33</b><span data-lang="en">documented cases</span><span data-lang="pl">udokumentowane sprawy</span></div>
+          <div class="stat"><b>480<em>+</em></b><span data-lang="en">primary sources</span><span data-lang="pl">źródła pierwotne</span></div>
+          <div class="stat"><b>33</b><span data-lang="en">animated explainers</span><span data-lang="pl">animowane explainery</span></div>
+        </div>
+        <p class="case__why"><span data-lang="en">What it proves: a one-person studio can ship a newsroom-grade reference portal — every claim linked to a document.</span><span data-lang="pl">Co to dowodzi: jednoosobowe studio może dostarczyć portal referencyjny klasy redakcyjnej — każda teza z linkiem do dokumentu.</span></p>
+        <div class="case__links">
+          <a class="go" href="https://futureshow1.github.io/matryca/" target="_blank" rel="noopener"><span data-lang="en">Open the portal</span><span data-lang="pl">Otwórz portal</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. SEJM -->
+    <article class="case case--flip reveal">
+      <a class="case__cover" href="https://sejm-178-104-197-58.nip.io/" target="_blank" rel="noopener" aria-label="Sejm Symulator">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <rect width="400" height="300" fill="#0a0f1c"/>
+          <g>
+            <!-- hemicycle: 5 arcs of seats -->
+            <g fill="#33415e">
+              <circle cx="200" cy="190" r="3"/>
+            </g>
+            <g id="sj-seats">
+              <!-- generated arcs -->
+              <g fill="#6fd6ff">
+                <circle cx="80" cy="186" r="4"/><circle cx="86" cy="160" r="4"/><circle cx="96" cy="136" r="4"/><circle cx="110" cy="114" r="4"/><circle cx="128" cy="96" r="4"/>
+              </g>
+              <g fill="#a78bfa">
+                <circle cx="149" cy="82" r="4"/><circle cx="173" cy="73" r="4"/><circle cx="198" cy="70" r="4"/><circle cx="223" cy="73" r="4"/>
+              </g>
+              <g fill="#3ddc97">
+                <circle cx="247" cy="82" r="4"/><circle cx="269" cy="96" r="4"/><circle cx="287" cy="114" r="4"/>
+              </g>
+              <g fill="#f2c94c">
+                <circle cx="301" cy="136" r="4"/><circle cx="311" cy="160" r="4"/><circle cx="317" cy="186" r="4"/>
+              </g>
+              <g fill="#475a82">
+                <circle cx="110" cy="186" r="4"/><circle cx="116" cy="164" r="4"/><circle cx="125" cy="143" r="4"/><circle cx="138" cy="125" r="4"/><circle cx="154" cy="110" r="4"/><circle cx="173" cy="100" r="4"/><circle cx="194" cy="96" r="4"/><circle cx="215" cy="98" r="4"/><circle cx="235" cy="105" r="4"/><circle cx="253" cy="117" r="4"/><circle cx="268" cy="133" r="4"/><circle cx="279" cy="152" r="4"/><circle cx="286" cy="173" r="4"/><circle cx="287" cy="186" r="4"/>
+              </g>
+              <g fill="#2c3a58">
+                <circle cx="140" cy="186" r="4"/><circle cx="145" cy="168" r="4"/><circle cx="153" cy="152" r="4"/><circle cx="165" cy="138" r="4"/><circle cx="179" cy="128" r="4"/><circle cx="196" cy="123" r="4"/><circle cx="213" cy="125" r="4"/><circle cx="229" cy="131" r="4"/><circle cx="243" cy="142" r="4"/><circle cx="253" cy="157" r="4"/><circle cx="259" cy="173" r="4"/><circle cx="260" cy="186" r="4"/>
+              </g>
+            </g>
+          </g>
+          <g font-family="JBMono,monospace">
+            <rect x="60" y="222" width="58" height="8" fill="#6fd6ff" opacity=".9"/>
+            <rect x="60" y="236" width="92" height="8" fill="#475a82"/>
+            <rect x="60" y="250" width="40" height="8" fill="#a78bfa" opacity=".85"/>
+            <rect x="60" y="264" width="70" height="8" fill="#2c3a58"/>
+            <text x="290" y="230" font-size="9" fill="#7a8499" letter-spacing="2">ZA / PRZECIW</text>
+            <text x="290" y="248" font-size="14" fill="#6fd6ff" font-weight="700">235 : 198</text>
+            <text x="290" y="266" font-size="9" fill="#7a8499" letter-spacing="2">WSTRZ. 27</text>
+          </g>
+          <text x="40" y="34" font-family="JBMono,monospace" font-size="11" fill="#6fd6ff" letter-spacing="4">KADENCJA X</text>
+          <text x="252" y="34" font-family="JBMono,monospace" font-size="11" fill="#f2c94c" letter-spacing="3">3 834 VOTES</text>
+        </svg>
+      </a>
+      <div>
+        <p class="case__tag">Sejm Symulator <span class="sector">· <span data-lang="en">live political database — civic tech</span><span data-lang="pl">baza polityczna na żywo — civic tech</span></span></p>
+        <h3><span data-lang="en">The Polish Parliament, made explorable</span><span data-lang="pl">Sejm RP, który można eksplorować</span></h3>
+        <p><span data-lang="en">The full 10th term in the browser: 3,834 floor votes, 1.76M individual MP decisions, 460 MPs, all 40 committees, 1,392 bills. Interactive hemicycle, club-agreement heatmap, loyalty rankings — and a behavioral simulator that finds historical analogues for any policy phrase, computed locally in your browser.</span><span data-lang="pl">Pełna X kadencja w przeglądarce: 3 834 głosowania, 1,76 mln indywidualnych decyzji, 460 posłów, 40 komisji, 1 392 inicjatywy. Interaktywny hemicykl, heatmapa zgodności klubów, rankingi lojalności — oraz symulator zachowań, który znajduje historyczne analogie dla dowolnej frazy, liczony lokalnie w przeglądarce.</span></p>
+        <div class="case__metrics">
+          <div class="stat"><b>3 834</b><span data-lang="en">floor votes</span><span data-lang="pl">głosowania</span></div>
+          <div class="stat"><b>1.76M</b><span data-lang="en">MP decisions</span><span data-lang="pl">decyzje posłów</span></div>
+          <div class="stat"><b>1 979</b><span data-lang="en">career paths</span><span data-lang="pl">ścieżki karier</span></div>
+        </div>
+        <p class="case__why"><span data-lang="en">For newsrooms and watchdogs: hard public data made explorable — readers stay, share, and cite.</span><span data-lang="pl">Dla redakcji i organizacji strażniczych: twarde dane publiczne w formie eksploracji — czytelnik zostaje, udostępnia, cytuje.</span></p>
+        <div class="case__links">
+          <a class="go" href="https://sejm-178-104-197-58.nip.io/" target="_blank" rel="noopener"><span data-lang="en">Open the simulator</span><span data-lang="pl">Otwórz symulator</span></a>
+          <a class="alt" href="https://sejm-178-104-197-58.nip.io/analiza/" target="_blank" rel="noopener"><span data-lang="en">Club agreement heatmap</span><span data-lang="pl">Heatmapa zgodności klubów</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. CARDIOSIM -->
+    <article class="case reveal">
+      <a class="case__cover" href="projects/cardiosim-intro.html" aria-label="CardioSim Pro">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <rect width="400" height="300" fill="#0a0f1c"/>
+          <g stroke="#16203a" stroke-width="1">
+            <path d="M0 50h400M0 100h400M0 150h400M0 200h400M0 250h400M50 0v300M100 0v300M150 0v300M200 0v300M250 0v300M300 0v300M350 0v300"/>
+          </g>
+          <path d="M0 150 L60 150 L72 138 L84 150 L110 150 L118 158 L126 88 L134 196 L142 150 L190 150 L202 136 L214 150 L260 150 L268 158 L276 92 L284 192 L292 150 L340 150 L352 140 L364 150 L400 150"
+                fill="none" stroke="#3ddc97" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <ellipse cx="330" cy="232" rx="38" ry="26" fill="none" stroke="#6fd6ff" stroke-width="2" transform="rotate(-14 330 232)"/>
+          <text x="288" y="280" font-family="JBMono,monospace" font-size="9" fill="#7a8499" letter-spacing="2">PV LOOP</text>
+          <g font-family="JBMono,monospace">
+            <text x="40" y="34" font-size="11" fill="#3ddc97" letter-spacing="4">ECG · LEAD II</text>
+            <text x="40" y="250" font-size="9" fill="#7a8499" letter-spacing="2">HR 72 · SpO₂ 98 · MAP 93</text>
+            <text x="40" y="270" font-size="9" fill="#f87171" letter-spacing="2">NOREPINEPHRINE 0.12 µg/kg/min</text>
+            <text x="296" y="34" font-size="11" fill="#6fd6ff" letter-spacing="3">10 DRUGS</text>
+          </g>
+        </svg>
+      </a>
+      <div>
+        <p class="case__tag">CardioSim Pro <span class="sector">· <span data-lang="en">medical simulation — education</span><span data-lang="pl">symulacja medyczna — edukacja</span></span></p>
+        <h3><span data-lang="en">A cardiovascular teaching lab in the browser</span><span data-lang="pl">Pracownia kardiologiczna w przeglądarce</span></h3>
+        <p><span data-lang="en">Real-time cardiovascular simulation: 10 pharmacodynamic drugs, live ECG/SpO₂/ABP waveforms, PV loops and Wiggers diagrams across 8 clinical scenarios. Titrate beta-blockers, inotropes and vasopressors — and watch onset dynamics, interactions and hemodynamic response unfold.</span><span data-lang="pl">Symulacja układu krążenia w czasie rzeczywistym: 10 leków, żywe przebiegi EKG/SpO₂/ABP, pętle PV i diagramy Wiggersa w 8 scenariuszach klinicznych. Miareczkuj beta-blokery, inotropy i wazopresory — obserwuj dynamikę działania, interakcje i odpowiedź hemodynamiczną.</span></p>
+        <div class="case__metrics">
+          <div class="stat"><b>10</b><span data-lang="en">drugs modelled</span><span data-lang="pl">modelowane leki</span></div>
+          <div class="stat"><b>8</b><span data-lang="en">clinical scenarios</span><span data-lang="pl">scenariusze kliniczne</span></div>
+          <div class="stat"><b>4</b><span data-lang="en">live waveforms</span><span data-lang="pl">przebiegi na żywo</span></div>
+        </div>
+        <p class="case__why"><span data-lang="en">For educators: simulation-grade interactivity with no licenses, installs or lab hardware.</span><span data-lang="pl">Dla dydaktyków: interaktywność klasy symulatora bez licencji, instalacji i sprzętu.</span></p>
+        <div class="case__links">
+          <a class="go" href="projects/cardiosim-intro.html"><span data-lang="en">Launch the simulation</span><span data-lang="pl">Uruchom symulację</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4. ATLAS -->
+    <article class="case case--flip reveal">
+      <a class="case__cover" href="https://futureshow1.github.io/oil-gas-atlas/" target="_blank" rel="noopener" aria-label="Global Oil and Gas Infrastructure Atlas">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <rect width="400" height="300" fill="#0a0f1c"/>
+          <g fill="#1f2b47">
+            <circle cx="70" cy="90" r="2"/><circle cx="84" cy="78" r="2"/><circle cx="98" cy="88" r="2"/><circle cx="76" cy="106" r="2"/><circle cx="92" cy="102" r="2"/><circle cx="108" cy="98" r="2"/><circle cx="64" cy="120" r="2"/><circle cx="80" cy="122" r="2"/>
+            <circle cx="180" cy="70" r="2"/><circle cx="196" cy="62" r="2"/><circle cx="212" cy="68" r="2"/><circle cx="190" cy="84" r="2"/><circle cx="206" cy="82" r="2"/><circle cx="222" cy="78" r="2"/><circle cx="238" cy="84" r="2"/><circle cx="226" cy="96" r="2"/><circle cx="210" cy="98" r="2"/>
+            <circle cx="300" cy="100" r="2"/><circle cx="316" cy="92" r="2"/><circle cx="332" cy="100" r="2"/><circle cx="308" cy="114" r="2"/><circle cx="324" cy="112" r="2"/><circle cx="340" cy="118" r="2"/>
+            <circle cx="120" cy="190" r="2"/><circle cx="136" cy="184" r="2"/><circle cx="128" cy="204" r="2"/><circle cx="144" cy="200" r="2"/><circle cx="136" cy="218" r="2"/>
+            <circle cx="250" cy="190" r="2"/><circle cx="266" cy="184" r="2"/><circle cx="258" cy="204" r="2"/><circle cx="274" cy="200" r="2"/><circle cx="282" cy="216" r="2"/><circle cx="262" cy="222" r="2"/>
+          </g>
+          <g fill="none" stroke-width="1.8" stroke-linecap="round">
+            <path d="M92 102 C 140 120, 160 90, 196 84" stroke="#f2c94c"/>
+            <path d="M206 82 C 250 88, 270 96, 316 92" stroke="#f2c94c"/>
+            <path d="M196 84 C 200 130, 230 160, 258 188" stroke="#6fd6ff"/>
+            <path d="M92 102 C 100 150, 116 168, 132 190" stroke="#6fd6ff"/>
+            <path d="M316 100 C 300 150, 286 170, 270 196" stroke="#3ddc97"/>
+          </g>
+          <g>
+            <circle cx="92" cy="102" r="4" fill="#f2c94c"/>
+            <circle cx="196" cy="84" r="4" fill="#f2c94c"/>
+            <circle cx="316" cy="92" r="4" fill="#3ddc97"/>
+            <circle cx="132" cy="190" r="4" fill="#6fd6ff"/>
+            <circle cx="258" cy="188" r="4" fill="#6fd6ff"/>
+          </g>
+          <g font-family="JBMono,monospace">
+            <text x="40" y="34" font-size="11" fill="#f2c94c" letter-spacing="4">ENERGY ATLAS</text>
+            <text x="266" y="34" font-size="11" fill="#6fd6ff" letter-spacing="3">6 CONTINENTS</text>
+            <text x="40" y="270" font-size="9" fill="#7a8499" letter-spacing="2">PIPELINES · LNG · CHOKEPOINTS</text>
+          </g>
+        </svg>
+      </a>
+      <div>
+        <p class="case__tag">Oil & Gas Atlas <span class="sector">· <span data-lang="en">data visualization — geopolitics</span><span data-lang="pl">wizualizacja danych — geopolityka</span></span></p>
+        <h3><span data-lang="en">The world's energy system on one screen</span><span data-lang="pl">Światowa energetyka na jednym ekranie</span></h3>
+        <p><span data-lang="en">An interactive atlas of global energy infrastructure — 240+ elements, 90+ pipelines, extraction fields, LNG terminals and strategic chokepoints across six continents, with animated flows, real production data and geopolitical context on hover.</span><span data-lang="pl">Interaktywny atlas światowej infrastruktury energetycznej — ponad 240 elementów, 90+ rurociągów, pola wydobywcze, terminale LNG i strategiczne punkty na sześciu kontynentach. Animowane przepływy, rzeczywiste dane produkcyjne, kontekst geopolityczny.</span></p>
+        <div class="case__metrics">
+          <div class="stat"><b>240<em>+</em></b><span data-lang="en">infrastructure elements</span><span data-lang="pl">elementy infrastruktury</span></div>
+          <div class="stat"><b>90<em>+</em></b><span data-lang="en">pipelines mapped</span><span data-lang="pl">zmapowane rurociągi</span></div>
+          <div class="stat"><b>6</b><span data-lang="en">continents</span><span data-lang="pl">kontynentów</span></div>
+        </div>
+        <p class="case__why"><span data-lang="en">For think tanks and media: a report that would be 80 static pages, navigable in one screen.</span><span data-lang="pl">Dla think tanków i mediów: raport, który miałby 80 stron, dostępny na jednym ekranie.</span></p>
+        <div class="case__links">
+          <a class="go" href="https://futureshow1.github.io/oil-gas-atlas/" target="_blank" rel="noopener"><span data-lang="en">Explore the atlas</span><span data-lang="pl">Otwórz atlas</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5. MNEMO -->
+    <article class="case reveal">
+      <a class="case__cover" href="https://futureshow1.github.io/mnemo/" target="_blank" rel="noopener" aria-label="MNEMO — The Art of Memory">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <rect width="400" height="300" fill="#0c0a18"/>
+          <g fill="none" stroke="#2c2750" stroke-width="1">
+            <circle cx="200" cy="150" r="118"/>
+            <circle cx="200" cy="150" r="92"/>
+            <circle cx="200" cy="150" r="66"/>
+            <circle cx="200" cy="150" r="40"/>
+          </g>
+          <g stroke="#3a3266" stroke-width="1">
+            <path d="M200 32v236M82 150h236M117 67l166 166M283 67L117 233"/>
+          </g>
+          <g fill="none" stroke="#a78bfa" stroke-width="1.4" opacity=".85">
+            <path d="M200 58 A92 92 0 0 1 292 150"/>
+            <path d="M200 84 A66 66 0 0 0 134 150"/>
+          </g>
+          <g fill="#f2c94c" font-family="JBMono,monospace" font-size="11" text-anchor="middle">
+            <text x="200" y="26">A</text><text x="263" y="44">B</text><text x="310" y="92">C</text>
+            <text x="328" y="155">D</text><text x="310" y="218">E</text><text x="263" y="266">F</text>
+            <text x="200" y="284">G</text><text x="137" y="266">H</text><text x="90" y="218">I</text>
+            <text x="72" y="155">L</text><text x="90" y="92">M</text><text x="137" y="44">N</text>
+          </g>
+          <circle cx="200" cy="150" r="14" fill="none" stroke="#f2c94c" stroke-width="1.5"/>
+          <text x="200" y="156" font-family="JBMono,monospace" font-size="13" fill="#f2c94c" text-anchor="middle">∞</text>
+          <circle cx="200" cy="58" r="4" fill="#a78bfa"/>
+          <circle cx="292" cy="150" r="4" fill="#a78bfa"/>
+          <circle cx="134" cy="150" r="4" fill="#6fd6ff"/>
+          <text x="40" y="34" font-family="JBMono,monospace" font-size="11" fill="#a78bfa" letter-spacing="4">ROTA MEMORIAE</text>
+          <text x="278" y="278" font-family="JBMono,monospace" font-size="11" fill="#f2c94c" letter-spacing="3">2500 YEARS</text>
+        </svg>
+      </a>
+      <div>
+        <p class="case__tag">MNEMO <span class="sector">· <span data-lang="en">cultural heritage — playable compendium</span><span data-lang="pl">dziedzictwo kultury — grywalne kompendium</span></span></p>
+        <h3><span data-lang="en">2,500 years of the art of memory, playable</span><span data-lang="pl">2500 lat sztuki pamięci — do grania</span></h3>
+        <p><span data-lang="en">A bilingual portal on mnemonics: a 14-chapter compendium from Simonides and Cicero through the Renaissance memory theatres to SuperMemo and the World Memory Championships. A separate Giordano Bruno monograph, an interactive memory wheel, and 9 trainers — memory palaces, PAO, π recall. No login, no ads.</span><span data-lang="pl">Dwujęzyczny portal o mnemotechnice: 14-rozdziałowe kompendium od Symonidesa i Cycerona, przez renesansowe teatry pamięci, po SuperMemo i mistrzostwa świata. Osobna monografia Giordana Bruna, interaktywne koło pamięci i 9 trenażerów — pałace pamięci, PAO, recytacja π. Bez logowania, bez reklam.</span></p>
+        <div class="case__metrics">
+          <div class="stat"><b>14</b><span data-lang="en">chapters PL+EN</span><span data-lang="pl">rozdziały PL+EN</span></div>
+          <div class="stat"><b>9</b><span data-lang="en">solo trainers</span><span data-lang="pl">trenażery</span></div>
+          <div class="stat"><b>1</b><span data-lang="en">Bruno monograph</span><span data-lang="pl">monografia Bruna</span></div>
+        </div>
+        <p class="case__why"><span data-lang="en">For museums: proof that heritage content can be a game without losing scholarly depth.</span><span data-lang="pl">Dla muzeów: dowód, że treści o dziedzictwie mogą być grą bez utraty naukowej głębi.</span></p>
+        <div class="case__links">
+          <a class="go" href="https://futureshow1.github.io/mnemo/" target="_blank" rel="noopener"><span data-lang="en">Enter MNEMO</span><span data-lang="pl">Wejdź do MNEMO</span></a>
+          <a class="alt" href="https://futureshow1.github.io/mnemo/kompendium/bruno.html" target="_blank" rel="noopener"><span data-lang="en">Bruno monograph</span><span data-lang="pl">Monografia Bruna</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 6. HINTON -->
+    <article class="case case--flip reveal">
+      <a class="case__cover" href="https://futureshow1.github.io/hinton-ai-portal/" target="_blank" rel="noopener" aria-label="AI Explained — Hinton Portal">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="hn-e" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#6fd6ff" stop-opacity=".5"/><stop offset="1" stop-color="#a78bfa" stop-opacity=".5"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="#0a0f1c"/>
+          <g stroke="url(#hn-e)" stroke-width="1">
+            <path d="M90 90 L190 70 M90 90 L190 130 M90 90 L190 190 M90 150 L190 70 M90 150 L190 130 M90 150 L190 190 M90 150 L190 250 M90 210 L190 130 M90 210 L190 190 M90 210 L190 250 M90 90 L190 250"/>
+            <path d="M190 70 L290 110 M190 70 L290 180 M190 130 L290 110 M190 130 L290 180 M190 190 L290 110 M190 190 L290 180 M190 250 L290 180 M190 250 L290 110"/>
+            <path d="M290 110 L350 150 M290 180 L350 150"/>
+          </g>
+          <g fill="#0a0f1c" stroke="#6fd6ff" stroke-width="1.6">
+            <circle cx="90" cy="90" r="8"/><circle cx="90" cy="150" r="8"/><circle cx="90" cy="210" r="8"/>
+          </g>
+          <g fill="#0a0f1c" stroke="#a78bfa" stroke-width="1.6">
+            <circle cx="190" cy="70" r="8"/><circle cx="190" cy="130" r="8"/><circle cx="190" cy="190" r="8"/><circle cx="190" cy="250" r="8"/>
+          </g>
+          <g fill="#0a0f1c" stroke="#3ddc97" stroke-width="1.6">
+            <circle cx="290" cy="110" r="8"/><circle cx="290" cy="180" r="8"/>
+          </g>
+          <circle cx="350" cy="150" r="10" fill="#f2c94c"/>
+          <g font-family="JBMono,monospace">
+            <text x="40" y="34" font-size="11" fill="#6fd6ff" letter-spacing="4">NEURAL.NET // ONLINE</text>
+            <text x="282" y="34" font-size="11" fill="#f2c94c" letter-spacing="3">NOBEL 2024</text>
+            <text x="40" y="270" font-size="9" fill="#7a8499" letter-spacing="2">BACKPROPAGATION · 15 SECTIONS · 3 EDITIONS</text>
+          </g>
+        </svg>
+      </a>
+      <div>
+        <p class="case__tag">Hinton Portal <span class="sector">· <span data-lang="en">interactive education — AI literacy</span><span data-lang="pl">edukacja interaktywna — wiedza o AI</span></span></p>
+        <h3><span data-lang="en">How AI works, explained by its grandfather</span><span data-lang="pl">Jak działa AI — według jej dziadka</span></h3>
+        <p><span data-lang="en">Nobel laureate Geoffrey Hinton's step-by-step explanations turned into an interactive course: neural-network visualizations, backpropagation animations, 15 sections from foundations to existential risk. Three visual editions, two languages.</span><span data-lang="pl">Wyjaśnienia noblisty Geoffreya Hintona jako interaktywny kurs: wizualizacje sieci neuronowych, animacje propagacji wstecznej, 15 sekcji od podstaw po ryzyka egzystencjalne. Trzy edycje wizualne, dwa języki.</span></p>
+        <div class="case__metrics">
+          <div class="stat"><b>15</b><span data-lang="en">interactive sections</span><span data-lang="pl">sekcje interaktywne</span></div>
+          <div class="stat"><b>3</b><span data-lang="en">visual editions</span><span data-lang="pl">edycje wizualne</span></div>
+          <div class="stat"><b>EN·PL</b><span data-lang="en">languages</span><span data-lang="pl">języki</span></div>
+        </div>
+        <p class="case__why"><span data-lang="en">For universities and L&D teams: Nobel-grade ideas, walkable in a browser.</span><span data-lang="pl">Dla uczelni i zespołów L&D: idee z Nobla, po których można chodzić w przeglądarce.</span></p>
+        <div class="case__links">
+          <a class="go" href="https://futureshow1.github.io/hinton-ai-portal/" target="_blank" rel="noopener"><span data-lang="en">Explore the portal</span><span data-lang="pl">Otwórz portal</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 7. SECTIO AUREA -->
+    <article class="case reveal">
+      <a class="case__cover" href="https://futureshow1.github.io/zlota-liczba/" target="_blank" rel="noopener" aria-label="Sectio Aurea — interaktywny atlas Złotej Liczby">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <defs>
+            <radialGradient id="sa-glow" cx="0.46" cy="0.58" r="0.62">
+              <stop offset="0" stop-color="#2a2012"/><stop offset="1" stop-color="#0a0810"/>
+            </radialGradient>
+            <linearGradient id="sa-g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f7df9a"/><stop offset="1" stop-color="#b8881f"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="#0a0810"/>
+          <rect width="400" height="300" fill="url(#sa-glow)" opacity="0.85"/>
+          <text x="34" y="214" font-family="Georgia,'Times New Roman',serif" font-size="168" fill="#e3b23c" opacity="0.06">&#966;</text>
+          <rect x="60" y="92" width="218" height="135" fill="none" stroke="#e3b23c" stroke-width="1" opacity="0.22"/>
+          <path d="M 234.3 169.4 L 234.4 168.9 L 234.6 168.5 L 234.9 168.0 L 235.4 167.7 L 235.9 167.4 L 236.6 167.3 L 237.3 167.3 L 238.1 167.5 L 238.8 167.9 L 239.5 168.6 L 240.0 169.4 L 240.3 170.4 L 240.4 171.5 L 240.2 172.7 L 239.7 173.9 L 238.9 175.1 L 237.8 176.0 L 236.3 176.8 L 234.6 177.1 L 232.7 177.1 L 230.7 176.6 L 228.8 175.5 L 227.1 173.9 L 225.6 171.8 L 224.7 169.3 L 224.4 166.3 L 224.8 163.2 L 226.0 160.0 L 228.1 157.0 L 231.1 154.4 L 234.9 152.5 L 239.3 151.4 L 244.2 151.4 L 249.4 152.6 L 254.4 155.2 L 259.0 159.3 L 262.8 164.7 L 265.4 171.3 L 266.4 178.9 L 265.5 187.1 L 262.5 195.4 L 257.2 203.3 L 249.6 210.2 L 240.0 215.6 L 228.5 218.6 L 215.7 218.9 L 202.2 216.0 L 189.0 209.4 L 176.7 199.2 L 166.6 185.3 L 159.5 168.3 L 156.5 148.6 L 158.3 127.3 L 165.7 105.5 L 179.0 84.6 L 198.3 66.1 L 223.2 51.8 L 252.8 43.1 L 269.1 41.4"
+            fill="none" stroke="url(#sa-g)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 330.0 42.0 L 347.6 96.3 L 301.5 62.7 L 358.5 62.7 L 312.4 96.3 Z" fill="none" stroke="#f2d27a" stroke-width="1" opacity="0.45" stroke-linejoin="round"/>
+          <text x="40" y="36" font-family="Georgia,'Times New Roman',serif" font-size="13" fill="#f2d27a" letter-spacing="6">SECTIO AUREA</text>
+          <text x="40" y="273" font-family="JBMono,monospace" font-size="12.5" fill="#e3b23c" letter-spacing="2" opacity="0.85">&#966; = 1&#183;618 033 988 &#8230;</text>
+        </svg>
+      </a>
+      <div>
+        <p class="case__tag">Sectio Aurea <span class="sector">· <span data-lang="en">interactive education — culture / EdTech</span><span data-lang="pl">edukacja interaktywna — kultura / EdTech</span></span></p>
+        <h3><span data-lang="en">The golden number — playable, and honest about itself</span><span data-lang="pl">Złota liczba — grywalna i uczciwa wobec siebie</span></h3>
+        <p><span data-lang="en">A 3D dodecahedron is the navigator: its twelve faces open onto chambers about φ — discover it with a slider, watch whirling squares coil into a spiral, fold the five Platonic solids, drive a live quasicrystal shader. Throughout, mathematical rigor is separated from romantic numerology — the nautilus that isn't φ, the Parthenon nobody measured. You earn gold and ranks for the effort. Full PL / EN.</span><span data-lang="pl">Nawigatorem jest dwunastościan 3D: jego dwanaście ścian otwiera komnaty o φ — odkryj ją suwakiem, patrz, jak wirujące kwadraty zwijają się w spiralę, złóż pięć brył platońskich, steruj żywym shaderem quasikryształu. Przez całość rygor matematyczny oddzielono od romantycznej numerologii — nautilus, który nie jest φ, Partenon, którego nikt nie zmierzył. Za wysiłek zbierasz złoto i rangi. Pełne PL / EN.</span></p>
+        <div class="case__metrics">
+          <div class="stat"><b>7</b><span data-lang="en">playable chambers</span><span data-lang="pl">grywalne komnaty</span></div>
+          <div class="stat"><b>8</b><span data-lang="en">pillars of thought</span><span data-lang="pl">filary myśli</span></div>
+          <div class="stat"><b>2</b><span data-lang="en">languages</span><span data-lang="pl">języki</span></div>
+        </div>
+        <p class="case__why"><span data-lang="en">What it proves: rigor and wonder aren't enemies — a subject can be honest about its myths and still enchanting.</span><span data-lang="pl">Co to dowodzi: rygor i zachwyt nie są wrogami — temat może być uczciwy wobec swoich mitów i wciąż czarujący.</span></p>
+        <div class="case__links">
+          <a class="go" href="https://futureshow1.github.io/zlota-liczba/" target="_blank" rel="noopener"><span data-lang="en">Open the portal</span><span data-lang="pl">Otwórz portal</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- FULL PROJECT INDEX -->
+    <details class="archive reveal">
+      <summary><span data-lang="en">Full project index — 24 shipped &amp; in progress</span><span data-lang="pl">Pełny indeks projektów — 24 ukończone i w toku</span></summary>
+      <div class="archive__grid">
+        <a href="projects/afery-polska-v2.html"><span data-lang="en">40 Biggest Scandals in Poland</span><span data-lang="pl">40 największych afer w Polsce</span><i>report</i></a>
+        <a href="projects/panama_papers_visualization.html">Panama Papers<i>data viz</i></a>
+        <a href="projects/cambridge_analytica_timeline.html">Cambridge Analytica — MINDF*CK<i>timeline</i></a>
+        <a href="projects/schizoanaliza-gra.html"><span data-lang="en">Schizoanalysis — Deleuze &amp; Guattari</span><span data-lang="pl">Schizoanaliza — Deleuze i Guattari</span><i>edu game</i></a>
+        <a href="projects/habermas-gra-edukacyjna.html">Habermas — <span data-lang="en">Educational Game</span><span data-lang="pl">gra edukacyjna</span><i>edu game</i></a>
+        <a href="projects/nbody-simulation.html"><span data-lang="en">N-Body Gravitational Simulation</span><span data-lang="pl">Symulacja grawitacyjna N-ciał</span><i>physics</i></a>
+        <a href="https://futureshow1.github.io/psychedelic-brain-sim/v4.html" target="_blank" rel="noopener"><span data-lang="en">Psychedelic Brain Simulation</span><span data-lang="pl">Symulacja mózgu psychodelicznego</span><i>neuro</i></a>
+        <a href="https://futureshow1.github.io/swidzinski-contextual-art/" target="_blank" rel="noopener">Jan Świdziński — <span data-lang="en">Contextual Art</span><span data-lang="pl">sztuka kontekstualna</span><i>archive</i></a>
+        <a href="projects/this_is_your_digital_life_mockup.html">This Is Your Digital Life<i>mockup</i></a>
+        <a href="https://futureshow1.github.io/zem-demo/" target="_blank" rel="noopener">ZEM Łabędy<i>client</i></a>
+        <a href="https://izabelachamczyk.com" target="_blank" rel="noopener">Izabela Chamczyk — portfolio<i>client</i></a>
+        <a href="projects/jan-lubicz-website/index.html"><span data-lang="en">Jan Lubicz — personal site &amp; CV</span><span data-lang="pl">Jan Lubicz — strona osobista i CV</span><i>site</i></a>
+        <span class="row">Digital Cosmos — WebGL<i>WIP</i></span>
+        <span class="row">Cosmos Catalogue — 3D<i>WIP</i></span>
+        <span class="row"><span data-lang="en">Climate change map</span><span data-lang="pl">Mapa zmian klimatu</span><i>WIP</i></span>
+        <span class="row">EMFAZY — <span data-lang="en">documentary project</span><span data-lang="pl">projekt dokumentalny</span><i>WIP</i></span>
+        <span class="row"><span data-lang="en">Bronisław Przyłuski archive</span><span data-lang="pl">Archiwum Bronisława Przyłuskiego</span><i>WIP</i></span>
+        <a href="films.html"><span data-lang="en">10 AI films — the reel</span><span data-lang="pl">10 filmów AI — reel</span><i>films →</i></a>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow"><span data-lang="en">Services & pricing</span><span data-lang="pl">Usługi i wycena</span></p>
+      <h2><span data-lang="en">Four ways to start.</span><span data-lang="pl">Cztery sposoby, by zacząć.</span></h2>
+      <p><span data-lang="en">Productized, fixed-price after a free scoping call. Every package includes both languages, your branding, accessibility, and full handover — you own the code and content.</span><span data-lang="pl">Konkretne pakiety, stała cena po bezpłatnej rozmowie wstępnej. Każdy obejmuje dwie wersje językowe, Twoją identyfikację, dostępność i pełne przekazanie — kod i treść należą do Ciebie.</span></p>
+    </div>
+    <div class="services__grid">
+      <div class="svc reveal">
+        <div class="svc__head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#6fd6ff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/><path d="M7.5 10.5h6M10.5 7.5v6"/></svg>
+          <span class="svc__for"><span data-lang="en">media · NGOs<br>think tanks</span><span data-lang="pl">media · NGO<br>think tanki</span></span>
+        </div>
+        <h3><span data-lang="en">Interactive Explainer / Visualization</span><span data-lang="pl">Interaktywny explainer / wizualizacja</span></h3>
+        <p><span data-lang="en">One subject, one screen that does what 40 PDF pages can't: an interactive timeline, network map, atlas or dashboard.</span><span data-lang="pl">Jeden temat, jeden ekran, który robi to, czego nie zrobi 40 stron PDF-a: interaktywna oś czasu, mapa sieci, atlas albo dashboard.</span></p>
+        <ul>
+          <li><span data-lang="en">Research &amp; data structuring included</span><span data-lang="pl">Research i struktura danych w cenie</span></li>
+          <li><span data-lang="en">Embeddable in your site or standalone</span><span data-lang="pl">Do osadzenia u Ciebie lub samodzielny</span></li>
+          <li><span data-lang="en">Works offline / on kiosks</span><span data-lang="pl">Działa offline / na kioskach</span></li>
+        </ul>
+        <div class="svc__meta"><span data-lang="en">2–3 weeks</span><span data-lang="pl">2–3 tygodnie</span><b><span data-lang="en">from €2,800</span><span data-lang="pl">od 12 000 zł</span></b></div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc__head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="4"/><path d="M7 11v3M5.5 12.5h3M15.5 11.5h.01M18 13.5h.01"/></svg>
+          <span class="svc__for"><span data-lang="en">museums · education<br>publishers</span><span data-lang="pl">muzea · edukacja<br>wydawcy</span></span>
+        </div>
+        <h3><span data-lang="en">Educational Game or Simulation</span><span data-lang="pl">Gra edukacyjna lub symulacja</span></h3>
+        <p><span data-lang="en">A curriculum, exhibition or research topic as a playable experience: concept maps, trainers, quizzes, real-time simulations.</span><span data-lang="pl">Program nauczania, wystawa albo temat badawczy jako doświadczenie grywalne: mapy pojęć, trenażery, quizy, symulacje czasu rzeczywistego.</span></p>
+        <ul>
+          <li><span data-lang="en">Didactic structure designed with you</span><span data-lang="pl">Struktura dydaktyczna projektowana z Tobą</span></li>
+          <li><span data-lang="en">Runs on school hardware, no installs</span><span data-lang="pl">Działa na szkolnym sprzęcie, bez instalacji</span></li>
+          <li><span data-lang="en">Kiosk mode for exhibition floors</span><span data-lang="pl">Tryb kioskowy na ekspozycję</span></li>
+        </ul>
+        <div class="svc__meta"><span data-lang="en">3–6 weeks</span><span data-lang="pl">3–6 tygodni</span><b><span data-lang="en">from €5,500</span><span data-lang="pl">od 24 000 zł</span></b></div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc__head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3ddc97" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2z"/><path d="M19 17H6a2 2 0 0 0-2 2"/><path d="M8 7h7M8 11h5"/></svg>
+          <span class="svc__for"><span data-lang="en">newsrooms · NGOs<br>institutions</span><span data-lang="pl">redakcje · NGO<br>instytucje</span></span>
+        </div>
+        <h3><span data-lang="en">Investigation / Knowledge Portal</span><span data-lang="pl">Portal śledczy / kompendium</span></h3>
+        <p><span data-lang="en">A complete bilingual portal in the Matryca class: documented cases, narrative timelines, animations, essays — every claim sourced.</span><span data-lang="pl">Kompletny dwujęzyczny portal klasy Matrycy: udokumentowane sprawy, narracyjne osie czasu, animacje, eseje — każda teza ze źródłem.</span></p>
+        <ul>
+          <li><span data-lang="en">Primary-source research methodology</span><span data-lang="pl">Metodologia źródeł pierwotnych</span></li>
+          <li><span data-lang="en">Search, cross-references, citations</span><span data-lang="pl">Wyszukiwarka, odsyłacze, cytowania</span></li>
+          <li><span data-lang="en">No CMS to maintain, no tracking</span><span data-lang="pl">Bez CMS-a do utrzymania, bez śledzenia</span></li>
+        </ul>
+        <div class="svc__meta"><span data-lang="en">6–10 weeks</span><span data-lang="pl">6–10 tygodni</span><b><span data-lang="en">from €10,500</span><span data-lang="pl">od 45 000 zł</span></b></div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc__head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f2c94c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 9h18M7 5l2 4M12 5l2 4M17 5l2 4M10 13.5l4 2-4 2v-4z"/></svg>
+          <span class="svc__for"><span data-lang="en">festivals · brands<br>exhibitions</span><span data-lang="pl">festiwale · marki<br>wystawy</span></span>
+        </div>
+        <h3><span data-lang="en">AI Film / Motion</span><span data-lang="pl">Film AI / motion</span></h3>
+        <p><span data-lang="en">Short films, visual essays, exhibition loops and music videos created with AI video tools — directed, not generated. Concept to final cut.</span><span data-lang="pl">Krótkie filmy, eseje wizualne, loopy wystawiennicze i teledyski tworzone narzędziami AI video — wyreżyserowane, nie wygenerowane. Od konceptu po finalny montaż.</span></p>
+        <ul>
+          <li><span data-lang="en">25+ years of film craft behind the prompts</span><span data-lang="pl">Ponad 25 lat warsztatu filmowego za promptami</span></li>
+          <li><span data-lang="en">Runway, LTX + DaVinci finishing</span><span data-lang="pl">Runway, LTX + postprodukcja w DaVinci</span></li>
+          <li><span data-lang="en">Cleared for public screening</span><span data-lang="pl">Gotowe do pokazów publicznych</span></li>
+        </ul>
+        <div class="svc__meta"><span data-lang="en">1–4 weeks</span><span data-lang="pl">1–4 tygodnie</span><b><span data-lang="en">from €1,900</span><span data-lang="pl">od 8 000 zł</span></b></div>
+      </div>
+    </div>
+    <p class="services__note">
+      <span data-lang="en">Prices are starting points for scoping, not a paywall — grant-funded and public-sector budgets welcome. I can join <b>grant applications as the digital partner</b> (Creative Europe, national culture funds, journalism funds). Need something between the boxes? <a href="#contact">Describe it</a> — the scoping call is free either way.</span>
+      <span data-lang="pl">Ceny to punkt wyjścia do wyceny, nie cennik sztywny — budżety grantowe i publiczne mile widziane. Mogę dołączyć do <b>wniosków grantowych jako partner cyfrowy</b> (Kreatywna Europa, programy MKiDN, fundusze dziennikarskie). Potrzebujesz czegoś pomiędzy? <a href="#contact">Opisz to</a> — rozmowa wstępna i tak jest bezpłatna.</span>
+    </p>
+  </div>
+</section>
+<!-- ================= SECTORS ================= -->
+<section id="sectors">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow"><span data-lang="en">Who it's for</span><span data-lang="pl">Dla kogo</span></p>
+      <h2><span data-lang="en">Your sector, your solution.</span><span data-lang="pl">Twój sektor, Twoje rozwiązanie.</span></h2>
+    </div>
+    <div class="sectors__tabs reveal" role="tablist" aria-label="Sectors">
+      <button role="tab" id="tab-0" aria-selected="true" aria-controls="panel-0"><span data-lang="en">Museums &amp; Culture</span><span data-lang="pl">Muzea i kultura</span></button>
+      <button role="tab" id="tab-1" aria-selected="false" aria-controls="panel-1"><span data-lang="en">Media &amp; Journalism</span><span data-lang="pl">Media i dziennikarstwo</span></button>
+      <button role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2"><span data-lang="en">Education</span><span data-lang="pl">Edukacja</span></button>
+      <button role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3"><span data-lang="en">NGOs &amp; Think Tanks</span><span data-lang="pl">NGO i think tanki</span></button>
+    </div>
+
+    <div class="sector-panel active reveal" id="panel-0" role="tabpanel" aria-labelledby="tab-0">
+      <div>
+        <h3><span data-lang="en">The problem</span><span data-lang="pl">Problem</span></h3>
+        <p class="pain"><span data-lang="en">Your collection is deep — your visitors' attention is not. Exhibitions close, catalogues go unread, and digitization grants too often end as PDFs nobody opens.</span><span data-lang="pl">Twoje zbiory są głębokie — uwaga zwiedzających nie. Wystawy się kończą, katalogi leżą nieczytane, a granty na digitalizację zbyt często kończą jako PDF-y, których nikt nie otwiera.</span></p>
+        <h3><span data-lang="en">What I build</span><span data-lang="pl">Co buduję</span></h3>
+        <ul>
+          <li><span data-lang="en">Digital companions that live on after the exhibition closes</span><span data-lang="pl">Cyfrowe dopełnienia wystaw, które żyją po ich zamknięciu</span></li>
+          <li><span data-lang="en">Playable archives and artist monographs</span><span data-lang="pl">Grywalne archiwa i monografie artystów</span></li>
+          <li><span data-lang="en">Kiosk-ready interactives — work offline, on your hardware</span><span data-lang="pl">Interaktywy kioskowe — działają offline, na Waszym sprzęcie</span></li>
+          <li><span data-lang="en">Bilingual by default, accessible by design</span><span data-lang="pl">Dwujęzyczne domyślnie, dostępne z założenia</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span data-lang="en">Relevant work</span><span data-lang="pl">Powiązane realizacje</span></h3>
+        <div class="works">
+          <a href="https://futureshow1.github.io/mnemo/" target="_blank" rel="noopener">MNEMO — <span data-lang="en">art of memory</span><span data-lang="pl">sztuka pamięci</span></a>
+          <a href="https://futureshow1.github.io/swidzinski-contextual-art/" target="_blank" rel="noopener">Świdziński — <span data-lang="en">contextual art archive</span><span data-lang="pl">archiwum sztuki kontekstualnej</span></a>
+          <a href="films.html"><span data-lang="en">AI films for exhibition spaces</span><span data-lang="pl">Filmy AI do przestrzeni wystawienniczych</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sector-panel reveal" id="panel-1" role="tabpanel" aria-labelledby="tab-1" hidden>
+      <div>
+        <h3><span data-lang="en">The problem</span><span data-lang="pl">Problem</span></h3>
+        <p class="pain"><span data-lang="en">The story matters, but it's 4,000 words and readers scroll past. In-house graphics teams are booked out — or don't exist.</span><span data-lang="pl">Temat jest ważny, ale ma 4000 słów i czytelnik go przewija. Zespoły graficzne w redakcji są zajęte — albo ich nie ma.</span></p>
+        <h3><span data-lang="en">What I build</span><span data-lang="pl">Co buduję</span></h3>
+        <ul>
+          <li><span data-lang="en">Interactive investigations readers explore, share and cite</span><span data-lang="pl">Interaktywne śledztwa, które czytelnik eksploruje, udostępnia i cytuje</span></li>
+          <li><span data-lang="en">Vote &amp; power explorers built from public data</span><span data-lang="pl">Eksploratory głosowań i wpływów z danych publicznych</span></li>
+          <li><span data-lang="en">Timelines and network maps from your reporting</span><span data-lang="pl">Osie czasu i mapy powiązań z Waszych materiałów</span></li>
+          <li><span data-lang="en">Embeddable, CMS-free, loads fast on mobile</span><span data-lang="pl">Do osadzenia, bez CMS, błyskawiczne na mobile</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span data-lang="en">Relevant work</span><span data-lang="pl">Powiązane realizacje</span></h3>
+        <div class="works">
+          <a href="https://futureshow1.github.io/matryca/" target="_blank" rel="noopener">Matryca — Big Tech Files</a>
+          <a href="https://sejm-178-104-197-58.nip.io/" target="_blank" rel="noopener">Sejm Symulator</a>
+          <a href="projects/panama_papers_visualization.html">Panama Papers</a>
+          <a href="projects/afery-polska-v2.html"><span data-lang="en">40 Scandals in Poland</span><span data-lang="pl">40 afer w Polsce</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sector-panel reveal" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+      <div>
+        <h3><span data-lang="en">The problem</span><span data-lang="pl">Problem</span></h3>
+        <p class="pain"><span data-lang="en">Slides don't teach systems. Licensed simulation software costs more than the course it supports — and still needs a lab to run.</span><span data-lang="pl">Slajdy nie uczą systemów. Licencjonowane oprogramowanie symulacyjne kosztuje więcej niż kurs, któremu służy — i jeszcze wymaga pracowni.</span></p>
+        <h3><span data-lang="en">What I build</span><span data-lang="pl">Co buduję</span></h3>
+        <ul>
+          <li><span data-lang="en">Browser-based simulations — CardioSim-class, no installs</span><span data-lang="pl">Symulacje w przeglądarce — klasy CardioSim, bez instalacji</span></li>
+          <li><span data-lang="en">Explorable explanations of hard theory</span><span data-lang="pl">Eksplorowalne wyjaśnienia trudnej teorii</span></li>
+          <li><span data-lang="en">Self-testing trainers, quizzes, concept maps</span><span data-lang="pl">Trenażery, quizy, mapy pojęć do samodzielnej nauki</span></li>
+          <li><span data-lang="en">Runs on school hardware and old laptops</span><span data-lang="pl">Działa na szkolnym sprzęcie i starych laptopach</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span data-lang="en">Relevant work</span><span data-lang="pl">Powiązane realizacje</span></h3>
+        <div class="works">
+          <a href="projects/cardiosim-intro.html">CardioSim Pro</a>
+          <a href="https://futureshow1.github.io/hinton-ai-portal/" target="_blank" rel="noopener">AI Explained — Hinton</a>
+          <a href="projects/habermas-gra-edukacyjna.html">Habermas — <span data-lang="en">educational game</span><span data-lang="pl">gra edukacyjna</span></a>
+          <a href="https://futureshow1.github.io/mnemo/" target="_blank" rel="noopener">MNEMO — <span data-lang="en">9 memory trainers</span><span data-lang="pl">9 trenażerów pamięci</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sector-panel reveal" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+      <div>
+        <h3><span data-lang="en">The problem</span><span data-lang="pl">Problem</span></h3>
+        <p class="pain"><span data-lang="en">The report took six months and got 200 downloads. Decision-makers won't read 80 pages — and donors want to see impact, not promises.</span><span data-lang="pl">Raport powstawał pół roku i ma 200 pobrań. Decydenci nie przeczytają 80 stron — a grantodawcy chcą zobaczyć wpływ, nie obietnice.</span></p>
+        <h3><span data-lang="en">What I build</span><span data-lang="pl">Co buduję</span></h3>
+        <ul>
+          <li><span data-lang="en">Interactive versions of flagship reports</span><span data-lang="pl">Interaktywne wersje sztandarowych raportów</span></li>
+          <li><span data-lang="en">Impact dashboards and transparency portals</span><span data-lang="pl">Dashboardy wpływu i portale transparentności</span></li>
+          <li><span data-lang="en">Campaign microsites — GDPR-clean, no trackers</span><span data-lang="pl">Strony kampanii — zgodne z RODO, bez trackerów</span></li>
+          <li><span data-lang="en">Data in a form journalists can cite</span><span data-lang="pl">Dane w formie, którą dziennikarze mogą cytować</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span data-lang="en">Relevant work</span><span data-lang="pl">Powiązane realizacje</span></h3>
+        <div class="works">
+          <a href="https://futureshow1.github.io/matryca/" target="_blank" rel="noopener">Matryca — Big Tech Files</a>
+          <a href="https://futureshow1.github.io/oil-gas-atlas/" target="_blank" rel="noopener">Oil &amp; Gas Atlas</a>
+          <a href="projects/afery-polska-v2.html"><span data-lang="en">40 Scandals in Poland</span><span data-lang="pl">40 afer w Polsce</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow"><span data-lang="en">How it works</span><span data-lang="pl">Jak to działa</span></p>
+      <h2><span data-lang="en">From call to launch, without the agency overhead.</span><span data-lang="pl">Od rozmowy do wdrożenia, bez agencyjnego narzutu.</span></h2>
+    </div>
+    <div class="process__grid">
+      <div class="step reveal">
+        <span class="step__num">01</span>
+        <h3><span data-lang="en">Scoping call</span><span data-lang="pl">Rozmowa wstępna</span></h3>
+        <p><span data-lang="en">30 minutes: your subject, audience and goal. You get a feasibility view on the call and a fixed quote within 48 hours.</span><span data-lang="pl">30 minut: temat, odbiorcy, cel. Ocenę wykonalności dostajesz od razu, stałą wycenę — w 48 godzin.</span></p>
+        <span class="step__note"><span data-lang="en">Free</span><span data-lang="pl">Bezpłatnie</span></span>
+      </div>
+      <div class="step reveal">
+        <span class="step__num">02</span>
+        <h3><span data-lang="en">Prototype</span><span data-lang="pl">Prototyp</span></h3>
+        <p><span data-lang="en">Not wireframes — a working interactive demo with your real subject matter, usually inside the first week.</span><span data-lang="pl">Nie makiety — działające interaktywne demo na Twoim materiale, zwykle w pierwszym tygodniu.</span></p>
+        <span class="step__note"><span data-lang="en">~1 week</span><span data-lang="pl">~1 tydzień</span></span>
+      </div>
+      <div class="step reveal">
+        <span class="step__num">03</span>
+        <h3><span data-lang="en">Iterations</span><span data-lang="pl">Iteracje</span></h3>
+        <p><span data-lang="en">Weekly clickable releases. You steer while changes are cheap; experts and stakeholders react to the real thing.</span><span data-lang="pl">Cotygodniowe klikalne wydania. Kierujesz projektem, póki zmiany są tanie; eksperci reagują na rzeczywisty produkt.</span></p>
+        <span class="step__note"><span data-lang="en">Weekly drops</span><span data-lang="pl">Cotygodniowe wydania</span></span>
+      </div>
+      <div class="step reveal">
+        <span class="step__num">04</span>
+        <h3><span data-lang="en">Handover</span><span data-lang="pl">Przekazanie</span></h3>
+        <p><span data-lang="en">Deployed to your domain or repository. You own the code, content and data. No subscriptions, no maintenance contract needed.</span><span data-lang="pl">Wdrożenie na Twoją domenę lub repozytorium. Kod, treść i dane należą do Ciebie. Bez abonamentów i umów serwisowych.</span></p>
+        <span class="step__note"><span data-lang="en">No lock-in</span><span data-lang="pl">Zero uzależnienia</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow"><span data-lang="en">About</span><span data-lang="pl">O mnie</span></p>
+      <h2><span data-lang="en">One person, three crafts.</span><span data-lang="pl">Jedna osoba, trzy warsztaty.</span></h2>
+    </div>
+    <div class="about__grid">
+      <div class="about__card reveal">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="jl-g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6fd6ff"/><stop offset="1" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="56" fill="none" stroke="#22304e" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="44" fill="none" stroke="#22304e" stroke-width="1" stroke-dasharray="3 5"/>
+          <circle cx="60" cy="4" r="3.5" fill="#6fd6ff"/>
+          <circle cx="104" cy="60" r="3" fill="#a78bfa"/>
+          <circle cx="60" cy="104" r="2.5" fill="#3ddc97"/>
+          <text x="60" y="74" font-family="JBMono,monospace" font-size="36" font-weight="800" fill="url(#jl-g)" text-anchor="middle">JL</text>
+        </svg>
+        <h3>Jan Lubicz-Przyłuski</h3>
+        <p class="role"><span data-lang="en">Director · Art historian<br>AI-native developer</span><span data-lang="pl">Reżyser · Historyk sztuki<br>Twórca pracujący z AI</span></p>
+        <div class="about__tags">
+          <span>Film</span><span>AI Video</span><span>Data Viz</span><span>EdTech</span><span data-lang="en"><span>Theatre</span></span><span data-lang="pl"><span>Teatr</span></span><span>OSINT</span>
+        </div>
+        <div class="about__social">
+          <a href="https://www.linkedin.com/in/jan-lubicz-przyluski-10460580/" target="_blank" rel="noopener">LINKEDIN</a>
+          <a href="https://github.com/futureshow1" target="_blank" rel="noopener">GITHUB</a>
+          <a href="https://vimeo.com/janjan" target="_blank" rel="noopener">VIMEO</a>
+        </div>
+      </div>
+      <div class="about__body">
+        <p class="reveal"><span data-lang="en"><b>Visual artist, film director and cultural anthropologist.</b> 25+ years in experimental film, theatre and digital media — from video projections for Krystian Lupa's internationally touring productions (Beijing, Hong Kong, Reims) to a European Film Award nomination as editor of „Glass Trap".</span><span data-lang="pl"><b>Artysta wizualny, reżyser i antropolog kultury.</b> Ponad 25 lat w filmie eksperymentalnym, teatrze i mediach cyfrowych — od projekcji wideo do spektakli Krystiana Lupy pokazywanych w Pekinie, Hongkongu i Reims, po nominację do Europejskiej Nagrody Filmowej za montaż „Szklanej pułapki".</span></p>
+        <p class="reveal"><span data-lang="en">In the generative AI revolution <b>since day one</b> — with Harvard CS50 foundations under the craft. My method is <b>AI curating</b>: selecting and orchestrating the right tools for each problem — Claude Code, Runway, LTX, Stable Diffusion, Suno, ElevenLabs, DaVinci Resolve — and directing the collaboration between human vision and machine capability.</span><span data-lang="pl">W rewolucji generatywnej AI <b>od pierwszego dnia</b> — z fundamentem Harvardzkiego CS50 pod warsztatem. Moja metoda to <b>kuratorowanie AI</b>: dobieranie i orkiestrowanie narzędzi do problemu — Claude Code, Runway, LTX, Stable Diffusion, Suno, ElevenLabs, DaVinci Resolve — i reżyserowanie współpracy między ludzką wizją a możliwościami maszyny.</span></p>
+        <p class="reveal"><span data-lang="en">FutureShow is where the three crafts meet: subjects researched like an art historian, told like a director, shipped like an engineer.</span><span data-lang="pl">FutureShow to miejsce, w którym te trzy warsztaty się spotykają: tematy badane jak przez historyka sztuki, opowiadane jak przez reżysera, dostarczane jak przez inżyniera.</span></p>
+        <div class="creds">
+          <div class="cred reveal"><b><span data-lang="en">European Film Award nominee</span><span data-lang="pl">Nominacja do Europejskiej Nagrody Filmowej</span></b><span><span data-lang="en">Editor of „Glass Trap" — Best Short Documentary nomination, 2009</span><span data-lang="pl">Montaż „Szklanej pułapki" — nominacja, najlepszy krótki dokument, 2009</span></span></div>
+          <div class="cred reveal"><b><span data-lang="en">Krystian Lupa's „Persona"</span><span data-lang="pl">„Persona" Krystiana Lupy</span></b><span><span data-lang="en">Video projections for internationally touring theatre productions</span><span data-lang="pl">Projekcje wideo do spektakli pokazywanych na trzech kontynentach</span></span></div>
+          <div class="cred reveal"><b><span data-lang="en">Ministry of Culture Award</span><span data-lang="pl">Nagroda Ministra Kultury</span></b><span><span data-lang="en">For „The Art of Action" — history and hermeneutics of Polish performance art, 2007</span><span data-lang="pl">Za „Sztukę Akcji" — historię i hermeneutykę polskiego performansu, 2007</span></span></div>
+          <div class="cred reveal"><b><span data-lang="en">University lecturer</span><span data-lang="pl">Wykładowca akademicki</span></b><span><span data-lang="en">Charles University Prague, Bezalel Academy Tel Aviv, CCA Tel Aviv, ICC Kraków</span><span data-lang="pl">Uniwersytet Karola w Pradze, Bezalel Tel Awiw, CCA Tel Awiw, MCK Kraków</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact__card reveal">
+      <h2><span data-lang="en">Have a subject that deserves<br>more than a PDF?</span><span data-lang="pl">Masz temat, który zasługuje<br>na więcej niż PDF?</span></h2>
+      <p><span data-lang="en">Tell me what you're trying to explain, to whom, and by when. I reply within 48 hours — usually with a first sketch of how it could work.</span><span data-lang="pl">Napisz, co chcesz wyjaśnić, komu i na kiedy. Odpowiadam w 48 godzin — zwykle od razu z pierwszym szkicem rozwiązania.</span></p>
+      <div class="contact__ctas">
+        <a class="btn" href="mailto:futureshow@proton.me?subject=Project%20inquiry%20—%20FutureShow">futureshow@proton.me</a>
+        <button class="btn btn--ghost" type="button" id="copyEmail" data-en="Copy email" data-pl="Kopiuj adres" data-en-done="Copied ✓" data-pl-done="Skopiowano ✓"><span data-lang="en">Copy email</span><span data-lang="pl">Kopiuj adres</span></button>
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/jan-lubicz-przyluski-10460580/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="contact__small">
+        <span><b><span data-lang="en">Free 30-min scoping call</span><span data-lang="pl">Bezpłatna 30-min rozmowa</span></b></span>
+        <span data-lang="en">Booking Q3–Q4 2026</span><span data-lang="pl">Rezerwacje Q3–Q4 2026</span>
+        <span>PL / EN</span>
+        <span data-lang="en">Warsaw · remote across the EU</span><span data-lang="pl">Warszawa · zdalnie w całej UE</span>
+      </p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <span class="nav__logo">FUTURE<b>SHOW</b></span>
+        <p><span data-lang="en">Interactive experiences for museums, media, education and NGOs. Built in Warsaw, shipped across the EU.</span><span data-lang="pl">Interaktywne doświadczenia dla muzeów, mediów, edukacji i NGO. Tworzone w Warszawie, wdrażane w całej UE.</span></p>
+      </div>
+      <div class="footer__links">
+        <div>
+          <b><span data-lang="en">Explore</span><span data-lang="pl">Nawigacja</span></b>
+          <a href="#work"><span data-lang="en">Work</span><span data-lang="pl">Realizacje</span></a>
+          <a href="#services"><span data-lang="en">Services</span><span data-lang="pl">Usługi</span></a>
+          <a href="films.html"><span data-lang="en">AI Films</span><span data-lang="pl">Filmy AI</span></a>
+          <a href="#about"><span data-lang="en">About</span><span data-lang="pl">O mnie</span></a>
+        </div>
+        <div>
+          <b><span data-lang="en">Connect</span><span data-lang="pl">Kontakt</span></b>
+          <a href="mailto:futureshow@proton.me">futureshow@proton.me</a>
+          <a href="https://www.linkedin.com/in/jan-lubicz-przyluski-10460580/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/futureshow1" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://vimeo.com/janjan" target="_blank" rel="noopener">Vimeo</a>
+        </div>
+        <div>
+          <b>Meta</b>
+          <a href="projects/jan-lubicz-website/index.html"><span data-lang="en">Personal site &amp; CV</span><span data-lang="pl">Strona osobista i CV</span></a>
+          <a href="https://github.com/futureshow1/futureshow" target="_blank" rel="noopener"><span data-lang="en">Source of this site</span><span data-lang="pl">Kod tej strony</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 FutureShow · Jan Lubicz-Przyłuski</span>
+      <span><b><span data-lang="en">Zero frameworks. Zero cookies. Zero trackers.</span><span data-lang="pl">Zero frameworków. Zero cookies. Zero trackerów.</span></b></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Privacy-friendly, cookieless analytics: uncomment after creating a free GoatCounter account.
+     No consent banner needed — it stores nothing on the visitor's device (see REPORT.md §analytics).
+<script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
+<script>
+(function(){
+  'use strict';
+  var d = document, root = d.documentElement;
+  var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Language ---------- */
+  var TITLES = {
+    en: 'FutureShow — Interactive Experiences, Data Stories & AI Films | Warsaw',
+    pl: 'FutureShow — Interaktywne doświadczenia, dane i filmy AI | Warszawa'
+  };
+  function setLang(l, store){
+    root.setAttribute('lang', l);
+    d.title = TITLES[l] || d.title;
+    d.querySelectorAll('[data-setlang]').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-setlang') === l));
+    });
+    if (store) { try { localStorage.setItem('fs_lang', l); } catch(e){} }
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('fs_lang'); } catch(e){}
+  var initial = saved || ((navigator.language || '').toLowerCase().indexOf('pl') === 0 ? 'pl' : root.getAttribute('lang') || 'en');
+  if (initial !== root.getAttribute('lang')) setLang(initial, false); else setLang(initial, false);
+  d.querySelectorAll('[data-setlang]').forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-setlang'), true); });
+  });
+
+  /* ---------- Mobile nav ---------- */
+  var burger = d.querySelector('.nav__burger'), menu = d.getElementById('navMenu');
+  if (burger) {
+    burger.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    menu.addEventListener('click', function(e){
+      if (e.target.closest('a')) { menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+    });
+  }
+
+  /* ---------- Sector tabs ---------- */
+  var tabs = Array.prototype.slice.call(d.querySelectorAll('[role="tab"]'));
+  function selectTab(tab){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      var p = d.getElementById(t.getAttribute('aria-controls'));
+      if (p) { p.hidden = !on; p.classList.toggle('active', on); }
+    });
+    tab.focus();
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ selectTab(t); });
+    t.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight') selectTab(tabs[(i+1) % tabs.length]);
+      if (e.key === 'ArrowLeft') selectTab(tabs[(i-1+tabs.length) % tabs.length]);
+    });
+  });
+
+  /* ---------- Reveal on scroll ---------- */
+  var revealEls = d.querySelectorAll('.reveal');
+  if (REDUCED || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      /* already on screen (deep link, back-nav, reload mid-page): show instantly, no fade */
+      if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('in'); }
+      else { io.observe(el); }
+    });
+  }
+
+  /* ---------- Copy email ---------- */
+  var copyBtn = d.getElementById('copyEmail');
+  if (copyBtn) copyBtn.addEventListener('click', function(){
+    var lang = root.getAttribute('lang');
+    function done(){
+      var spans = copyBtn.querySelectorAll('span[data-lang]');
+      spans.forEach(function(s){ s.dataset.orig = s.dataset.orig || s.textContent; s.textContent = copyBtn.getAttribute('data-' + s.getAttribute('data-lang') + '-done'); });
+      setTimeout(function(){ spans.forEach(function(s){ s.textContent = s.dataset.orig; }); }, 2200);
+    }
+    if (navigator.clipboard) navigator.clipboard.writeText('futureshow@proton.me').then(done, done); else done();
+  });
+
+  /* ---------- Hero constellation: morphing point field ---------- */
+  var canvas = d.getElementById('orbCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var N = 150, P = [], targets = [], netEdges = [];
+  var mode = 0, MODES = ['NETWORK', 'WAVEFORM', 'DATASET', 'FRAME'];
+  var modeLabel = d.getElementById('orbMode');
+  var W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var mouse = { x: -1e4, y: -1e4 };
+  var lastManual = 0, raf = 0, visible = true, t0 = 0;
+
+  function rng(seed){ return function(){ seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+  /* target generators — unit coordinates [0,1] */
+  function genNetwork(){
+    var r = rng(42), pts = [], centers = [];
+    for (var c = 0; c < 5; c++) centers.push([0.18 + r() * 0.64, 0.18 + r() * 0.6]);
+    for (var i = 0; i < N; i++) {
+      var ct = centers[i % 5];
+      pts.push([ct[0] + (r() - 0.5) * 0.34, ct[1] + (r() - 0.5) * 0.32]);
+    }
+    netEdges = [];
+    for (var a = 0; a < N; a++) for (var b = a + 1; b < N; b++) {
+      var dx = pts[a][0] - pts[b][0], dy = pts[a][1] - pts[b][1];
+      if (dx * dx + dy * dy < 0.012 && netEdges.length < 220) netEdges.push([a, b]);
+    }
+    return pts;
+  }
+  function ecgY(x){ /* two heartbeat cycles */
+    var p = (x * 2) % 1, y = 0.5;
+    if (p > 0.08 && p < 0.16) y -= 0.045 * Math.sin((p - 0.08) / 0.08 * Math.PI);            /* P */
+    else if (p >= 0.20 && p < 0.235) y += 0.06 * Math.sin((p - 0.20) / 0.035 * Math.PI);      /* Q */
+    else if (p >= 0.235 && p < 0.30) y -= 0.30 * Math.sin((p - 0.235) / 0.065 * Math.PI);     /* R */
+    else if (p >= 0.30 && p < 0.34) y += 0.09 * Math.sin((p - 0.30) / 0.04 * Math.PI);        /* S */
+    else if (p > 0.42 && p < 0.56) y -= 0.07 * Math.sin((p - 0.42) / 0.14 * Math.PI);         /* T */
+    return y;
+  }
+  function genECG(){
+    var pts = [];
+    for (var i = 0; i < N; i++) { var x = 0.06 + (i / (N - 1)) * 0.88; pts.push([x, ecgY((i / (N - 1)))]); }
+    return pts;
+  }
+  function genBars(){
+    var heights = [0.30, 0.52, 0.40, 0.72, 0.58, 0.86, 0.48, 0.66], pts = [];
+    var cols = heights.length, perCol = Math.floor(N / cols), k = 0;
+    for (var c = 0; c < cols; c++) {
+      var x = 0.14 + c * (0.72 / (cols - 1));
+      var n = (c === cols - 1) ? N - k : perCol;
+      for (var j = 0; j < n; j++, k++) pts.push([x + ((j % 2) - 0.5) * 0.025, 0.86 - (j / (n - 1)) * heights[c]]);
+    }
+    return pts;
+  }
+  function genFilm(){
+    var pts = [], i;
+    var ringN = 92, triN = N - ringN;
+    for (i = 0; i < ringN; i++) { var a = (i / ringN) * Math.PI * 2 - Math.PI / 2; pts.push([0.5 + Math.cos(a) * 0.34, 0.5 + Math.sin(a) * 0.34]); }
+    var v = [[0.42, 0.36], [0.42, 0.64], [0.64, 0.5]];
+    for (i = 0; i < triN; i++) {
+      var seg = i % 3, f = (i / triN), A = v[seg], B = v[(seg + 1) % 3], q = (Math.floor(i / 3) / Math.ceil(triN / 3));
+      pts.push([A[0] + (B[0] - A[0]) * q, A[1] + (B[1] - A[1]) * q]);
+    }
+    return pts;
+  }
+  var GENS = [genNetwork, genECG, genBars, genFilm];
+
+  function resize(){
+    var r = canvas.parentElement.getBoundingClientRect();
+    W = r.width; H = r.height;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function setMode(m, manual){
+    mode = m;
+    if (manual) lastManual = performance.now();
+    targets = GENS[m]();
+    if (modeLabel) modeLabel.textContent = MODES[m];
+    d.querySelectorAll('#orbModes button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(+b.getAttribute('data-mode') === m));
+    });
+    if (REDUCED) drawStatic();
+  }
+
+  function colorOf(i){
+    if (i % 17 === 0) return '#f2c94c';
+    var t = i / N;
+    return t < 0.5 ? '#6fd6ff' : '#a78bfa';
+  }
+
+  function drawPoints(alphaEdges){
+    ctx.clearRect(0, 0, W, H);
+    /* edges */
+    if (mode === 0) {
+      ctx.lineWidth = 1;
+      for (var e = 0; e < netEdges.length; e++) {
+        var a = P[netEdges[e][0]], b = P[netEdges[e][1]];
+        ctx.strokeStyle = 'rgba(111,214,255,' + (0.10 * alphaEdges) + ')';
+        ctx.beginPath(); ctx.moveTo(a.x * W, a.y * H); ctx.lineTo(b.x * W, b.y * H); ctx.stroke();
+      }
+    } else if (mode === 1 || mode === 3) {
+      ctx.lineWidth = 1.2;
+      ctx.strokeStyle = mode === 1 ? 'rgba(61,220,151,' + (0.25 * alphaEdges) + ')' : 'rgba(167,139,250,' + (0.18 * alphaEdges) + ')';
+      var upto = mode === 1 ? N : 92;
+      ctx.beginPath();
+      for (var i = 0; i < upto; i++) { var p = P[i]; if (i === 0) ctx.moveTo(p.x * W, p.y * H); else ctx.lineTo(p.x * W, p.y * H); }
+      if (mode === 3) ctx.closePath();
+      ctx.stroke();
+    }
+    /* points */
+    for (var j = 0; j < N; j++) {
+      var q = P[j];
+      ctx.fillStyle = colorOf(j);
+      ctx.globalAlpha = 0.9;
+      ctx.beginPath(); ctx.arc(q.x * W, q.y * H, j % 9 === 0 ? 2.4 : 1.7, 0, 6.2832); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawStatic(){
+    resize();
+    for (var i = 0; i < N; i++) P[i] = { x: targets[i][0], y: targets[i][1] };
+    drawPoints(1);
+  }
+
+  function tick(now){
+    if (!t0) t0 = now;
+    var settled = 0;
+    for (var i = 0; i < N; i++) {
+      var p = P[i], t = targets[i];
+      var wob = 0.0016 * Math.sin(now / 900 + i * 1.7);
+      var tx = t[0] + wob, ty = t[1] + 0.0016 * Math.cos(now / 1100 + i * 2.3);
+      /* mouse repulsion */
+      var mx = p.x * W - mouse.x, my = p.y * H - mouse.y, md = mx * mx + my * my;
+      if (md < 4900) { var f = (1 - Math.sqrt(md) / 70) * 0.018; p.x += (mx / W) * f * 70; p.y += (my / H) * f * 70; }
+      p.x += (tx - p.x) * 0.065; p.y += (ty - p.y) * 0.065;
+      if (Math.abs(tx - p.x) < 0.002) settled++;
+    }
+    drawPoints(Math.min(1, settled / (N * 0.7)));
+    /* auto-cycle unless user touched modes recently */
+    if (now - lastManual > 15000 && !window.__fsHold) {
+      if (!tick.last) tick.last = now;
+      if (now - tick.last > 6000) { tick.last = now; setMode((mode + 1) % 4, false); }
+    } else { tick.last = now; }
+    if (visible) raf = requestAnimationFrame(tick);
+  }
+
+  /* init */
+  resize();
+  var r0 = rng(7);
+  targets = GENS[0]();
+  for (var i = 0; i < N; i++) P.push({ x: 0.5 + (r0() - 0.5) * 0.1, y: 0.5 + (r0() - 0.5) * 0.1 });
+  setMode(0, false);
+
+  d.getElementById('orbModes').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (b) setMode(+b.getAttribute('data-mode'), true);
+  });
+  window.addEventListener('resize', function(){ resize(); if (REDUCED) drawStatic(); });
+
+  if (!REDUCED) {
+    canvas.parentElement.addEventListener('pointermove', function(e){
+      var r = canvas.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    });
+    canvas.parentElement.addEventListener('pointerleave', function(){ mouse.x = -1e4; mouse.y = -1e4; });
+    var vio = new IntersectionObserver(function(en){
+      visible = en[0].isIntersecting;
+      if (visible) { cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); } else cancelAnimationFrame(raf);
+    }, { threshold: 0.05 });
+    vio.observe(canvas.parentElement);
+    d.addEventListener('visibilitychange', function(){
+      if (d.hidden) { cancelAnimationFrame(raf); } else if (visible) { raf = requestAnimationFrame(tick); }
+    });
+    raf = requestAnimationFrame(tick);
+  } else {
+    drawStatic();
+  }
+})();
+</script>
+</body>
+</html>
