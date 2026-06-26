@@ -72,6 +72,23 @@ a{color:inherit;text-decoration:none}
 .flag-card__link.outline{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 .flag-card__link.outline:hover{background:var(--ink);color:var(--paper)}
 
+/* Compact list (more works) */
+.more{margin-top:80px}
+.more__head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:14px;border-bottom:1px solid var(--ink);margin-bottom:8px;flex-wrap:wrap;gap:16px}
+.more__title{font-family:var(--display);font-size:1.4rem;text-transform:uppercase;letter-spacing:-0.01em}
+.more__count{font-family:var(--mono);font-size:0.66rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-mute)}
+.more ul{list-style:none}
+.more li{display:grid;grid-template-columns:80px 1fr 200px 60px;gap:24px;padding:18px 12px;border-bottom:1px solid var(--rule);align-items:baseline;transition:background .25s,padding .25s,color .25s;cursor:pointer}
+.more li:hover{background:var(--ink);color:var(--paper);padding-left:24px}
+.more .yr{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.12em;color:var(--text-mute)}
+.more li:hover .yr{color:rgba(250,250,247,0.55)}
+.more .nm{font-family:var(--display);font-size:1.05rem;text-transform:uppercase;letter-spacing:-0.01em}
+.more .nm em{font-family:var(--body);font-style:italic;color:var(--text-mute);font-size:0.88rem;margin-left:10px;text-transform:none;font-weight:400}
+.more li:hover .nm em{color:rgba(250,250,247,0.55)}
+.more .tg{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);text-align:right}
+.more .ar{color:var(--text-mute);font-size:1.2rem;text-align:right}
+.more li:hover .ar{color:var(--paper)}
+
 /* FILM banner (separate treatment) */
 .film{background:var(--ink);color:var(--paper);padding:110px 36px 100px;border-top:6px solid var(--yellow)}
 .film__inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
@@ -139,9 +156,9 @@ a{color:inherit;text-decoration:none}
     <p class="page-head__deck">Pełny indeks pracowni: piętnaście realizacji — symulacje medyczne i fizyczne, atlasy danych, portale edukacyjne, śledztwa, sztuka 3D, kompendia, archiwa. Plus reel filmowy.</p>
     <div class="page-head__stats">
       <div class="page-head__stat"><strong>15</strong>Prac</div>
-      <div class="page-head__stat"><strong>13</strong>Na żywo</div>
-      <div class="page-head__stat"><strong>1</strong>W betacie</div>
-      <div class="page-head__stat"><strong>2024–26</strong>Wydane</div>
+      <div class="page-head__stat"><strong>10</strong>Z kartami</div>
+      <div class="page-head__stat"><strong>5</strong>Także na żywo</div>
+      <div class="page-head__stat"><strong>1</strong>Film reel</div>
     </div>
   </div>
 </header>
@@ -293,72 +310,23 @@ a{color:inherit;text-decoration:none}
         </div>
       </article>
 
-      <!-- 11 N-body -->
-      <article class="flag-card">
-        <div class="flag-card__img"><img src="screens/nbody.png" alt="Symulacja N-ciał" loading="lazy"></div>
-        <div class="flag-card__body">
-          <div class="flag-card__chips"><span class="chip red">Symulacja</span><span class="chip">Fizyka</span><span class="chip outline">3D</span></div>
-          <h3 class="flag-card__title">Symulacja <em>grawitacyjna.</em></h3>
-          <p class="flag-card__deck">28 000 cząstek, algorytm Barnes-Hut, 7 scenariuszy: zderzenie galaktyk, ciemna materia, supernowa, dysk protoplanetarny, sieć kosmiczna, system potrójny. WebGL real-time.</p>
-          <div class="flag-card__links">
-            <a href="https://futureshow1.github.io/futureshow/projects/nbody-simulation.html" target="_blank" rel="noopener" class="flag-card__link">Uruchom ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 12 40 afer -->
-      <article class="flag-card">
-        <div class="flag-card__img"><img src="screens/afery40.png" alt="40 największych polskich afer" loading="lazy"></div>
-        <div class="flag-card__body">
-          <div class="flag-card__chips"><span class="chip red">Śledztwo</span><span class="chip">Polska</span><span class="chip outline">1988–2026</span></div>
-          <h3 class="flag-card__title">40 polskich <em>afer.</em></h3>
-          <p class="flag-card__deck">Kompendium afer polityczno-finansowych po 1988: 40 spraw, 144 osób, 62 mld zł strat, 81 wyroków. Dashboard, oś czasu, katalog, analiza finansowa, mapa powiązań.</p>
-          <div class="flag-card__links">
-            <a href="https://futureshow1.github.io/futureshow/projects/afery-polska-v2.html" target="_blank" rel="noopener" class="flag-card__link">Otwórz raport ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 13 Cambridge Analytica -->
-      <article class="flag-card">
-        <div class="flag-card__img"><img src="screens/cambridge.png" alt="Cambridge Analytica — Mindf*ck" loading="lazy"></div>
-        <div class="flag-card__body">
-          <div class="flag-card__chips"><span class="chip">Śledztwo</span><span class="chip red">Big Tech</span><span class="chip outline">2018</span></div>
-          <h3 class="flag-card__title">Cambridge <em>Analytica.</em></h3>
-          <p class="flag-card__deck">„Mindf*ck" — oś czasu na podstawie zeznań Christophera Wylie'a. 87 mln profili FB, 20+ krajów, 44 amerykańskie wybory, ugoda na 725 mln dolarów. Ze źródłami.</p>
-          <div class="flag-card__links">
-            <a href="https://futureshow1.github.io/futureshow/projects/cambridge_analytica_timeline.html" target="_blank" rel="noopener" class="flag-card__link">Otwórz oś czasu ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 14 Świdziński -->
-      <article class="flag-card">
-        <div class="flag-card__img"><img src="screens/swidzinski.png" alt="Archiwum Jana Świdzińskiego" loading="lazy"></div>
-        <div class="flag-card__body">
-          <div class="flag-card__chips"><span class="chip yellow">Sztuka</span><span class="chip">Archiwum</span><span class="chip outline">1923–2014</span></div>
-          <h3 class="flag-card__title">Archiwum <em>Świdzińskiego.</em></h3>
-          <p class="flag-card__deck">Jan Świdziński — sztuka kontekstualna. Interaktywne archiwum, manifest 12 punktów, gra edukacyjna o intelektualnym dziedzictwie. „Sense emerges from context."</p>
-          <div class="flag-card__links">
-            <a href="https://futureshow1.github.io/swidzinski-contextual-art/" target="_blank" rel="noopener" class="flag-card__link">Otwórz archiwum ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 15 Świtkowski -->
-      <article class="flag-card">
-        <div class="flag-card__img"><img src="screens/switkowski.png" alt="Świtkowski — Okultyzm i magja" loading="lazy"></div>
-        <div class="flag-card__body">
-          <div class="flag-card__chips"><span class="chip">Redakcja</span><span class="chip yellow">Okultyzm</span><span class="chip outline">1939</span></div>
-          <h3 class="flag-card__title">Świtkowski <em>1939.</em></h3>
-          <p class="flag-card__deck">Kompendium „Okultyzm i magja w świetle parapsychologji" Józefa Świtkowskiego (1939): synteza zachodniej tradycji ezoterycznej i nowoczesnej nauki. 45 rozdziałów, 121 pojęć, 67 postaci.</p>
-          <div class="flag-card__links">
-            <a href="https://futureshow1.github.io/futureshow/projects/kompendium_switkowski.html" target="_blank" rel="noopener" class="flag-card__link">Otwórz kompendium ↗</a>
-          </div>
-        </div>
-      </article>
-
     </div>
+
+    <!-- MORE: compact list -->
+    <div class="more">
+      <div class="more__head">
+        <h3 class="more__title">Także na żywo</h3>
+        <div class="more__count">Pięć prac · 1939–2026</div>
+      </div>
+      <ul>
+        <li data-href="https://futureshow1.github.io/futureshow/projects/nbody-simulation.html" data-target="_blank"><span class="yr">2026</span><span class="nm">Symulacja grawitacyjna N-ciał <em>28 000 cząstek, Barnes-Hut, 7 scenariuszy</em></span><span class="tg">Symulacja · 3D</span><span class="ar">→</span></li>
+        <li data-href="https://futureshow1.github.io/futureshow/projects/afery-polska-v2.html" data-target="_blank"><span class="yr">1988–2026</span><span class="nm">40 największych polskich afer <em>62 mld zł strat, 144 osób, 81 wyroków</em></span><span class="tg">Śledztwo · Polska</span><span class="ar">→</span></li>
+        <li data-href="https://futureshow1.github.io/futureshow/projects/cambridge_analytica_timeline.html" data-target="_blank"><span class="yr">2018</span><span class="nm">Cambridge Analytica — Mindf*ck <em>oś czasu, 87 mln profili FB, ugoda 725 mln $</em></span><span class="tg">Śledztwo · Big Tech</span><span class="ar">→</span></li>
+        <li data-href="https://futureshow1.github.io/swidzinski-contextual-art/" data-target="_blank"><span class="yr">1923–2014</span><span class="nm">Archiwum Jana Świdzińskiego <em>sztuka kontekstualna, manifest 12 punktów</em></span><span class="tg">Sztuka · Archiwum</span><span class="ar">→</span></li>
+        <li data-href="https://futureshow1.github.io/futureshow/projects/kompendium_switkowski.html" data-target="_blank"><span class="yr">1939</span><span class="nm">Świtkowski — Okultyzm i magja <em>kompendium, 45 rozdz., 121 pojęć, 67 postaci</em></span><span class="tg">Redakcja</span><span class="ar">→</span></li>
+      </ul>
+    </div>
+
   </div>
 </section>
 
@@ -430,5 +398,18 @@ a{color:inherit;text-decoration:none}
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('li[data-href]').forEach(li => {
+  li.setAttribute('role', 'link');
+  li.setAttribute('tabindex', '0');
+  const go = () => {
+    const t = li.dataset.target || '_self';
+    if (t === '_blank') window.open(li.dataset.href, '_blank', 'noopener');
+    else window.location.href = li.dataset.href;
+  };
+  li.addEventListener('click', go);
+  li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+});
+</script>
 </body>
 </html>
