@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prace — Wszystkie · FutureShow</title>
+<meta name="description" content="Pełny indeks prac FutureShow Studio: flagowe realizacje, laboratoria, satelity rzecznicze, archiwa. 25+ projektów na żywo i w trakcie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0a0a0a;--paper:#fafaf7;--paper2:#f0ede5;--red:#ff2d00;--yellow:#f0ff00;
+  --rule:rgba(0,0,0,0.12);--text-mute:#666;
+  --display:'Archivo Black','Archivo',Impact,sans-serif;
+  --serif:'DM Serif Display',Georgia,serif;
+  --body:'Inter',-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* Nav (same as landing) */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 36px;background:var(--paper);border-bottom:1px solid var(--ink)}
+.nav__brand{font-family:var(--display);font-size:1.05rem;letter-spacing:-0.01em;color:var(--ink);text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.nav__brand::after{content:'';width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulseRed 1.6s ease-in-out infinite}
+@keyframes pulseRed{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.5}}
+.nav__links{display:flex;gap:30px;list-style:none}
+.nav__links a{font-family:var(--mono);font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);transition:color .2s}
+.nav__links a:hover,.nav__links a.active{color:var(--red)}
+.nav__cta{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:11px 22px;background:var(--red);color:var(--paper);transition:all .2s;border:1px solid var(--red)}
+.nav__cta:hover{background:var(--ink);border-color:var(--ink)}
+.lang-toggle{font-family:var(--mono);font-size:0.66rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:8px 12px;border:1px solid var(--ink);color:var(--ink);background:transparent;margin-right:14px;transition:all .15s;display:inline-flex;align-items:center}
+.lang-toggle:hover{background:var(--ink);color:var(--paper)}
+
+/* Page header */
+.page-head{padding:140px 36px 60px;background:var(--ink);color:var(--paper);border-bottom:6px solid var(--red)}
+.page-head__inner{max-width:1280px;margin:0 auto}
+.page-head__eyebrow{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.page-head__eyebrow::before{content:'';display:inline-block;width:42px;height:1px;background:var(--red)}
+.page-head h1{font-family:var(--display);font-size:clamp(3rem,8vw,7rem);text-transform:uppercase;letter-spacing:-0.04em;line-height:0.9;margin-bottom:24px}
+.page-head h1 em{font-family:var(--serif);font-style:italic;color:var(--red);font-weight:400}
+.page-head__deck{font-family:var(--serif);font-size:clamp(1.15rem,1.5vw,1.4rem);line-height:1.4;font-style:italic;max-width:680px;color:rgba(250,250,247,0.8)}
+.page-head__stats{display:flex;gap:48px;margin-top:48px;padding-top:28px;border-top:1px solid rgba(250,250,247,0.18);flex-wrap:wrap}
+.page-head__stat{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,250,247,0.55)}
+.page-head__stat strong{display:block;font-family:var(--display);font-size:2.2rem;color:var(--paper);margin-bottom:4px;letter-spacing:-0.02em}
+
+/* Section heads */
+.psec{padding:90px 36px 50px}
+.psec--alt{background:var(--paper2)}
+.psec__inner{max-width:1280px;margin:0 auto}
+.psec__head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;border-bottom:2px solid var(--ink);margin-bottom:32px;flex-wrap:wrap;gap:20px}
+.psec__title{font-family:var(--display);font-size:clamp(1.8rem,3.5vw,2.6rem);text-transform:uppercase;letter-spacing:-0.02em}
+.psec__count{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-mute)}
+.psec__intro{font-family:var(--serif);font-size:1.05rem;line-height:1.5;font-style:italic;color:var(--ink);max-width:680px;margin-bottom:40px;opacity:0.85}
+
+/* Flagship grid */
+.flag-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px}
+.flag-card{background:var(--paper);border:1px solid var(--ink);transition:all .25s;display:flex;flex-direction:column}
+.flag-card:hover{transform:translateY(-4px);box-shadow:6px 6px 0 var(--ink)}
+.flag-card__img{background:var(--paper2);aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--ink)}
+.flag-card__img img{width:100%;height:100%;object-fit:cover;display:block}
+.flag-card__body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
+.flag-card__chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:4px 8px;background:var(--ink);color:var(--paper)}
+.chip.red{background:var(--red)}
+.chip.yellow{background:var(--yellow);color:var(--ink)}
+.chip.outline{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.flag-card__title{font-family:var(--display);font-size:1.4rem;line-height:1.1;letter-spacing:-0.02em;text-transform:uppercase}
+.flag-card__title em{font-family:var(--serif);font-style:italic;color:var(--red);font-weight:400}
+.flag-card__deck{font-family:var(--body);font-size:0.92rem;line-height:1.5;color:var(--text-mute);flex:1}
+.flag-card__links{display:flex;gap:14px;margin-top:auto;flex-wrap:wrap}
+.flag-card__link{font-family:var(--mono);font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:8px 14px;background:var(--ink);color:var(--paper);transition:all .15s;display:inline-flex;align-items:center;gap:6px}
+.flag-card__link:hover{background:var(--red)}
+.flag-card__link.outline{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.flag-card__link.outline:hover{background:var(--ink);color:var(--paper)}
+
+/* Compact list (satellites + archive) */
+.compact{margin-top:0}
+.compact ul{list-style:none}
+.compact li{display:grid;grid-template-columns:80px 1fr 200px 60px;gap:24px;padding:20px 12px;border-bottom:1px solid var(--rule);align-items:baseline;transition:background .25s,padding .25s}
+.compact li:hover{background:var(--ink);color:var(--paper);padding-left:24px}
+.compact .yr{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.12em;color:var(--text-mute)}
+.compact li:hover .yr{color:rgba(250,250,247,0.55)}
+.compact .nm{font-family:var(--display);font-size:1.05rem;text-transform:uppercase;letter-spacing:-0.01em}
+.compact .nm em{font-family:var(--body);font-style:italic;color:var(--text-mute);font-size:0.88rem;margin-left:10px;text-transform:none;font-weight:400}
+.compact li:hover .nm em{color:rgba(250,250,247,0.55)}
+.compact .nm .beta{display:inline-block;font-family:var(--mono);font-style:normal;font-size:0.58rem;font-weight:700;letter-spacing:0.18em;background:var(--yellow);color:var(--ink);padding:2px 7px;margin-left:10px;vertical-align:middle;text-transform:uppercase}
+.compact .nm .live{display:inline-block;font-family:var(--mono);font-style:normal;font-size:0.58rem;font-weight:700;letter-spacing:0.18em;background:var(--red);color:var(--paper);padding:2px 7px;margin-left:10px;vertical-align:middle;text-transform:uppercase}
+.compact .tg{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);text-align:right}
+.compact .ar{color:var(--text-mute);font-size:1.2rem;text-align:right}
+.compact li:hover .ar{color:var(--paper)}
+
+/* Footer */
+.footer{background:var(--ink);color:var(--paper);padding:80px 36px 30px}
+.footer__inner{max-width:1280px;margin:0 auto}
+.footer__cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-top:36px;border-top:1px solid rgba(250,250,247,0.15)}
+.footer__col h4{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.footer__col ul{list-style:none}
+.footer__col li{margin-bottom:8px;font-size:0.88rem;color:rgba(250,250,247,0.75)}
+.footer__col a:hover{color:var(--yellow)}
+.footer__bottom{margin-top:56px;padding-top:22px;border-top:1px solid rgba(250,250,247,0.15);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,250,247,0.45);flex-wrap:wrap;gap:14px}
+
+@media(max-width:900px){
+  .nav__links{display:none}
+  .nav{padding:14px 20px}
+  .page-head{padding:110px 20px 50px}
+  .psec{padding:60px 20px 40px}
+  .flag-grid{grid-template-columns:1fr;gap:24px}
+  .compact li{grid-template-columns:60px 1fr 100px 32px;gap:12px;padding:16px 8px}
+  .compact .tg{text-align:left}
+  .footer__cols{grid-template-columns:1fr 1fr;gap:32px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand">FutureShow</a>
+  <ul class="nav__links">
+    <li><a href="prace.html" class="active">Prace</a></li>
+    <li><a href="index.html#approach">Metoda</a></li>
+    <li><a href="studio-pl.html">Studio</a></li>
+    <li><a href="download-pl.html">Download</a></li>
+  </ul>
+  <a href="works.html" class="lang-toggle">EN</a>
+  <a href="index.html#contact" class="nav__cta">Zacznij projekt</a>
+</nav>
+
+<!-- HEADER -->
+<header class="page-head">
+  <div class="page-head__inner">
+    <div class="page-head__eyebrow">Indeks · Nr 02</div>
+    <h1>Prace, <em>wszystkie.</em></h1>
+    <p class="page-head__deck">Pełny indeks pracowni: siedem prac flagowych, pięć satelitów rzeczniczo-badawczych, czternaście dalszych — laboratoria, redakcje, archiwa, sztuka, śledztwa. To, co już działa publicznie, i to, co dojrzewa w wersji beta.</p>
+    <div class="page-head__stats">
+      <div class="page-head__stat"><strong>7</strong>Flagship</div>
+      <div class="page-head__stat"><strong>5</strong>Satelitów</div>
+      <div class="page-head__stat"><strong>14</strong>Z archiwum</div>
+      <div class="page-head__stat"><strong>26</strong>Prac łącznie</div>
+    </div>
+  </div>
+</header>
+
+<!-- FLAGSHIP -->
+<section class="psec">
+  <div class="psec__inner">
+    <div class="psec__head">
+      <h2 class="psec__title">Flagship</h2>
+      <div class="psec__count">Siedem realizacji · 2024–2026</div>
+    </div>
+    <p class="psec__intro">Prace, które żyją na własnych domenach i mają pełne case studies. Otwarte do cytowania, do wykładu, do testowania w klasie.</p>
+
+    <div class="flag-grid">
+
+      <!-- CardioSim -->
+      <article class="flag-card">
+        <div class="flag-card__img"><img src="screens/cardiosim.png" alt="CardioSim Pro" loading="lazy"></div>
+        <div class="flag-card__body">
+          <div class="flag-card__chips"><span class="chip red">Medycyna</span><span class="chip">Symulacja</span><span class="chip outline">2026</span></div>
+          <h3 class="flag-card__title">CardioSim <em>Pro</em></h3>
+          <p class="flag-card__deck">Pracownia farmakologii w karcie przeglądarki. 10 leków kardiologicznych, 8 scenariuszy klinicznych, hemodynamika real-time — zgodne z Circulation, EJCTS, StatPearls.</p>
+          <div class="flag-card__links">
+            <a href="projects/cardiosim-pl.html" class="flag-card__link">Case study</a>
+            <a href="https://futureshow1.github.io/futureshow/projects/cardiosim.html" target="_blank" rel="noopener" class="flag-card__link outline">Uruchom ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Matryca -->
+      <article class="flag-card">
+        <div class="flag-card__img"><img src="screens/matryca.png" alt="Matryca" loading="lazy"></div>
+        <div class="flag-card__body">
+          <div class="flag-card__chips"><span class="chip">Śledztwo</span><span class="chip red">Big Tech</span><span class="chip outline">2026</span></div>
+          <h3 class="flag-card__title">Matryca</h3>
+          <p class="flag-card__deck">Indeks 33 afer Big Techu: nadużycia platform, naruszenia prywatności, antymonopol, praktyki pracownicze. Wyszukiwalne, porównywalne, ze źródłami. PL/EN.</p>
+          <div class="flag-card__links">
+            <a href="projects/matryca-pl.html" class="flag-card__link">Case study</a>
+            <a href="https://futureshow1.github.io/matryca/" target="_blank" rel="noopener" class="flag-card__link outline">Otwórz portal ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hinton -->
+      <article class="flag-card">
+        <div class="flag-card__img"><img src="screens/hinton.png" alt="Hinton AI Portal" loading="lazy"></div>
+        <div class="flag-card__body">
+          <div class="flag-card__chips"><span class="chip">Edukacja</span><span class="chip red">AI</span><span class="chip outline">2026</span></div>
+          <h3 class="flag-card__title">Hinton <em>AI Portal</em></h3>
+          <p class="flag-card__deck">Elementarz noblisty o tym, jak działa AI. 15 rozdziałów Geoffreya Hintona, trzy edycje wizualne, dwujęzycznie PL/EN.</p>
+          <div class="flag-card__links">
+            <a href="projects/hinton-pl.html" class="flag-card__link">Case study</a>
+            <a href="https://futureshow1.github.io/hinton-ai-portal/" target="_blank" rel="noopener" class="flag-card__link outline">Otwórz portal ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Schizoanaliza -->
+      <article class="flag-card">
+        <div class="flag-card__img"><img src="screens/schizoanaliza.png" alt="Schizoanaliza" loading="lazy"></div>
+        <div class="flag-card__body">
+          <div class="flag-card__chips"><span class="chip yellow">Filozofia</span><span class="chip">Edukacja</span><span class="chip outline">2026</span></div>
+          <h3 class="flag-card__title">Schizoanaliza</h3>
+          <p class="flag-card__deck">Alternatywa dla psychoanalizy. Graf 45 pojęć Deleuze'a i Guattariego, 50 pytań quizowych, trzy maszyny społeczne.</p>
+          <div class="flag-card__links">
+            <a href="projects/schizoanaliza-pl.html" class="flag-card__link">Case study</a>
+            <a href="https://futureshow1.github.io/futureshow/projects/schizoanaliza-gra.html" target="_blank" rel="noopener" class="flag-card__link outline">Otwórz grę ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Mondrian/Malewicz -->
+      <article class="flag-card">
+        <div class="flag-card__img"><img src="screens/mondrian.png" alt="Mondrian/Malewicz" loading="lazy"></div>
+        <div class="flag-card__body">
+          <div class="flag-card__chips"><span class="chip yellow">Sztuka</span><span class="chip">3D</span><span class="chip outline">2026</span></div>
+          <h3 class="flag-card__title">Mondrian / <em>Malewicz</em></h3>
+          <p class="flag-card__deck">Interaktywny tryptyk 3D: POKÓJ — MIASTO — BIEL. 42 zweryfikowane cytaty z notami filozoficznymi. Bryły, dźwięk, drzwi. three.js.</p>
+          <div class="flag-card__links">
+            <a href="https://futureshow1.github.io/mondrian-malewicz/" target="_blank" rel="noopener" class="flag-card__link">Wejdź do pokoju ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sectio Aurea -->
+      <article class="flag-card">
+        <div class="flag-card__img"><img src="screens/sectio.png" alt="Sectio Aurea" loading="lazy"></div>
+        <div class="flag-card__body">
+          <div class="flag-card__chips"><span class="chip yellow">Sztuka</span><span class="chip">Redakcja</span><span class="chip outline">2026</span></div>
+          <h3 class="flag-card__title">Sectio <em>Aurea</em></h3>
+          <p class="flag-card__deck">Złota Liczba, jak to działa. Interaktywny atlas 3D Złotej Liczby: 12 komnat, 7 grywalnych, progresja przez złoto i rangi. Z Ghyki (1931).</p>
+          <div class="flag-card__links">
+            <a href="projects/sectio-aurea-pl.html" class="flag-card__link">Case study</a>
+            <a href="https://futureshow1.github.io/zlota-liczba/" target="_blank" rel="noopener" class="flag-card__link outline">Otwórz atlas ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Atlas -->
+      <article class="flag-card">
+        <div class="flag-card__img"><img src="screens/atlas.png" alt="Atlas Naftowo-Gazowy" loading="lazy"></div>
+        <div class="flag-card__body">
+          <div class="flag-card__chips"><span class="chip yellow">Śledztwo</span><span class="chip">Geopolityka</span><span class="chip outline">2026</span></div>
+          <h3 class="flag-card__title">Atlas <em>Naftowo-Gazowy</em></h3>
+          <p class="flag-card__deck">Gdzie naprawdę przepływa światowa energia. 7 interaktywnych map, 240+ obiektów infrastruktury, status: aktywne / uszkodzone / zamknięte / planowane.</p>
+          <div class="flag-card__links">
+            <a href="projects/atlas-pl.html" class="flag-card__link">Case study</a>
+            <a href="https://futureshow1.github.io/oil-gas-atlas/" target="_blank" rel="noopener" class="flag-card__link outline">Otwórz atlas ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SATELITY -->
+<section class="psec psec--alt">
+  <div class="psec__inner">
+    <div class="psec__head">
+      <h2 class="psec__title">Satelity</h2>
+      <div class="psec__count">Pięć projektów rzeczniczo-badawczych</div>
+    </div>
+    <p class="psec__intro">Projekty, które poszerzają Matrycę w stronę cyfrowej suwerenności, edukacji, polityki i prywatności. Część jest publicznie dostępna, część dopiero dojrzewa.</p>
+
+    <div class="compact">
+      <ul>
+        <li><span class="yr">2026</span><span class="nm">Panoptykon — analiza korpusu <em>2 904 stron, 1,67 mln słów, pipeline NLP</em></span><span class="tg">Research</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">SEJM — Symulator wpływów<span class="beta">Beta</span><em>silnik TF-IDF na 3 834 głosach</em></span><span class="tg">Lab</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Po co szkoła? — Atlas innej edukacji<span class="beta">Beta</span><em>portal-rozszerzenie innaszkola.pl</em></span><span class="tg">Edukacja</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Suwerenność cyfrowa<span class="beta">Koncepcja</span><em>polskie/EU alternatywy wobec Big Tech</em></span><span class="tg">Rzecznictwo</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Anonimizator<span class="beta">Beta</span><em>lokalne narzędzie do anonimizacji PDF/DOCX/TXT</em></span><span class="tg">Tool · Download</span><span class="ar">→</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHIWUM -->
+<section class="psec">
+  <div class="psec__inner">
+    <div class="psec__head">
+      <h2 class="psec__title">Z archiwum studia</h2>
+      <div class="psec__count">14 prac rozwijających się obok flagowych</div>
+    </div>
+    <p class="psec__intro">Laboratoria, redakcje, archiwa, sztuka, śledztwa, filmy. Niektóre żyją publicznie, niektóre dojrzewają.</p>
+
+    <div class="compact">
+      <ul>
+        <li><span class="yr">2026</span><span class="nm">MNEMO<span class="live">Live</span><em>architektura pamięci · osobisty graf wiedzy</em></span><span class="tg">Lab</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Złota Liczba — kompendium Ghyki <em>obszerne wydanie z aneksami</em></span><span class="tg">Redakcja</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Świtkowski — Okultyzm i magja (1939) <em>kompendium</em></span><span class="tg">Redakcja</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Digital Cosmos<span class="live">Live</span><em>immersyjny 3D WebGL</em></span><span class="tg">Lab</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Cosmos Catalogue<span class="live">Live</span><em>biblioteka technik 3D</em></span><span class="tg">Lab</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Cambridge Analytica — Oś czasu <em>chronologia śledcza</em></span><span class="tg">Śledztwo</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">40 największych polskich afer <em>1988–2026, atlas powiązań</em></span><span class="tg">Śledztwo</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Panama Papers — wizualizacja <em>sieć firm-słupów</em></span><span class="tg">Śledztwo</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Habermas — gra edukacyjna <em>graf rozdziałów</em></span><span class="tg">Edukacja</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Symulacja grawitacyjna N-ciał<span class="live">Live</span><em>28 000 cząstek</em></span><span class="tg">Symulacja</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">FutureShow Films — reel AI <em>10+ shortów</em></span><span class="tg">Film</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Archiwum Jana Świdzińskiego<span class="live">Live</span><em>sztuka kontekstualna</em></span><span class="tg">Archiwum</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Archiwum Bronisława Przyłuskiego <em>archiwum kultury</em></span><span class="tg">Archiwum</span><span class="ar">→</span></li>
+        <li><span class="yr">2025</span><span class="nm">Mnemo: Sztuka pamięci<span class="live">Live</span><em>portal + 9 gier · od Simonidesa do SuperMemo</em></span><span class="tg">Edukacja</span><span class="ar">→</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:futureshow@proton.me">futureshow@proton.me</a></li>
+          <li>Warszawa / zdalnie</li>
+          <li>Otwarte na nowe projekty</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Prace</h4>
+        <ul>
+          <li><a href="prace.html">Wszystkie</a></li>
+          <li><a href="index.html#features">Wybrane</a></li>
+          <li><a href="index.html#archive">Z archiwum</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="studio-pl.html">O studio</a></li>
+          <li><a href="index.html#approach">Metoda</a></li>
+          <li><a href="download-pl.html">Download</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Profile</h4>
+        <ul>
+          <li><a href="https://github.com/futureshow1" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="mailto:futureshow@proton.me">E-mail</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div>© 2026 FutureShow Studio · Wszystkie prawa zastrzeżone</div>
+      <div><a href="index.html">← Strona główna</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

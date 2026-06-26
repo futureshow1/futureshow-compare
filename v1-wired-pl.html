@@ -212,26 +212,36 @@ a,button{cursor:none}
 .btn-banner:hover{background:var(--red);color:var(--paper);border-color:var(--red)}
 @media(max-width:700px){.banner__inner{grid-template-columns:1fr;gap:24px;text-align:left}.banner{padding:50px 20px}}
 
-/* ARCHIVE */
-.archive{background:var(--paper);padding:90px 36px 100px}
+/* ARCHIVE — inverted, highlighted */
+.archive{background:var(--ink);color:var(--paper);padding:110px 36px 110px;position:relative}
+.archive::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:var(--red)}
 .archive__inner{max-width:1280px;margin:0 auto}
-.archive__head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:32px;flex-wrap:wrap;gap:20px}
-.archive__title{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.4rem);text-transform:uppercase;letter-spacing:-0.02em}
-.archive__toggle{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:11px 18px;display:inline-flex;align-items:center;gap:10px;transition:all .2s;border:none}
-.archive__toggle:hover{background:var(--red)}
-.archive__toggle::after{content:'+';display:inline-block;transition:transform .25s}
+.archive__eyebrow{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.archive__eyebrow::before{content:'';display:inline-block;width:42px;height:1px;background:var(--red)}
+.archive__head{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:20px;border-bottom:1px solid rgba(250,250,247,0.25);margin-bottom:18px;flex-wrap:wrap;gap:24px}
+.archive__title{font-family:var(--display);font-size:clamp(2.4rem,5.5vw,4.8rem);text-transform:uppercase;letter-spacing:-0.04em;line-height:0.95;color:var(--paper)}
+.archive__title em{font-family:var(--serif);font-style:italic;color:var(--red);font-weight:400}
+.archive__sub{font-family:var(--serif);font-size:1.1rem;line-height:1.4;font-style:italic;color:rgba(250,250,247,0.7);max-width:560px;margin-bottom:32px}
+.archive__toggle{font-family:var(--mono);font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;background:var(--red);color:var(--paper);padding:14px 22px;display:inline-flex;align-items:center;gap:12px;transition:all .2s;border:none;align-self:flex-end}
+.archive__toggle:hover{background:var(--yellow);color:var(--ink)}
+.archive__toggle::after{content:'+';display:inline-block;transition:transform .25s;font-size:1.1em}
 .archive__toggle.open::after{transform:rotate(45deg)}
 .archive__list{max-height:0;overflow:hidden;transition:max-height .5s ease}
-.archive__list.open{max-height:1500px}
+.archive__list.open{max-height:2200px}
 .archive__list ul{list-style:none;padding-top:0}
-.archive__list li{display:grid;grid-template-columns:80px 1fr 160px 60px;gap:24px;padding:18px 12px;border-bottom:1px solid var(--rule);align-items:baseline;transition:background .25s,padding .25s}
-.archive__list li:hover{background:var(--ink);color:var(--paper);padding-left:24px}
-.archive__list .yr{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em}
-.archive__list .nm{font-family:var(--display);font-size:1.1rem;text-transform:uppercase;letter-spacing:-0.01em}
-.archive__list .nm em{font-family:var(--body);font-style:italic;color:var(--text-mute);font-size:0.9rem;margin-left:10px;text-transform:none;font-weight:400}
-.archive__list li:hover .nm em{color:rgba(250,250,247,0.7)}
+.archive__list li{display:grid;grid-template-columns:80px 1fr 180px 60px;gap:24px;padding:20px 12px;border-bottom:1px solid rgba(250,250,247,0.12);align-items:baseline;transition:background .25s,padding .25s,color .25s}
+.archive__list li:hover{background:var(--paper);color:var(--ink);padding-left:24px}
+.archive__list .yr{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.12em;color:rgba(250,250,247,0.55)}
+.archive__list li:hover .yr{color:var(--text-mute)}
+.archive__list .nm{font-family:var(--display);font-size:1.1rem;text-transform:uppercase;letter-spacing:-0.01em;color:var(--paper)}
+.archive__list li:hover .nm{color:var(--ink)}
+.archive__list .nm em{font-family:var(--body);font-style:italic;color:rgba(250,250,247,0.55);font-size:0.9rem;margin-left:10px;text-transform:none;font-weight:400}
+.archive__list li:hover .nm em{color:var(--text-mute)}
+.archive__list .nm .beta{display:inline-block;font-family:var(--mono);font-style:normal;font-size:0.58rem;font-weight:700;letter-spacing:0.18em;background:var(--yellow);color:var(--ink);padding:2px 7px;margin-left:10px;vertical-align:middle;text-transform:uppercase}
 .archive__list .tg{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);text-align:right}
-.archive__list li:hover .tg{color:var(--yellow)}
+.archive__list li:hover .tg{color:var(--red)}
+.archive__list .ar{color:rgba(250,250,247,0.5);font-size:1.2rem;text-align:right}
+.archive__list li:hover .ar{color:var(--ink)}
 .archive__list .ar{font-family:var(--display);font-size:1.1rem;text-align:right;transition:transform .25s}
 .archive__list li:hover .ar{transform:translateX(6px)}
 @media(max-width:800px){.archive{padding:60px 20px 70px}.archive__list li{grid-template-columns:60px 1fr 30px;gap:14px}.archive__list .tg{display:none}}
@@ -263,10 +273,10 @@ a,button{cursor:none}
 <nav class="nav">
   <a href="index.html" class="nav__brand">FutureShow</a>
   <ul class="nav__links">
-    <li><a href="#features">Prace</a></li>
-    <li><a href="#archive">Archiwum</a></li>
+    <li><a href="prace.html">Prace</a></li>
     <li><a href="#approach">Metoda</a></li>
     <li><a href="studio-pl.html">Studio</a></li>
+    <li><a href="download-pl.html">Download</a></li>
   </ul>
   <a href="v1-wired.html" class="lang-toggle">EN</a>
   <a href="#contact" class="nav__cta">Zacznij projekt</a>
@@ -386,7 +396,7 @@ a,button{cursor:none}
   <div class="features__inner">
     <div class="features__rule">
       <h2 class="features__title">Wybrane prace</h2>
-      <div class="features__count">Sześć realizacji · 2024–2026</div>
+      <div class="features__count">Siedem realizacji · 2024–2026</div>
     </div>
 
     <!-- 01 CARDIOSIM -->
@@ -423,42 +433,38 @@ a,button{cursor:none}
     </article>
 
     <div class="feat__pullquote reveal">Większość symulatorów medycznych żyje za paywallem. Tego wysłaliśmy rezydentowi mailem w trzy minuty.</div>
-
-    <!-- 02 ATLAS -->
+    <!-- 02 MATRYCA -->
     <article class="feat reveal">
       <header class="feat__head">
         <div class="feat__num">02</div>
         <div class="feat__title-area">
           <div class="feat__chip-row">
-            <span class="chip yellow">Śledztwo</span>
-            <span class="chip">Geopolityka</span>
+            <span class="chip">Śledztwo</span>
+            <span class="chip red">Big Tech</span>
             <span class="chip outline">2026</span>
           </div>
-          <h3 class="feat__title">Gdzie naprawdę przepływa światowa <em>energia.</em></h3>
-          <p class="feat__deck">Siedem interaktywnych map. 240+ rurociągów, pól wydobywczych, terminali LNG, punktów kontroli. Z informacją o statusie: uszkodzone, zamknięte, aktywne, planowane.</p>
+          <h3 class="feat__title">Indeks afer <em>Big Techu.</em></h3>
+          <p class="feat__deck">33 udokumentowane sprawy: nadużycia platform, naruszenia prywatności, antymonopol, praktyki pracownicze. Wyszukiwalne, porównywalne, ze źródłami. PL/EN.</p>
         </div>
       </header>
-      <a class="feat__image" href="projects/atlas.html">
-        <img src="screens/atlas.png" alt="Oil and Gas Atlas" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      <a class="feat__image" href="projects/matryca.html">
+        <img src="screens/matryca.png" alt="Matryca" loading="lazy" onload="this.parentElement.classList.add('has-img')">
       </a>
       <div class="feat__body">
         <div>
-          <p class="feat__body-text">Po 2022 każdy newsroom w Europie potrzebował sposobu opowiadania o przepływach gazu, który nie byłby ani depeszą Reutersa ani PDF-em Stratfora. Atlas jest trzecią opcją: otwarty, ze źródłami, ze statusem każdego obiektu (aktywne / uszkodzone / zamknięte / planowane). Najedź na dowolną linię; zobacz kto ją zbudował, kto zamknął, w którym roku, po co. Geopolityka czytana przez to, co naprawdę leży w ziemi.</p>
-          <a href="projects/atlas.html" class="feat__cta">Czytaj case study</a>
+          <p class="feat__body-text">Kto pisze pracę o władzy platform, nie musi zaczynać od strony pierwszej każdej historii. Matryca to indeks, którego nie ma nigdzie indziej: każda sprawa zmapowana z dowodami, wynikiem, powtarzalnym wzorcem. Raz zbudowane, na zawsze utrzymywane. Wolne do cytowania.</p>
+          <a href="projects/matryca.html" class="feat__cta">Czytaj case study</a>
         </div>
         <aside class="feat__aside">
           <div class="feat__aside-grid">
-            <div class="feat__stat"><div class="feat__stat-num red">240+</div><div class="feat__stat-label">Obiektów infrastruktury</div></div>
-            <div class="feat__stat"><div class="feat__stat-num">7</div><div class="feat__stat-label">Map kontynentalnych</div></div>
-            <div class="feat__stat"><div class="feat__stat-num">90+</div><div class="feat__stat-label">Zmapowanych rurociągów</div></div>
-            <div class="feat__stat"><div class="feat__stat-num">110+</div><div class="feat__stat-label">Terminali LNG</div></div>
+            <div class="feat__stat"><div class="feat__stat-num red">33</div><div class="feat__stat-label">Spraw</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">PL/EN</div><div class="feat__stat-label">Wersje językowe</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">Live</div><div class="feat__stat-label">Aktualizacje</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">5</div><div class="feat__stat-label">Wejść w dane</div></div>
           </div>
         </aside>
       </div>
     </article>
-
-    <div class="feat__pullquote reveal">Geopolityka czytana przez to, co naprawdę leży w ziemi.</div>
-
     <!-- 03 HINTON -->
     <article class="feat reveal">
       <header class="feat__head">
@@ -493,7 +499,6 @@ a,button{cursor:none}
     </article>
 
     <div class="feat__pullquote reveal">Sam nauczyciel, w otwartym internecie.</div>
-
     <!-- 04 SCHIZOANALIZA -->
     <article class="feat reveal">
       <header class="feat__head">
@@ -528,19 +533,52 @@ a,button{cursor:none}
     </article>
 
     <div class="feat__pullquote reveal">Nie kolejna szkoła terapeutyczna. Praktyka analityczna obejmująca wszystkie pola społeczne.</div>
-
-    <!-- 05 SECTIO AUREA -->
+    <!-- 05 MONDRIAN/MALEWICZ -->
     <article class="feat reveal">
       <header class="feat__head">
         <div class="feat__num">05</div>
         <div class="feat__title-area">
           <div class="feat__chip-row">
             <span class="chip yellow">Sztuka</span>
+            <span class="chip">3D</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">Mondrian i Malewicz, <em>w jednym pokoju.</em></h3>
+          <p class="feat__deck">Interaktywny tryptyk 3D: POKÓJ — MIASTO — BIEL. 42 zweryfikowane cytaty z notami filozoficznymi. Bryły, dźwięk, drzwi. three.js.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="https://futureshow1.github.io/mondrian-malewicz/" target="_blank" rel="noopener">
+        <img src="screens/mondrian.png" alt="Mondrian/Malewicz" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      </a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">Mondrian chciał, żeby pion i poziom uwolniły obraz od narracji. Malewicz chciał, żeby kwadrat zaprowadził sztukę poza świat. Wzięliśmy oba zamysły na poważnie i zbudowaliśmy z nich pokój, do którego można wejść. Dotknij ściany — pokój mówi. Otwórz drzwi — wchodzisz do MIASTA, potem do BIELI. 42 cytaty malarzy i filozofów (Mondrian, Malewicz, Strzemiński, Greenberg, Krauss) wbudowane w geometrię. Bez tekstu wprowadzającego, bez muzealnej narracji — sama struktura.</p>
+          <a href="https://futureshow1.github.io/mondrian-malewicz/" target="_blank" rel="noopener" class="feat__cta">Wejdź do pokoju →</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">3</div><div class="feat__stat-label">Przestrzenie</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">42</div><div class="feat__stat-label">Cytatów</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">3D</div><div class="feat__stat-label">three.js</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">PL/EN</div><div class="feat__stat-label">Wersje językowe</div></div>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <div class="feat__pullquote reveal">Bez tekstu wprowadzającego, bez muzealnej narracji — sama struktura.</div>
+    <!-- 05 SECTIO AUREA -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">06</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip yellow">Sztuka</span>
             <span class="chip">Redakcja</span>
             <span class="chip outline">2026</span>
           </div>
-          <h3 class="feat__title"><em>Dwunastościan,</em> w który można wejść.</h3>
-          <p class="feat__deck">Sectio Aurea — interaktywny atlas 3D Złotej Liczby. Dwanaście komnat, siedem grywalnych pomieszczeń, progresja przez złoto i rangi. Z traktatu Matili C. Ghyki (1931) zrobiliśmy współczesny obiekt do przejścia.</p>
+          <h3 class="feat__title">Złota Liczba, <em>jak to działa.</em></h3>
+          <p class="feat__deck">Sectio Aurea — interaktywny atlas 3D Złotej Liczby. Dwunastościan-nawigator, siedem grywalnych komnat, progresja przez złoto i rangi. Z traktatu Matili C. Ghyki (1931) zrobiliśmy współczesny obiekt do przejścia.</p>
         </div>
       </header>
       <a class="feat__image" href="projects/sectio-aurea.html">
@@ -563,39 +601,40 @@ a,button{cursor:none}
     </article>
 
     <div class="feat__pullquote reveal">Filozofia piękna, wreszcie do przejścia.</div>
-
-    <!-- 06 MATRYCA -->
+    <!-- 07 ATLAS -->
     <article class="feat reveal">
       <header class="feat__head">
-        <div class="feat__num">06</div>
+        <div class="feat__num">07</div>
         <div class="feat__title-area">
           <div class="feat__chip-row">
-            <span class="chip">Śledztwo</span>
-            <span class="chip red">Big Tech</span>
+            <span class="chip yellow">Śledztwo</span>
+            <span class="chip">Geopolityka</span>
             <span class="chip outline">2026</span>
           </div>
-          <h3 class="feat__title">Indeks afer <em>Big Techu.</em></h3>
-          <p class="feat__deck">33 udokumentowane sprawy: nadużycia platform, naruszenia prywatności, antymonopol, praktyki pracownicze. Wyszukiwalne, porównywalne, ze źródłami. PL/EN.</p>
+          <h3 class="feat__title">Gdzie naprawdę przepływa światowa <em>energia.</em></h3>
+          <p class="feat__deck">Siedem interaktywnych map. 240+ rurociągów, pól wydobywczych, terminali LNG, punktów kontroli. Z informacją o statusie: uszkodzone, zamknięte, aktywne, planowane.</p>
         </div>
       </header>
-      <a class="feat__image" href="projects/matryca.html">
-        <img src="screens/matryca.png" alt="Matryca" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      <a class="feat__image" href="projects/atlas.html">
+        <img src="screens/atlas.png" alt="Oil and Gas Atlas" loading="lazy" onload="this.parentElement.classList.add('has-img')">
       </a>
       <div class="feat__body">
         <div>
-          <p class="feat__body-text">Kto pisze pracę o władzy platform, nie musi zaczynać od strony pierwszej każdej historii. Matryca to indeks, którego nie ma nigdzie indziej: każda sprawa zmapowana z dowodami, wynikiem, powtarzalnym wzorcem. Raz zbudowane, na zawsze utrzymywane. Wolne do cytowania.</p>
-          <a href="projects/matryca.html" class="feat__cta">Czytaj case study</a>
+          <p class="feat__body-text">Po 2022 każdy newsroom w Europie potrzebował sposobu opowiadania o przepływach gazu, który nie byłby ani depeszą Reutersa ani PDF-em Stratfora. Atlas jest trzecią opcją: otwarty, ze źródłami, ze statusem każdego obiektu (aktywne / uszkodzone / zamknięte / planowane). Najedź na dowolną linię; zobacz kto ją zbudował, kto zamknął, w którym roku, po co. Geopolityka czytana przez to, co naprawdę leży w ziemi.</p>
+          <a href="projects/atlas.html" class="feat__cta">Czytaj case study</a>
         </div>
         <aside class="feat__aside">
           <div class="feat__aside-grid">
-            <div class="feat__stat"><div class="feat__stat-num red">33</div><div class="feat__stat-label">Spraw</div></div>
-            <div class="feat__stat"><div class="feat__stat-num">PL/EN</div><div class="feat__stat-label">Wersje językowe</div></div>
-            <div class="feat__stat"><div class="feat__stat-num">Live</div><div class="feat__stat-label">Aktualizacje</div></div>
-            <div class="feat__stat"><div class="feat__stat-num">5</div><div class="feat__stat-label">Wejść w dane</div></div>
+            <div class="feat__stat"><div class="feat__stat-num red">240+</div><div class="feat__stat-label">Obiektów infrastruktury</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">7</div><div class="feat__stat-label">Map kontynentalnych</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">90+</div><div class="feat__stat-label">Zmapowanych rurociągów</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">110+</div><div class="feat__stat-label">Terminali LNG</div></div>
           </div>
         </aside>
       </div>
     </article>
+
+    <div class="feat__pullquote reveal">Geopolityka czytana przez to, co naprawdę leży w ziemi.</div>
 
   </div>
 </section>
@@ -608,18 +647,19 @@ a,button{cursor:none}
   </div>
 </section>
 
-<!-- OTHERS -->
+<!-- OTHERS — highlighted dark section -->
 <section class="archive" id="archive">
   <div class="archive__inner">
+    <div class="archive__eyebrow reveal">Z archiwum studia · Nr 28</div>
     <div class="archive__head">
-      <h2 class="archive__title">Więcej ze studia</h2>
-      <button class="archive__toggle" id="moreToggle">Pokaż jeszcze 15</button>
+      <h2 class="archive__title reveal" style="--i:1">Więcej <em>ze studia.</em></h2>
+      <button class="archive__toggle reveal" style="--i:2" id="moreToggle">Pokaż 14 prac</button>
     </div>
+    <p class="archive__sub reveal" style="--i:3">Krótka lista projektów rozwijających się obok flagowych prac — laboratoria, redakcje, archiwa, sztuka, śledztwa. Niektóre już żyją; inne są w wersji beta.</p>
     <div class="archive__list" id="moreList">
       <ul>
         <li><span class="yr">2026</span><span class="nm">MNEMO <em>architektura pamięci · osobisty graf wiedzy</em></span><span class="tg">Lab · Nowe</span><span class="ar">→</span></li>
-        <li><span class="yr">2026</span><span class="nm">Mondrian / Malewicz <em>interaktywny tryptyk 3D · 42 cytaty</em></span><span class="tg">Sztuka · Nowe</span><span class="ar">→</span></li>
-        <li><span class="yr">2026</span><span class="nm">SEJM — Symulator wpływów <em>silnik TF-IDF na 3 834 głosach</em></span><span class="tg">Lab · Nowe</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">SEJM — Symulator wpływów<span class="beta">Beta</span><em>silnik TF-IDF na 3 834 głosach</em></span><span class="tg">Lab</span><span class="ar">→</span></li>
         <li><span class="yr">2026</span><span class="nm">Złota Liczba — kompendium Ghyki <em>obszerne wydanie z aneksami</em></span><span class="tg">Redakcja</span><span class="ar">→</span></li>
         <li><span class="yr">2026</span><span class="nm">Świtkowski — Okultyzm i magja (1939) <em>kompendium</em></span><span class="tg">Redakcja</span><span class="ar">→</span></li>
         <li><span class="yr">2026</span><span class="nm">Digital Cosmos <em>immersyjny 3D WebGL</em></span><span class="tg">Lab</span><span class="ar">→</span></li>
@@ -653,17 +693,17 @@ a,button{cursor:none}
       <div class="footer__col">
         <h4>Prace</h4>
         <ul>
+          <li><a href="prace.html">Wszystkie</a></li>
           <li><a href="#features">Wybrane</a></li>
-          <li><a href="#archive">Archiwum</a></li>
-          <li><a href="#">Proces</a></li>
+          <li><a href="#archive">Z archiwum</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h4>Studio</h4>
         <ul>
-          <li><a href="#">O studio</a></li>
-          <li><a href="#">Metoda</a></li>
-          <li><a href="#">Prasa</a></li>
+          <li><a href="studio-pl.html">O studio</a></li>
+          <li><a href="#approach">Metoda</a></li>
+          <li><a href="download-pl.html">Download</a></li>
         </ul>
       </div>
       <div class="footer__col">
