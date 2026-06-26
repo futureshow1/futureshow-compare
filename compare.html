@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FutureShow — 3 wersje landingu do porównania</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;0,8..60,900;1,8..60,400;1,8..60,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1a1a1a;
+  --paper:#fafaf7;
+  --paper2:#f1ede4;
+  --grey:#666;
+  --rule:#1a1a1a;
+  --rule-soft:rgba(26,26,26,0.18);
+  --serif:'Source Serif 4','Source Serif Pro',Georgia,'Times New Roman',serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--serif);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  font-feature-settings:"liga","onum";
+}
+a{color:inherit;text-decoration:none}
+
+/* page wrapper — newsprint column max width */
+.page{max-width:1240px;margin:0 auto;padding:36px 32px 60px}
+
+/* MASTHEAD — newspaper header */
+.masthead{
+  border-top:6px double var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding:18px 0 14px;
+  margin-bottom:18px;
+}
+.masthead__top{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:var(--mono);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);
+  margin-bottom:14px;
+  flex-wrap:wrap;gap:8px;
+}
+.masthead__top strong{color:var(--ink);font-weight:600}
+.masthead__title{
+  font-family:var(--serif);
+  font-weight:900;
+  font-size:clamp(2.6rem,5vw,4.2rem);
+  line-height:0.95;
+  letter-spacing:-0.015em;
+  text-align:center;
+  font-variation-settings:'opsz' 60;
+  margin-bottom:8px;
+}
+.masthead__sub{
+  text-align:center;
+  font-style:italic;
+  font-size:0.95rem;
+  color:var(--grey);
+  font-variation-settings:'opsz' 12;
+}
+
+.deck-rule{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border-bottom:1px solid var(--rule-soft);
+  padding-bottom:8px;margin-bottom:36px;
+  font-family:var(--mono);font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--grey);
+}
+
+/* LEAD section — like an editorial intro */
+.lead{
+  display:grid;grid-template-columns:1.5fr 2fr;gap:48px;
+  margin-bottom:48px;border-bottom:1px solid var(--rule-soft);padding-bottom:36px;
+}
+.lead__byline{
+  font-family:var(--mono);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);
+  border-top:2px solid var(--ink);padding-top:12px;
+  align-self:start;
+}
+.lead__byline strong{color:var(--ink);font-weight:600}
+.lead__body{}
+.lead__body h2{
+  font-family:var(--serif);font-weight:700;font-style:italic;
+  font-size:clamp(1.4rem,2.2vw,1.85rem);
+  line-height:1.25;letter-spacing:-0.01em;
+  margin-bottom:14px;
+  font-variation-settings:'opsz' 36;
+}
+.lead__body p{
+  font-size:1.05rem;line-height:1.6;color:var(--ink);
+}
+.lead__body p::first-letter{
+  font-weight:700;font-size:3.4em;float:left;line-height:0.85;
+  margin:6px 10px -4px 0;font-variation-settings:'opsz' 60;
+}
+
+@media(max-width:760px){
+  .lead{grid-template-columns:1fr;gap:18px}
+  .lead__byline{border-top:none;padding-top:0;font-size:0.6rem}
+}
+
+/* CARDS — like classified ads / review boxes */
+.grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border-top:2px solid var(--ink);
+}
+.grid > .card:not(:first-child){border-left:1px solid var(--rule-soft)}
+@media(max-width:980px){
+  .grid{grid-template-columns:1fr;border-top:1px solid var(--ink)}
+  .grid > .card:not(:first-child){border-left:none;border-top:1px solid var(--rule-soft)}
+}
+
+.card{
+  padding:24px 22px 30px;
+  display:flex;flex-direction:column;
+  background:transparent;
+}
+
+.card__meta{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--grey);
+  border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:14px;
+}
+.card__num{font-weight:700;color:var(--ink)}
+
+.card__hed{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(1.3rem,1.6vw,1.55rem);
+  line-height:1.05;letter-spacing:-0.012em;
+  margin-bottom:6px;
+  font-variation-settings:'opsz' 36;
+}
+.card__dek{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:0.95rem;line-height:1.35;color:var(--grey);
+  margin-bottom:18px;
+  font-variation-settings:'opsz' 12;
+}
+
+.card__preview{
+  margin:0 -22px 18px;
+  border-top:1px solid var(--rule-soft);
+  border-bottom:1px solid var(--rule-soft);
+  background:#e7e4dc;
+  overflow:hidden;
+  aspect-ratio:16/10;
+}
+.card__preview img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  display:block;
+  filter:grayscale(0.4) contrast(1.02);
+  transition:filter .4s,transform 1s cubic-bezier(.16,1,.3,1);
+}
+.card:hover .card__preview img{filter:grayscale(0);transform:scale(1.015)}
+
+.card__body{font-size:0.92rem;line-height:1.55;color:var(--ink);margin-bottom:18px}
+.card__body p{margin-bottom:8px}
+
+.card__list{
+  list-style:none;margin:0 0 22px;padding:14px 0 0;
+  border-top:1px solid var(--rule-soft);
+  font-size:0.85rem;line-height:1.45;color:var(--grey);
+}
+.card__list li{padding:4px 0;display:flex;gap:10px}
+.card__list li::before{content:'·';color:var(--ink);font-weight:700;flex-shrink:0}
+
+.card__actions{
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin-top:auto;border-top:1px solid var(--ink);padding-top:14px;
+}
+.btn{
+  font-family:var(--mono);font-size:0.62rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;
+  padding:9px 14px;border:1px solid var(--ink);
+  display:inline-flex;align-items:center;gap:6px;
+  transition:all .15s;
+  background:transparent;color:var(--ink);
+}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn--primary{background:var(--ink);color:var(--paper)}
+.btn--primary:hover{background:var(--paper);color:var(--ink)}
+.btn::after{content:'→'}
+.btn--ext::after{content:'↗'}
+
+/* NOTES / editorial */
+.notes{
+  margin-top:48px;border-top:1px solid var(--ink);padding-top:32px;
+  display:grid;grid-template-columns:1fr 2fr;gap:48px;
+}
+@media(max-width:760px){.notes{grid-template-columns:1fr;gap:18px}}
+.notes__label{
+  font-family:var(--mono);font-size:0.66rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--grey);
+  border-top:2px solid var(--ink);padding-top:12px;align-self:start;
+}
+.notes__body p{font-size:1rem;line-height:1.65;color:var(--ink);margin-bottom:12px;max-width:65ch}
+.notes__body strong{font-weight:700}
+
+.foot{
+  margin-top:48px;padding-top:18px;
+  border-top:1px solid var(--rule-soft);
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:var(--mono);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey);
+  flex-wrap:wrap;gap:8px;
+}
+
+@media(max-width:600px){
+  .page{padding:24px 18px 40px}
+  .card__actions{flex-direction:column}
+  .btn{width:100%;justify-content:center}
+  .masthead{border-top-width:4px;padding-top:14px}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="masthead__top">
+      <div><strong>FutureShow Review</strong> · Numer specjalny</div>
+      <div>Edycja konsultacyjna · Czerwiec 2026</div>
+    </div>
+    <h1 class="masthead__title">Trzy kierunki, jedna decyzja.</h1>
+    <p class="masthead__sub">Porównanie wizualne trzech wersji strony głównej — do redakcyjnej konsultacji.</p>
+  </header>
+
+  <div class="deck-rule">
+    <div>§ Wydanie próbne · do oceny</div>
+    <div>Egz. dla zaproszonych konsultantów</div>
+  </div>
+
+  <section class="lead">
+    <div class="lead__byline">
+      Od redakcji<br>
+      <strong>Jan Lubicz Przyłuski</strong><br>
+      FutureShow Studio
+    </div>
+    <div class="lead__body">
+      <h2>Każda z trzech wersji niesie ten sam zestaw projektów i tę samą propozycję wartości. Różni je powierzchnia.</h2>
+      <p>Otwórz każdą w pełnym oknie i zwróć uwagę nie na to, która z nich jest „ładniejsza", lecz na to, do kogo każda z nich faktycznie mówi. Wybór kierunku to wybór adresata: klienta tech / scaleup, instytucji kulturalnej, korporacji z brand consciousness. Nic tu nie jest neutralne — także sama ta strona porównania została celowo zrobiona w neutralnej estetyce gazetowej, żeby nie sugerować odpowiedzi.</p>
+    </div>
+  </section>
+
+  <div class="grid">
+
+    <!-- V0 — CURRENT -->
+    <article class="card">
+      <div class="card__meta">
+        <span><span class="card__num">V0</span> · Current</span>
+        <span>Live · Produkcja</span>
+      </div>
+      <h3 class="card__hed">Complex ideas, made interactive.</h3>
+      <p class="card__dek">Obecna wersja na futureshow1.github.io/futureshow. Ciemny tech-portfolio z particle background i cyjano-fioletowym gradientem.</p>
+      <a href="v0-current.html" target="_blank" class="card__preview">
+        <img src="screens/landing-v0.png" alt="V0 current production version">
+      </a>
+      <div class="card__body">
+        <p>Klasyczny model freelancerskiego portfolio. Hero, dziewięć projektów w gridzie, sekcje Services / About / Films / Contact. Wszystko działa, ale czyta się jako „młody dev z portfolio".</p>
+      </div>
+      <ul class="card__list">
+        <li>Już działa, nic nie zmieniamy</li>
+        <li>Bilingual EN / PL z toggle</li>
+        <li>9 projektów + films page</li>
+        <li>Cookie consent + GA4 podłączone</li>
+      </ul>
+      <div class="card__actions">
+        <a href="v0-current.html" target="_blank" class="btn btn--primary">Otwórz V0</a>
+        <a href="https://futureshow1.github.io/futureshow/" target="_blank" class="btn btn--ext">Live URL</a>
+      </div>
+    </article>
+
+    <!-- V2 — MODERNIZED -->
+    <article class="card">
+      <div class="card__meta">
+        <span><span class="card__num">V2</span> · Modernized</span>
+        <span>W pracy · Polish-first</span>
+      </div>
+      <h3 class="card__hed">Złożone idee, interaktywnie.</h3>
+      <p class="card__dek">Polerowana wersja current: ta sama struktura, ale z lepszym kontrastem, redagowanym tonem, polskim językiem jako pierwszym.</p>
+      <a href="v2/index.html" target="_blank" class="card__preview">
+        <img src="screens/landing-v2.png" alt="V2 modernized version">
+      </a>
+      <div class="card__body">
+        <p>Bezpieczna ewolucja — zachowuje DNA obecnej strony, ale daje jej dyscyplinę typograficzną i więcej oddechu. Środek między tym, co jest, a magazine.</p>
+      </div>
+      <ul class="card__list">
+        <li>To samo DNA co current</li>
+        <li>Polski-pierwszy z toggle EN</li>
+        <li>Lepsza typografia, kontrast, oddech</li>
+        <li>Statyczny, działa offline</li>
+      </ul>
+      <div class="card__actions">
+        <a href="v2/index.html" target="_blank" class="btn btn--primary">Otwórz V2</a>
+        <a href="v2/mockup-light.html" target="_blank" class="btn btn--ext">Mockup light</a>
+      </div>
+    </article>
+
+    <!-- V3 — WIRED -->
+    <article class="card">
+      <div class="card__meta">
+        <span><span class="card__num">V3</span> · Reinvention · <strong>WYBRANE</strong></span>
+        <span>PL + EN · Magazine-style</span>
+      </div>
+      <h3 class="card__hed">Play with knowledge.</h3>
+      <p class="card__dek">Radykalna re-inwencja w stylu magazynu: okładka z bold display, sześć ponumerowanych features, drop caps, pull quotes, ticker.</p>
+      <a href="v1-wired.html" target="_blank" class="card__preview">
+        <img src="screens/landing-v_wired.png" alt="V3 WIRED magazine style">
+      </a>
+      <div class="card__body">
+        <p>Najwięcej inwestycji, najmocniejsza zmiana pozycjonowania (FutureShow jako studio, nie freelancer). Każdy z sześciu flagship projects ma osobną pełną stronę case study.</p>
+      </div>
+      <ul class="card__list">
+        <li>FutureShow jako studio, nie freelancer</li>
+        <li>6 case study pages (osobny URL na projekt)</li>
+        <li>Trust marquee z 9 logo klientów</li>
+        <li>OG images + sekcja Approach</li>
+      </ul>
+      <div class="card__actions">
+        <a href="v1-wired-pl.html" target="_blank" class="btn btn--primary">Otwórz V3 PL</a>
+        <a href="v1-wired.html" target="_blank" class="btn">EN</a>
+        <a href="projects/cardiosim.html" target="_blank" class="btn btn--ext">Case study</a>
+      </div>
+    </article>
+
+  </div>
+
+  <section class="notes">
+    <div class="notes__label">
+      Komentarz redakcji<br>
+      <strong>Jak czytać</strong>
+    </div>
+    <div class="notes__body">
+      <p>Wszystkie trzy wersje korzystają z tej samej warstwy treści: te same projekty, ci sami klienci, ta sama propozycja wartości. Różni je <strong>powierzchnia</strong> — typografia, kolor, rytm, ton głosu.</p>
+      <p><strong>V0</strong> to status quo: nic nie ruszamy, żyjemy z tym co jest.<br>
+      <strong>V2</strong> to bezpieczna ewolucja: ten sam pomysł, dorobiona dyscyplina.<br>
+      <strong>V3</strong> to inwestycja w nową tożsamość: studio z punktem widzenia, gotowe do rozmowy z poważnym klientem.</p>
+      <p>Decyzja kierunku to nie decyzja „ładności", lecz <strong>do kogo mówimy</strong>. V0 / V2 lepiej obsługują klienta tech / scaleup. V3 lepiej dla klienta instytucjonalnego, kulturalnego, korporacyjnego z brand consciousness.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div>© FutureShow Studio · 2026 · Wszelkie prawa zastrzeżone</div>
+    <div><a href="mailto:futureshow@proton.me">futureshow@proton.me</a></div>
+  </footer>
+
+</div>
+
+</body>
+</html>

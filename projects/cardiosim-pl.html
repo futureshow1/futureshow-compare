@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CardioSim Pro — Case study · FutureShow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<meta property="og:title" content="CardioSim Pro — Pracownia farmakologii w karcie przeglądarki.">
+<meta property="og:description" content="Dziesięć leków kardiologicznych, osiem scenariuszy, hemodynamika w czasie rzeczywistym — zgodne z Circulation, EJCTS, StatPearls. Dla studentów medycyny i rezydentów OIOM.">
+<meta property="og:image" content="https://futureshow1.github.io/futureshow-mockup/screens/og-cardiosim.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://futureshow1.github.io/futureshow-mockup/projects/cardiosim-pl.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CardioSim Pro — A working pharmacology lab, in a browser tab.">
+<meta name="twitter:description" content="Dziesięć leków kardiologicznych, osiem scenariuszy, hemodynamika w czasie rzeczywistym — zgodne z Circulation, EJCTS, StatPearls. Dla studentów medycyny i rezydentów OIOM.">
+<meta name="twitter:image" content="https://futureshow1.github.io/futureshow-mockup/screens/og-cardiosim.png">
+<meta name="description" content="Dziesięć leków kardiologicznych, osiem scenariuszy, hemodynamika w czasie rzeczywistym — zgodne z Circulation, EJCTS, StatPearls. Dla studentów medycyny i rezydentów OIOM.">
+<link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<nav class="nav">
+  <a href="../v1-wired-pl.html" class="nav__brand">FutureShow</a>
+  <a href="../v1-wired-pl.html" class="nav__back">Wszystkie prace</a>
+  <a href="cardiosim.html" class="lang-toggle">EN</a>
+  <a href="https://futureshow1.github.io/futureshow/projects/cardiosim.html" target="_blank" class="nav__cta">Uruchom symulację</a>
+</nav>
+
+<header class="cs-hero">
+  <div class="cs-hero__inner">
+    <div class="cs-hero__masthead reveal">
+      <div><span class="num">FEAT. 01</span> &nbsp;&nbsp;&nbsp; Wyd. I · 2026 · <strong>Architektura interaktywnych narracji</strong></div>
+      <div>Symulacja medyczna</div>
+    </div>
+    <div class="cs-hero__main">
+      <div class="cs-hero__headline-wrap reveal" style="--i:1">
+        <div class="cs-hero__chip-row">
+          <span class="chip red">Medycyna</span>
+          <span class="chip">Symulacja</span>
+          <span class="chip">Farmakologia</span>
+          <span class="chip outline">2026</span>
+        </div>
+        <h1>Pracownia<br><span class="outline">farmakologii</span><br>w <em>karcie.</em></h1>
+      </div>
+      <aside class="cs-hero__sidebar reveal" style="--i:2">
+        <p class="cs-hero__deck">Dziesięć leków kardiologicznych, osiem scenariuszy klinicznych, hemodynamika w czasie rzeczywistym — zgodne z <em>Circulation</em>, <em>EJCTS</em>, <em>StatPearls</em>.</p>
+        <div class="cs-hero__byline">Studio <strong>FutureShow</strong> · zał. 2025 · Dla uczelni medycznych, szpitali i zespołów OIOM</div>
+        <div class="cs-hero__cta-row">
+          <a href="https://futureshow1.github.io/futureshow/projects/cardiosim.html" target="_blank" class="btn-red">Uruchom symulację →</a>
+          <a href="../v1-wired.html" class="btn-outline-light">Wszystkie prace</a>
+        </div>
+      </aside>
+    </div>
+    <div class="cs-hero__ticker reveal" style="--i:3">
+      <div class="cs-hero__ticker-track">
+      <span>Realizacja 01 · CardioSim Pro</span>
+      <span class="dot">●</span>
+      <span>10 leków kardiologicznych zweryfikowanych w literaturze</span>
+      <span class="dot">●</span>
+      <span>8 scenariuszy klinicznych, każdy w jeden klik</span>
+      <span class="dot">●</span>
+      <span>Pętle PV · diagram Wiggersa · monitor 3-kanałowy</span>
+      <span class="dot">●</span>
+      <span>Jeden HTML, 25 KB, zero zależności</span>
+      <span class="dot">●</span>
+      <span>Działa offline. Wyślij rezydentowi mailem.</span>
+      <span class="dot">●</span>
+      <span>Feat. 01 · CardioSim Pro</span>
+      <span class="dot">●</span>
+      <span>10 cardiovascular drugs, literature-verified</span>
+      <span class="dot">●</span>
+      <span>8 clinical scenarios, one click each</span>
+      <span class="dot">●</span>
+      <span>PV loops · Wiggers · 3-channel monitor</span>
+      <span class="dot">●</span>
+      <span>Single HTML, 25 KB total, zero dependencies</span>
+      <span class="dot">●</span>
+      <span>Runs offline. Mail it to a resident.</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<figure class="cs-image">
+  <img src="../screens/cardiosim.png" alt="CardioSim Pro — main interface with heart, vitals, drug panel and waveforms">
+</figure>
+
+<section class="cs-stats">
+  <div class="cs-stats__inner">
+    <div><div class="cs-stat__num red">10</div><div class="cs-stat__label">Modelowanych leków</div></div>
+    <div><div class="cs-stat__num">8</div><div class="cs-stat__label">Scenariuszy klinicznych</div></div>
+    <div><div class="cs-stat__num">25KB</div><div class="cs-stat__label">Waga całkowita</div></div>
+    <div><div class="cs-stat__num yellow">0</div><div class="cs-stat__label">Zależności</div></div>
+  </div>
+</section>
+
+<div class="cs-body">
+  <p>Większość symulatorów medycznych żyje za paywallem i loginami uczelnianymi. Kardiolog, który dał brief, chciał czegoś, co jego rezydenci mogą otworzyć w dwóch kliknięciach, na dowolnym laptopie, podczas rozmowy na korytarzu — działającego obiektu, nie demo marketingowego.</p>
+  <p>CardioSim powstał, gdy ktoś-nie-lekarz wgryzł się obsesyjnie w ten brief. Prawdziwa mechanika Franka–Starlinga, prawdziwa dynamika wchłaniania, prawdziwe interakcje leków — animowane, obserwowalne, darmowe, zamknięte w jednym pliku HTML, który możesz wysłać studentowi mailem. Działa offline. Nie kosztuje nic.</p>
+</div>
+
+<section class="cs-section">
+  <div class="cs-section__head">
+    <div class="cs-section__num">01 / Brief</div>
+    <h2 class="cs-section__title">Czego chciał <em>kardiolog.</em></h2>
+  </div>
+  <div class="cs-section__body">
+    <div class="cs-section__meta">Recenzent<br>Konsultant OIOM<br>Warszawski szpital kliniczny</div>
+    <div>
+      <p>Brief był niezwykle konkretny. Dodać do istniejących symulatorów: <strong>opór systemowy i płucny (SVR/PVR) w jednostkach Wooda</strong>, <strong>pętle ciśnienie–objętość z prawdziwą ESPVR</strong> i <strong>panel leków symulujący dynamikę wchłaniania, nie tylko efekt w stanie ustalonym.</strong></p>
+      <p>„Symulatory edukacyjne zwykle pomijają dynamikę. A to właśnie rezydent musi poczuć — że podanie 200 mg metoprololu o czwartej rano nic nie zmienia w ciągu trzydziestu sekund." To zdanie ukształtowało cały silnik farmakodynamiczny.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-section__head">
+    <div class="cs-section__num">02 / Metoda</div>
+    <h2 class="cs-section__title">Farmakodynamika, <em>zweryfikowana.</em></h2>
+  </div>
+  <div class="cs-section__body">
+    <div class="cs-section__meta">Źródła<br>Circulation<br>EJCTS<br>StatPearls<br>PMC</div>
+    <div>
+      <p>Dla każdego leku mnożniki HR / kurczliwości / SVR / PVR / obciążenia wstępnego zostały wzięte z literatury pierwotnej, a potem zweryfikowane wobec typowych krzywych dawkowania na OIOM. Dynamika wchłaniania modelowana jako stała lerp dla każdego leku (np. nitrogliceryna osiąga plateau w sekundach; metoprolol w minutach; amlodypina w godzinach).</p>
+      <ul>
+        <li>Metoprolol <span>β-bloker</span></li>
+        <li>Karwedilol <span>α/β-bloker</span></li>
+        <li>Diltiazem <span>Bloker kanału wapniowego</span></li>
+        <li>Amlodypina <span>Bloker kanału wapniowego</span></li>
+        <li>Nitrogliceryna <span>Wazodylatator (preload↓)</span></li>
+        <li>Furosemid <span>Diuretyk pętlowy</span></li>
+        <li>Dobutamina <span>β1 inotrop</span></li>
+        <li>Milrinon <span>Inotrop PDE3</span></li>
+        <li>Adrenalina <span>Agonista α/β</span></li>
+        <li>Noradrenalina <span>α-wazopresor</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-section__head">
+    <div class="cs-section__num">03 / Efekt</div>
+    <h2 class="cs-section__title">Jeden HTML, <em>otwierany dwoma kliknięciami.</em></h2>
+  </div>
+  <div class="cs-section__body">
+    <div class="cs-section__meta">Premiera<br>II kw. 2026<br>Hostowane na GitHub Pages<br>PL / EN</div>
+    <div>
+      <p>Final build: <strong>~25 KB całości</strong>, zero zależności, działa offline, jeden plik HTML do wysłania mailem. Skalowalne panele (kardiolog dzieli ekran 60/40 między widok serca a przebiegi; laptop studenta odwrotnie).</p>
+      <p>Osiem scenariuszy klinicznych — rytm zatokowy, AF, VT, STEMI, wstrząs krwotoczny, tamponada serca, zatorowość płucna, HFrEF — wczytuje się jednym kliknięciem. Panel aktywnych leków śledzi efekty łączone i pokazuje realne ostrzeżenia o interakcjach (np. metoprolol + diltiazem = addytywne ryzyko bloku AV).</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-section__head">
+    <div class="cs-section__num">04 / Stack</div>
+    <h2 class="cs-section__title">Z czego jest <em>zrobione.</em></h2>
+  </div>
+  <div class="cs-section__body">
+    <div class="cs-section__meta">Tech<br>Vanilla JS<br>Canvas 2D<br>Web Audio (pulsoksymetr)<br>Bez frameworków</div>
+    <div>
+      <p>Czysty HTML/CSS/JS. Canvas 2D dla serca, przebiegów, pętli PV. Web Audio dla beepa pulsoksymetru. Bez build stepu, bez frameworka. Całość to jeden plik, w version control z resztą portfolio.</p>
+      <p>Ma to znaczenie, bo odbiorca to szpitale kliniczne i studenci medycyny. Nie chcą instalacji Node'a. Chcą rzeczy, która działa przez dziesięć lat bez utrzymywania. Single-file HTML to ta rzecz.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cs-pullquote">
+  <div class="cs-pullquote__inner">
+    Większość symulatorów medycznych żyje za paywallem.<br>
+    Tego wysłaliśmy rezydentowi mailem w trzy minuty.
+    <div class="cs-pullquote__cite">— Studio FutureShow, o briefie</div>
+  </div>
+</div>
+
+<section class="cs-launch">
+  <h2>Uruchom <em>symulator.</em></h2>
+  <p>Najlepiej na desktopie, w pełnym ekranie. Wybierz scenariusz z lewego panelu, potem miareczkuj leki. Obserwuj reakcję serca i przebiegów w czasie rzeczywistym.</p>
+  <a href="https://futureshow1.github.io/futureshow/projects/cardiosim.html" target="_blank" class="cs-launch-btn">Uruchom CardioSim Pro</a>
+</section>
+
+<section class="cs-next">
+  <div class="cs-next__inner">
+    <div class="cs-next__label">Następne case study</div>
+    <a href="atlas-pl.html" class="cs-next__link">02 — Gdzie naprawdę przepływa światowa energia</a>
+  </div>
+</section>
+
+<footer class="cs-footer">
+  <div class="cs-footer__inner">
+    <div>© Studio FutureShow 2026 · Baw się wiedzą.</div>
+    <div><a href="../v1-wired-pl.html">Wszystkie prace</a> · <a href="mailto:futureshow@proton.me">futureshow@proton.me</a></div>
+  </div>
+</footer>
+
+<script>
+(()=>{const c=document.getElementById('cursor');let x=innerWidth/2,y=innerHeight/2,tx=x,ty=y;onpointermove=e=>{tx=e.clientX;ty=e.clientY};const t=()=>{x+=(tx-x)*0.25;y+=(ty-y)*0.25;c.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%)`;requestAnimationFrame(t)};t();document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('pointerenter',()=>c.classList.add('hover'));el.addEventListener('pointerleave',()=>c.classList.remove('hover'))})})();
+(()=>{const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.05});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));onload=()=>setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)el.classList.add('in')}),150)})();
+</script>
+</body>
+</html>

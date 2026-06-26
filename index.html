@@ -3,354 +3,721 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FutureShow — 3 wersje landingu do porównania</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>FutureShow — Baw się wiedzą</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;0,8..60,900;1,8..60,400;1,8..60,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
 :root{
-  --ink:#1a1a1a;
+  --ink:#0a0a0a;
   --paper:#fafaf7;
-  --paper2:#f1ede4;
-  --grey:#666;
-  --rule:#1a1a1a;
-  --rule-soft:rgba(26,26,26,0.18);
-  --serif:'Source Serif 4','Source Serif Pro',Georgia,'Times New Roman',serif;
+  --paper2:#f0ede5;
+  --red:#ff2d00;
+  --yellow:#f0ff00;
+  --rule:rgba(0,0,0,0.12);
+  --text-mute:#666;
+  --display:'Archivo Black','Archivo',Impact,sans-serif;
+  --serif:'DM Serif Display',Georgia,serif;
+  --body:'Inter',-apple-system,sans-serif;
   --mono:'JetBrains Mono',ui-monospace,monospace;
 }
+
 html{scroll-behavior:smooth}
-body{
-  font-family:var(--serif);
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-  min-height:100vh;
-  font-feature-settings:"liga","onum";
-}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 
-/* page wrapper — newsprint column max width */
-.page{max-width:1240px;margin:0 auto;padding:36px 32px 60px}
+/* Cursor */
+.cursor{position:fixed;top:0;left:0;width:24px;height:24px;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .25s,height .25s}
+.cursor::before,.cursor::after{content:'';position:absolute;background:#fff}
+.cursor::before{left:50%;top:0;width:1.5px;height:100%;transform:translateX(-50%)}
+.cursor::after{top:50%;left:0;height:1.5px;width:100%;transform:translateY(-50%)}
+.cursor.hover{width:60px;height:60px}
+@media(hover:none){.cursor{display:none}}
+a,button{cursor:none}
+@media(hover:none){a,button,body{cursor:auto}}
 
-/* MASTHEAD — newspaper header */
-.masthead{
-  border-top:6px double var(--ink);
-  border-bottom:1px solid var(--ink);
-  padding:18px 0 14px;
-  margin-bottom:18px;
-}
-.masthead__top{
-  display:flex;justify-content:space-between;align-items:baseline;
-  font-family:var(--mono);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);
-  margin-bottom:14px;
-  flex-wrap:wrap;gap:8px;
-}
-.masthead__top strong{color:var(--ink);font-weight:600}
-.masthead__title{
-  font-family:var(--serif);
-  font-weight:900;
-  font-size:clamp(2.6rem,5vw,4.2rem);
-  line-height:0.95;
-  letter-spacing:-0.015em;
-  text-align:center;
-  font-variation-settings:'opsz' 60;
-  margin-bottom:8px;
-}
-.masthead__sub{
-  text-align:center;
-  font-style:italic;
-  font-size:0.95rem;
-  color:var(--grey);
-  font-variation-settings:'opsz' 12;
-}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i,0)*80ms)}
+.reveal.in{opacity:1;transform:none}
 
-.deck-rule{
-  display:flex;justify-content:space-between;align-items:baseline;
-  border-bottom:1px solid var(--rule-soft);
-  padding-bottom:8px;margin-bottom:36px;
-  font-family:var(--mono);font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--grey);
-}
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 36px;background:var(--paper);border-bottom:1px solid var(--ink)}
+.nav__brand{font-family:var(--display);font-size:1.05rem;letter-spacing:-0.01em;color:var(--ink);text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.nav__brand::after{content:'';width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulseRed 1.6s ease-in-out infinite}
+@keyframes pulseRed{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.5}}
+.nav__links{display:flex;gap:30px;list-style:none}
+.nav__links a{font-family:var(--mono);font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);transition:color .2s}
+.nav__links a:hover{color:var(--red)}
+.nav__cta{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:11px 22px;background:var(--red);color:var(--paper);transition:all .2s;border:1px solid var(--red)}
+.nav__cta:hover{background:var(--ink);border-color:var(--ink)}
 
-/* LEAD section — like an editorial intro */
-.lead{
-  display:grid;grid-template-columns:1.5fr 2fr;gap:48px;
-  margin-bottom:48px;border-bottom:1px solid var(--rule-soft);padding-bottom:36px;
-}
-.lead__byline{
-  font-family:var(--mono);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);
-  border-top:2px solid var(--ink);padding-top:12px;
-  align-self:start;
-}
-.lead__byline strong{color:var(--ink);font-weight:600}
-.lead__body{}
-.lead__body h2{
-  font-family:var(--serif);font-weight:700;font-style:italic;
-  font-size:clamp(1.4rem,2.2vw,1.85rem);
-  line-height:1.25;letter-spacing:-0.01em;
-  margin-bottom:14px;
-  font-variation-settings:'opsz' 36;
-}
-.lead__body p{
-  font-size:1.05rem;line-height:1.6;color:var(--ink);
-}
-.lead__body p::first-letter{
-  font-weight:700;font-size:3.4em;float:left;line-height:0.85;
-  margin:6px 10px -4px 0;font-variation-settings:'opsz' 60;
+/* COVER */
+.cover{background:var(--ink);color:var(--paper);min-height:100vh;padding:120px 36px 60px;position:relative;display:flex;flex-direction:column;justify-content:space-between}
+.cover__masthead{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid rgba(250,250,247,0.2);padding-bottom:24px;margin-bottom:48px;font-family:var(--mono);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,250,247,0.55);flex-wrap:wrap;gap:16px}
+.cover__masthead strong{color:var(--paper);font-weight:600}
+.cover__masthead .issue{background:var(--red);color:var(--paper);padding:5px 12px;font-weight:700;letter-spacing:0.2em}
+.cover__main{display:grid;grid-template-columns:1fr 380px;gap:80px;align-items:flex-end;flex:1}
+.cover__headline{font-family:var(--display);font-size:clamp(3rem,13vw,13rem);line-height:0.84;letter-spacing:-0.05em;color:var(--paper);text-transform:uppercase}
+.cover__headline span.red{color:var(--red)}
+.cover__headline span.outline{-webkit-text-stroke:1.5px var(--paper);color:transparent}
+.cover__sidebar{border-left:1px solid rgba(250,250,247,0.2);padding-left:28px}
+.cover__deck{font-family:var(--serif);font-size:1.4rem;line-height:1.3;font-style:italic;color:var(--paper);margin-bottom:36px}
+.cover__deck em{color:var(--red);font-style:italic}
+.cover__byline{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,250,247,0.55);margin-bottom:32px;border-top:1px solid rgba(250,250,247,0.2);padding-top:20px}
+.cover__byline strong{color:var(--paper)}
+.cover__cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn-red{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:14px 22px;background:var(--red);color:var(--paper);display:inline-flex;align-items:center;gap:10px;transition:all .2s;border:1px solid var(--red)}
+.btn-red:hover{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.btn-outline{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:14px 22px;background:transparent;color:var(--paper);border:1px solid var(--paper);transition:all .2s}
+.btn-outline:hover{background:var(--paper);color:var(--ink)}
+
+.cover__ticker{position:absolute;bottom:18px;left:0;right:0;font-family:var(--mono);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,250,247,0.4);white-space:nowrap;overflow:hidden;border-top:1px solid rgba(250,250,247,0.1);padding:14px 36px}
+.ticker-track{display:inline-block;animation:scroll 60s linear infinite}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-track span{margin-right:60px}
+.ticker-track .dot{color:var(--red);margin:0 24px}
+
+@media(max-width:900px){
+  .cover{padding:100px 20px 60px}
+  .cover__main{grid-template-columns:1fr;gap:40px}
+  .cover__sidebar{border-left:none;border-top:1px solid rgba(250,250,247,0.2);padding-left:0;padding-top:24px}
+  .nav__links{display:none}
+  .nav{padding:14px 20px}
 }
 
-@media(max-width:760px){
-  .lead{grid-template-columns:1fr;gap:18px}
-  .lead__byline{border-top:none;padding-top:0;font-size:0.6rem}
+/* INTRO with drop cap */
+.intro{background:var(--paper);padding:120px 36px 80px;border-bottom:1px solid var(--ink)}
+.intro__inner{max-width:780px;margin:0 auto}
+.intro__kicker{display:inline-block;font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:5px 12px;margin-bottom:32px}
+.intro__lede{font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.4;color:var(--ink);font-style:italic}
+.intro__lede::first-letter{font-family:var(--display);font-size:5em;float:left;line-height:0.85;margin:6px 14px -4px 0;color:var(--red);font-style:normal}
+.intro__sig{margin-top:48px;font-family:var(--mono);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mute);display:flex;align-items:center;gap:14px}
+.intro__sig::before{content:'';width:48px;height:1px;background:var(--ink)}
+
+/* TRUST */
+.trust{background:var(--paper);padding:60px 0 50px;border-bottom:1px solid var(--ink)}
+.trust__header{max-width:1280px;margin:0 auto 32px;padding:0 36px;display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
+.trust__label{font-family:var(--mono);font-size:0.72rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:14px}
+.trust__label::before{content:'';display:inline-block;width:34px;height:1px;background:var(--ink)}
+.trust__meta{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-mute)}
+
+.logo-marquee{overflow:hidden;position:relative;mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%)}
+.logo-marquee__track{display:inline-flex;align-items:center;gap:80px;padding:8px 0;animation:logoScroll 40s linear infinite;white-space:nowrap}
+.logo-marquee:hover .logo-marquee__track{animation-play-state:paused}
+@keyframes logoScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.client-logo{display:inline-flex;align-items:center;flex-shrink:0;color:var(--ink);transition:opacity .2s}
+.client-logo:hover{opacity:0.55}
+.client-logo img{height:34px;width:auto;display:block;filter:grayscale(1) contrast(1.05);mix-blend-mode:multiply;opacity:0.88}
+.client-logo--big img{height:42px}
+.client-logo--badge img{height:48px;border-radius:50%}
+.client-logo--text{font-weight:400;line-height:1.05;letter-spacing:-0.01em}
+.client-logo--niaiu{font-family:var(--mono);font-weight:500;font-size:1.1rem;letter-spacing:0.04em}
+.client-logo--niaiu .sub{display:block;font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-mute);font-weight:400;margin-top:3px}
+.client-logo--td{font-family:var(--serif);font-style:italic;font-size:1.1rem;letter-spacing:0.005em;line-height:1.05}
+.client-logo--td .sub{display:block;font-size:0.5rem;letter-spacing:0.16em;font-style:normal;text-transform:uppercase;color:var(--text-mute);font-family:var(--mono);margin-top:3px}
+.client-logo--polin{font-family:var(--display);font-size:1.6rem;letter-spacing:0.06em;text-transform:uppercase;line-height:1.05}
+.client-logo--polin .sub{display:block;font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-mute);font-weight:400;font-family:var(--mono);margin-top:3px}
+
+/* APPROACH */
+.approach{background:var(--paper2);padding:120px 36px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.approach__inner{max-width:1280px;margin:0 auto}
+.approach__head{margin-bottom:48px;display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:end}
+.approach__kicker{font-family:var(--mono);font-size:0.72rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:14px}
+.approach__kicker::before{content:'';display:inline-block;width:24px;height:1px;background:currentColor}
+.approach__deck{font-family:var(--display);font-size:clamp(2rem,5vw,4.4rem);line-height:0.92;letter-spacing:-0.035em;color:var(--ink);text-transform:uppercase}
+.approach__deck em{color:var(--red);font-style:normal}
+.approach__lede{max-width:780px;margin:0 auto 80px}
+.approach__lede p{font-family:var(--serif);font-size:clamp(1.2rem,1.8vw,1.55rem);line-height:1.45;color:var(--ink);font-style:italic}
+.approach__lede p::first-letter{font-family:var(--display);font-size:5em;float:left;line-height:0.85;margin:6px 14px -4px 0;color:var(--red);font-style:normal}
+.approach__principles{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;border-top:2px solid var(--ink);padding-top:48px}
+.principle__num{font-family:var(--display);font-size:1.8rem;line-height:1;-webkit-text-stroke:1.2px var(--ink);color:transparent;margin-bottom:14px}
+.principle h3{font-family:var(--display);font-size:clamp(1.1rem,1.6vw,1.4rem);text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:10px;color:var(--ink)}
+.principle p{font-size:0.92rem;line-height:1.55;color:#222}
+@media(max-width:900px){.approach{padding:60px 20px}.approach__head{grid-template-columns:1fr;gap:16px}.approach__lede{margin-bottom:48px}.approach__principles{grid-template-columns:1fr 1fr;gap:24px}}
+@media(max-width:600px){.approach__principles{grid-template-columns:1fr}}
+
+/* FEATURES */
+.features{background:var(--paper);padding:80px 36px 60px}
+.features__inner{max-width:1280px;margin:0 auto}
+.features__rule{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:60px}
+.features__title{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);text-transform:uppercase;letter-spacing:-0.02em;color:var(--ink)}
+.features__count{font-family:var(--mono);font-size:0.72rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mute)}
+
+.feat{padding:80px 0;border-bottom:1px solid var(--ink)}
+.feat:last-child{border-bottom:none}
+
+.feat__head{display:grid;grid-template-columns:140px 1fr;gap:40px;margin-bottom:40px;align-items:start}
+.feat__num{font-family:var(--display);font-size:clamp(4rem,8vw,7rem);line-height:0.85;color:var(--ink);-webkit-text-stroke:2px var(--ink);color:transparent}
+.feat__title-area{padding-top:8px}
+.feat__chip-row{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:5px 10px;background:var(--ink);color:var(--paper)}
+.chip.red{background:var(--red)}
+.chip.yellow{background:var(--yellow);color:var(--ink)}
+.chip.outline{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+
+.feat__title{font-family:var(--display);font-size:clamp(2rem,3.6vw,3.4rem);text-transform:uppercase;line-height:0.95;letter-spacing:-0.025em;color:var(--ink);margin-bottom:24px}
+.feat__title em{color:var(--red);font-style:normal}
+.feat__deck{font-family:var(--serif);font-size:1.15rem;line-height:1.5;color:var(--ink);font-style:italic;max-width:55ch}
+
+/* THE FEATURE IMAGE — 16:9 full bleed within feature */
+.feat__image{display:block;aspect-ratio:16/9;background:#0a0a0a;border:1px solid var(--ink);overflow:hidden;margin-bottom:40px;position:relative;transition:transform .5s cubic-bezier(.16,1,.3,1);text-decoration:none;color:inherit}
+.feat__image:hover{transform:translateY(-4px)}
+.feat__image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.feat__image:hover img{transform:scale(1.02)}
+.feat__image::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,0.15));pointer-events:none}
+.feat__image-caption{font-family:var(--mono);font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mute);margin-top:8px;display:flex;justify-content:space-between}
+.feat__image-caption span:last-child{color:var(--ink)}
+
+.feat__body{display:grid;grid-template-columns:140px 1.4fr 1fr;gap:40px;align-items:start}
+.feat__body > :first-child{grid-column:2}
+.feat__body > :last-child{grid-column:3}
+
+.feat__body-text{font-size:0.95rem;line-height:1.7;color:#222;margin-bottom:32px}
+.feat__cta{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:13px 22px;display:inline-flex;align-items:center;gap:10px;transition:all .2s}
+.feat__cta::after{content:'→';transition:transform .25s}
+.feat__cta:hover{background:var(--red)}
+.feat__cta:hover::after{transform:translateX(4px)}
+
+.feat__aside{background:var(--ink);color:var(--paper);padding:36px 28px;position:relative}
+.feat__aside::before{content:'STATS';position:absolute;top:-1px;left:0;font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.25em;background:var(--red);color:var(--paper);padding:5px 10px}
+.feat__aside-grid{display:grid;gap:24px;margin-top:36px}
+.feat__stat{border-top:1px solid rgba(250,250,247,0.18);padding-top:16px}
+.feat__stat:first-child{border-top:none;padding-top:0}
+.feat__stat-num{font-family:var(--display);font-size:2.4rem;line-height:1;color:var(--paper)}
+.feat__stat-num.red{color:var(--red)}
+.feat__stat-label{font-family:var(--mono);font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,250,247,0.6);margin-top:6px}
+
+.feat__pullquote{margin:0;padding:64px 60px;background:var(--paper2);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-family:var(--serif);font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.15;color:var(--ink);font-style:italic;text-align:center}
+.feat__pullquote::before{content:'"';display:block;font-family:var(--display);font-size:3rem;color:var(--red);line-height:0.5;margin-bottom:10px;font-style:normal}
+
+@media(max-width:900px){
+  .feat{padding:50px 0}
+  .feat__head{grid-template-columns:1fr;gap:14px;margin-bottom:24px}
+  .feat__num{font-size:3rem}
+  .feat__title-area{padding-top:0}
+  .feat__body{grid-template-columns:1fr;gap:32px}
+  .feat__body > :first-child,.feat__body > :last-child{grid-column:1}
+  .feat__pullquote{padding:40px 24px;font-size:1.6rem}
+  .features{padding:60px 20px 40px}
 }
 
-/* CARDS — like classified ads / review boxes */
-.grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
-  border-top:2px solid var(--ink);
-}
-.grid > .card:not(:first-child){border-left:1px solid var(--rule-soft)}
-@media(max-width:980px){
-  .grid{grid-template-columns:1fr;border-top:1px solid var(--ink)}
-  .grid > .card:not(:first-child){border-left:none;border-top:1px solid var(--rule-soft)}
-}
+/* BANNER */
+.banner{background:var(--yellow);color:var(--ink);padding:70px 36px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.banner__inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.banner__text{font-family:var(--display);font-size:clamp(1.6rem,3.5vw,2.8rem);text-transform:uppercase;line-height:1;letter-spacing:-0.02em}
+.banner__text em{font-style:normal;color:var(--red)}
+.btn-banner{font-family:var(--mono);font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:16px 26px;background:var(--ink);color:var(--yellow);display:inline-flex;align-items:center;gap:12px;transition:all .2s;border:1px solid var(--ink)}
+.btn-banner:hover{background:var(--red);color:var(--paper);border-color:var(--red)}
+@media(max-width:700px){.banner__inner{grid-template-columns:1fr;gap:24px;text-align:left}.banner{padding:50px 20px}}
 
-.card{
-  padding:24px 22px 30px;
-  display:flex;flex-direction:column;
-  background:transparent;
-}
+/* ARCHIVE */
+.archive{background:var(--paper);padding:90px 36px 100px}
+.archive__inner{max-width:1280px;margin:0 auto}
+.archive__head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:32px;flex-wrap:wrap;gap:20px}
+.archive__title{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.4rem);text-transform:uppercase;letter-spacing:-0.02em}
+.archive__toggle{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:11px 18px;display:inline-flex;align-items:center;gap:10px;transition:all .2s;border:none}
+.archive__toggle:hover{background:var(--red)}
+.archive__toggle::after{content:'+';display:inline-block;transition:transform .25s}
+.archive__toggle.open::after{transform:rotate(45deg)}
+.archive__list{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.archive__list.open{max-height:1500px}
+.archive__list ul{list-style:none;padding-top:0}
+.archive__list li{display:grid;grid-template-columns:80px 1fr 160px 60px;gap:24px;padding:18px 12px;border-bottom:1px solid var(--rule);align-items:baseline;transition:background .25s,padding .25s}
+.archive__list li:hover{background:var(--ink);color:var(--paper);padding-left:24px}
+.archive__list .yr{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em}
+.archive__list .nm{font-family:var(--display);font-size:1.1rem;text-transform:uppercase;letter-spacing:-0.01em}
+.archive__list .nm em{font-family:var(--body);font-style:italic;color:var(--text-mute);font-size:0.9rem;margin-left:10px;text-transform:none;font-weight:400}
+.archive__list li:hover .nm em{color:rgba(250,250,247,0.7)}
+.archive__list .tg{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);text-align:right}
+.archive__list li:hover .tg{color:var(--yellow)}
+.archive__list .ar{font-family:var(--display);font-size:1.1rem;text-align:right;transition:transform .25s}
+.archive__list li:hover .ar{transform:translateX(6px)}
+@media(max-width:800px){.archive{padding:60px 20px 70px}.archive__list li{grid-template-columns:60px 1fr 30px;gap:14px}.archive__list .tg{display:none}}
 
-.card__meta{
-  display:flex;justify-content:space-between;align-items:baseline;
-  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--grey);
-  border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:14px;
-}
-.card__num{font-weight:700;color:var(--ink)}
+/* FOOTER */
+.footer{background:var(--ink);color:var(--paper);padding:100px 36px 32px}
+.footer__inner{max-width:1280px;margin:0 auto}
+.footer__big{font-family:var(--display);font-size:clamp(2.2rem,6vw,5.5rem);text-transform:uppercase;line-height:0.92;letter-spacing:-0.03em;margin-bottom:52px;max-width:18ch}
+.footer__big em{color:var(--red);font-style:normal}
+.footer__big .underline{position:relative;display:inline-block}
+.footer__big .underline::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:6px;background:var(--yellow);z-index:-1}
+.footer__cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-top:36px;border-top:1px solid rgba(250,250,247,0.15)}
+.footer__col h4{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.footer__col ul{list-style:none}
+.footer__col li{margin-bottom:8px;font-size:0.88rem;color:rgba(250,250,247,0.75)}
+.footer__col a:hover{color:var(--yellow)}
+.footer__bottom{margin-top:56px;padding-top:22px;border-top:1px solid rgba(250,250,247,0.15);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,250,247,0.45);flex-wrap:wrap;gap:14px}
+@media(max-width:900px){.footer{padding:60px 20px 28px}.footer__cols{grid-template-columns:1fr 1fr;gap:32px}}
 
-.card__hed{
-  font-family:var(--serif);font-weight:900;
-  font-size:clamp(1.3rem,1.6vw,1.55rem);
-  line-height:1.05;letter-spacing:-0.012em;
-  margin-bottom:6px;
-  font-variation-settings:'opsz' 36;
-}
-.card__dek{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  font-size:0.95rem;line-height:1.35;color:var(--grey);
-  margin-bottom:18px;
-  font-variation-settings:'opsz' 12;
-}
-
-.card__preview{
-  margin:0 -22px 18px;
-  border-top:1px solid var(--rule-soft);
-  border-bottom:1px solid var(--rule-soft);
-  background:#e7e4dc;
-  overflow:hidden;
-  aspect-ratio:16/10;
-}
-.card__preview img{
-  width:100%;height:100%;object-fit:cover;object-position:top center;
-  display:block;
-  filter:grayscale(0.4) contrast(1.02);
-  transition:filter .4s,transform 1s cubic-bezier(.16,1,.3,1);
-}
-.card:hover .card__preview img{filter:grayscale(0);transform:scale(1.015)}
-
-.card__body{font-size:0.92rem;line-height:1.55;color:var(--ink);margin-bottom:18px}
-.card__body p{margin-bottom:8px}
-
-.card__list{
-  list-style:none;margin:0 0 22px;padding:14px 0 0;
-  border-top:1px solid var(--rule-soft);
-  font-size:0.85rem;line-height:1.45;color:var(--grey);
-}
-.card__list li{padding:4px 0;display:flex;gap:10px}
-.card__list li::before{content:'·';color:var(--ink);font-weight:700;flex-shrink:0}
-
-.card__actions{
-  display:flex;gap:8px;flex-wrap:wrap;
-  margin-top:auto;border-top:1px solid var(--ink);padding-top:14px;
-}
-.btn{
-  font-family:var(--mono);font-size:0.62rem;font-weight:700;
-  letter-spacing:0.15em;text-transform:uppercase;
-  padding:9px 14px;border:1px solid var(--ink);
-  display:inline-flex;align-items:center;gap:6px;
-  transition:all .15s;
-  background:transparent;color:var(--ink);
-}
-.btn:hover{background:var(--ink);color:var(--paper)}
-.btn--primary{background:var(--ink);color:var(--paper)}
-.btn--primary:hover{background:var(--paper);color:var(--ink)}
-.btn::after{content:'→'}
-.btn--ext::after{content:'↗'}
-
-/* NOTES / editorial */
-.notes{
-  margin-top:48px;border-top:1px solid var(--ink);padding-top:32px;
-  display:grid;grid-template-columns:1fr 2fr;gap:48px;
-}
-@media(max-width:760px){.notes{grid-template-columns:1fr;gap:18px}}
-.notes__label{
-  font-family:var(--mono);font-size:0.66rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--grey);
-  border-top:2px solid var(--ink);padding-top:12px;align-self:start;
-}
-.notes__body p{font-size:1rem;line-height:1.65;color:var(--ink);margin-bottom:12px;max-width:65ch}
-.notes__body strong{font-weight:700}
-
-.foot{
-  margin-top:48px;padding-top:18px;
-  border-top:1px solid var(--rule-soft);
-  display:flex;justify-content:space-between;align-items:baseline;
-  font-family:var(--mono);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey);
-  flex-wrap:wrap;gap:8px;
-}
-
-@media(max-width:600px){
-  .page{padding:24px 18px 40px}
-  .card__actions{flex-direction:column}
-  .btn{width:100%;justify-content:center}
-  .masthead{border-top-width:4px;padding-top:14px}
-}
+  /* Lang toggle */
+  .lang-toggle{font-family:var(--mono);font-size:0.66rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:8px 12px;border:1px solid var(--ink);color:var(--ink);background:transparent;margin-right:14px;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center}
+  .lang-toggle:hover{background:var(--ink);color:var(--paper)}
 </style>
 </head>
 <body>
 
-<div class="page">
+<div class="cursor" id="cursor"></div>
 
-  <header class="masthead">
-    <div class="masthead__top">
-      <div><strong>FutureShow Review</strong> · Numer specjalny</div>
-      <div>Edycja konsultacyjna · Czerwiec 2026</div>
-    </div>
-    <h1 class="masthead__title">Trzy kierunki, jedna decyzja.</h1>
-    <p class="masthead__sub">Porównanie wizualne trzech wersji strony głównej — do redakcyjnej konsultacji.</p>
-  </header>
+<nav class="nav">
+  <a href="index.html" class="nav__brand">FutureShow</a>
+  <ul class="nav__links">
+    <li><a href="#features">Prace</a></li>
+    <li><a href="#archive">Archiwum</a></li>
+    <li><a href="#approach">Metoda</a></li>
+    <li><a href="studio-pl.html">Studio</a></li>
+  </ul>
+  <a href="v1-wired.html" class="lang-toggle">EN</a>
+  <a href="#contact" class="nav__cta">Zacznij projekt</a>
+</nav>
 
-  <div class="deck-rule">
-    <div>§ Wydanie próbne · do oceny</div>
-    <div>Egz. dla zaproszonych konsultantów</div>
+<!-- COVER -->
+<section class="cover">
+  <div class="cover__masthead reveal">
+    <div><span class="issue">Nr 01</span> &nbsp;&nbsp;&nbsp; Wyd. I · 2026 · <strong>Architektura interaktywnych narracji</strong></div>
+    <div>Warszawa · zdalnie</div>
   </div>
 
-  <section class="lead">
-    <div class="lead__byline">
-      Od redakcji<br>
-      <strong>Jan Lubicz Przyłuski</strong><br>
-      FutureShow Studio
-    </div>
-    <div class="lead__body">
-      <h2>Każda z trzech wersji niesie ten sam zestaw projektów i tę samą propozycję wartości. Różni je powierzchnia.</h2>
-      <p>Otwórz każdą w pełnym oknie i zwróć uwagę nie na to, która z nich jest „ładniejsza", lecz na to, do kogo każda z nich faktycznie mówi. Wybór kierunku to wybór adresata: klienta tech / scaleup, instytucji kulturalnej, korporacji z brand consciousness. Nic tu nie jest neutralne — także sama ta strona porównania została celowo zrobiona w neutralnej estetyce gazetowej, żeby nie sugerować odpowiedzi.</p>
-    </div>
-  </section>
-
-  <div class="grid">
-
-    <!-- V0 — CURRENT -->
-    <article class="card">
-      <div class="card__meta">
-        <span><span class="card__num">V0</span> · Current</span>
-        <span>Live · Produkcja</span>
+  <div class="cover__main">
+    <h1 class="cover__headline reveal" style="--i:1">
+      <span>Baw</span><br>
+      <span class="outline">się</span><br>
+      <span class="red">wiedzą.</span>
+    </h1>
+    <aside class="cover__sidebar reveal" style="--i:2">
+      <p class="cover__deck">Studio <em>interaktywnych narracji</em>. Zamieniamy trudne tematy — medyczne, geopolityczne, filozoficzne — z którymi ludzie zostają do końca.</p>
+      <div class="cover__byline">Studio <strong>FutureShow</strong> · zał. 2025 · Dla muzeów, mediów, NGO i firm</div>
+      <div class="cover__cta-row">
+        <a href="#features" class="btn-red">Zobacz prace →</a>
+        <a href="#approach" class="btn-outline">O metodzie</a>
       </div>
-      <h3 class="card__hed">Complex ideas, made interactive.</h3>
-      <p class="card__dek">Obecna wersja na futureshow1.github.io/futureshow. Ciemny tech-portfolio z particle background i cyjano-fioletowym gradientem.</p>
-      <a href="v0-current.html" target="_blank" class="card__preview">
-        <img src="screens/landing-v0.png" alt="V0 current production version">
+    </aside>
+  </div>
+
+  <div class="cover__ticker reveal" style="--i:3">
+    <div class="ticker-track">
+      <span>FutureShow ▸ Baw się wiedzą</span>
+      <span class="dot">●</span>
+      <span>CardioSim — 10 leków zweryfikowanych w literaturze</span>
+      <span class="dot">●</span>
+      <span>Atlas Naftowo-Gazowy — 240+ obiektów, 6 kontynentów</span>
+      <span class="dot">●</span>
+      <span>Portal AI Hintona — noblista wyjaśnia AI</span>
+      <span class="dot">●</span>
+      <span>Schizoanaliza — graf 45 pojęć Deleuze'a i Guattariego</span>
+      <span class="dot">●</span>
+      <span>Matryca — 33 sprawy Big Techu, PL/EN</span>
+      <span class="dot">●</span>
+      <span>FutureShow ▸ Baw się wiedzą</span>
+      <span class="dot">●</span>
+      <span>CardioSim — 10 leków zweryfikowanych w literaturze</span>
+      <span class="dot">●</span>
+      <span>Atlas Naftowo-Gazowy — 240+ obiektów, 6 kontynentów</span>
+      <span class="dot">●</span>
+      <span>Portal AI Hintona — noblista wyjaśnia AI</span>
+      <span class="dot">●</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro__inner">
+    <span class="intro__kicker reveal">Manifest · 60 sekund</span>
+    <p class="intro__lede reveal" style="--i:1">FutureShow to studio interaktywnych narracji. Każdy projekt traktujemy jak problem architektoniczny: jak z trudnego tematu — farmakologii, finansów oligarchów, filozofii poststrukturalnej — zrobić coś, z czym da się <em>pobawić</em>, a nie tylko o tym czytać? Odpowiedź rzadko jest dłuższym artykułem. Prawie zawsze jest innym rodzajem obiektu.</p>
+    <div class="intro__sig reveal" style="--i:2">Studio FutureShow · 2026</div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="trust__header reveal">
+    <div class="trust__label">Klienci · realizacje</div>
+    <div class="trust__meta">Film · grafika · interaktywne · 2008–2026</div>
+  </div>
+  <div class="logo-marquee reveal" style="--i:1">
+    <div class="logo-marquee__track">
+      <!-- track 1 -->
+      <a class="client-logo client-logo--big" href="#" aria-label="HBO"><img src="logos/hbo.svg" alt="HBO"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="MGM"><img src="logos/mgm.jpeg" alt="MGM"></a>
+      <a class="client-logo" href="#" aria-label="KGHM"><img src="logos/kghm.svg" alt="KGHM"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="TVN"><img src="logos/tvn.svg" alt="TVN"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="POLIN Museum"><img src="logos/polin.png" alt="POLIN Museum"></a>
+      <a class="client-logo client-logo--badge" href="#" aria-label="Trans/Wizje"><img src="logos/transwizje.png" alt="Trans/Wizje"></a>
+      <a class="client-logo" href="#" aria-label="Uniwersytet Warszawski"><img src="logos/uw.svg" alt="UW"></a>
+      <span class="client-logo client-logo--text client-logo--niaiu">NIAiU</span>
+      <span class="client-logo client-logo--text client-logo--td">Teatr Dramatyczny</span>
+      <!-- track 2 (duplicate for seamless loop) -->
+      <a class="client-logo client-logo--big" href="#" aria-label="HBO"><img src="logos/hbo.svg" alt="HBO"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="MGM"><img src="logos/mgm.jpeg" alt="MGM"></a>
+      <a class="client-logo" href="#" aria-label="KGHM"><img src="logos/kghm.svg" alt="KGHM"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="TVN"><img src="logos/tvn.svg" alt="TVN"></a>
+      <a class="client-logo client-logo--big" href="#" aria-label="POLIN Museum"><img src="logos/polin.png" alt="POLIN Museum"></a>
+      <a class="client-logo client-logo--badge" href="#" aria-label="Trans/Wizje"><img src="logos/transwizje.png" alt="Trans/Wizje"></a>
+      <a class="client-logo" href="#" aria-label="Uniwersytet Warszawski"><img src="logos/uw.svg" alt="UW"></a>
+      <span class="client-logo client-logo--text client-logo--niaiu">NIAiU</span>
+      <span class="client-logo client-logo--text client-logo--td">Teatr Dramatyczny</span>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="approach__inner">
+    <div class="approach__head">
+      <div class="approach__kicker reveal">Jak pracujemy</div>
+      <h2 class="approach__deck reveal" style="--i:1">Budujemy <em>bezpośrednią</em> komunikację.<br>Dla Ciebie i Twojej firmy.</h2>
+    </div>
+    <div class="approach__lede reveal" style="--i:2">
+      <p>Nie kolejna strona. Nie kolejna prezentacja. Nowy rodzaj obiektu — interaktywny, natywny w przeglądarce, należący do Ciebie — który pozwala Twojej publiczności wejść w to, co robisz, a nie tylko o tym poczytać.</p>
+    </div>
+    <div class="approach__principles">
+      <div class="principle reveal"><div class="principle__num">01</div><h3>Bezpośrednio.</h3><p>Bez pośredników. Twoja publiczność spotyka Twoją ideę twarzą w twarz. Czas stron minął. Przyszedł czas miejsc.</p></div>
+      <div class="principle reveal" style="--i:1"><div class="principle__num">02</div><h3>Natywnie w przeglądarce.</h3><p>Zero instalacji. Zero logowania. Zero zależności. Żyje tam, gdzie już jest uwaga.</p></div>
+      <div class="principle reveal" style="--i:2"><div class="principle__num">03</div><h3>Twoje na zawsze.</h3><p>Masz źródło. Masz dane. Masz relację z publicznością.</p></div>
+      <div class="principle reveal" style="--i:3"><div class="principle__num">04</div><h3>Szybko do startu.</h3><p>AI jako partner kreatywny. Od briefu do wdrożenia: 2–6 tygodni, nie miesięcy.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="features__inner">
+    <div class="features__rule">
+      <h2 class="features__title">Wybrane prace</h2>
+      <div class="features__count">Sześć realizacji · 2024–2026</div>
+    </div>
+
+    <!-- 01 CARDIOSIM -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">01</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip red">Medycyna</span>
+            <span class="chip">Symulacja</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">Pracownia <em>farmakologii</em> w karcie przeglądarki.</h3>
+          <p class="feat__deck">Dziesięć leków kardiologicznych, osiem scenariuszy klinicznych, hemodynamika w czasie rzeczywistym — zgodne z Circulation, EJCTS, StatPearls.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/cardiosim.html">
+        <img src="screens/cardiosim.png" alt="CardioSim Pro" loading="lazy" onload="this.parentElement.classList.add('has-img')">
       </a>
-      <div class="card__body">
-        <p>Klasyczny model freelancerskiego portfolio. Hero, dziewięć projektów w gridzie, sekcje Services / About / Films / Contact. Wszystko działa, ale czyta się jako „młody dev z portfolio".</p>
-      </div>
-      <ul class="card__list">
-        <li>Już działa, nic nie zmieniamy</li>
-        <li>Bilingual EN / PL z toggle</li>
-        <li>9 projektów + films page</li>
-        <li>Cookie consent + GA4 podłączone</li>
-      </ul>
-      <div class="card__actions">
-        <a href="v0-current.html" target="_blank" class="btn btn--primary">Otwórz V0</a>
-        <a href="https://futureshow1.github.io/futureshow/" target="_blank" class="btn btn--ext">Live URL</a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">Większość symulatorów medycznych żyje za paywallem i loginami uczelnianymi. CardioSim powstał, gdy ktoś-nie-lekarz obsesyjnie wgryzł się w brief kardiologa: prawdziwa mechanika Franka–Starlinga, prawdziwa dynamika wchłaniania, prawdziwe interakcje leków — animowane, obserwowalne, darmowe, zamknięte w jednym pliku HTML, który możesz wysłać studentowi mailem. Działa offline. Nie kosztuje nic. I jest już w użyciu.</p>
+          <a href="projects/cardiosim.html" class="feat__cta">Czytaj case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">10</div><div class="feat__stat-label">Modelowanych leków</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">8</div><div class="feat__stat-label">Scenariuszy klinicznych</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">25KB</div><div class="feat__stat-label">Waga całkowita</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">0</div><div class="feat__stat-label">Zależności</div></div>
+          </div>
+        </aside>
       </div>
     </article>
 
-    <!-- V2 — MODERNIZED -->
-    <article class="card">
-      <div class="card__meta">
-        <span><span class="card__num">V2</span> · Modernized</span>
-        <span>W pracy · Polish-first</span>
-      </div>
-      <h3 class="card__hed">Złożone idee, interaktywnie.</h3>
-      <p class="card__dek">Polerowana wersja current: ta sama struktura, ale z lepszym kontrastem, redagowanym tonem, polskim językiem jako pierwszym.</p>
-      <a href="v2/index.html" target="_blank" class="card__preview">
-        <img src="screens/landing-v2.png" alt="V2 modernized version">
+    <div class="feat__pullquote reveal">Większość symulatorów medycznych żyje za paywallem. Tego wysłaliśmy rezydentowi mailem w trzy minuty.</div>
+
+    <!-- 02 ATLAS -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">02</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip yellow">Śledztwo</span>
+            <span class="chip">Geopolityka</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">Gdzie naprawdę przepływa światowa <em>energia.</em></h3>
+          <p class="feat__deck">Siedem interaktywnych map. 240+ rurociągów, pól wydobywczych, terminali LNG, punktów kontroli. Z informacją o statusie: uszkodzone, zamknięte, aktywne, planowane.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/atlas.html">
+        <img src="screens/atlas.png" alt="Oil and Gas Atlas" loading="lazy" onload="this.parentElement.classList.add('has-img')">
       </a>
-      <div class="card__body">
-        <p>Bezpieczna ewolucja — zachowuje DNA obecnej strony, ale daje jej dyscyplinę typograficzną i więcej oddechu. Środek między tym, co jest, a magazine.</p>
-      </div>
-      <ul class="card__list">
-        <li>To samo DNA co current</li>
-        <li>Polski-pierwszy z toggle EN</li>
-        <li>Lepsza typografia, kontrast, oddech</li>
-        <li>Statyczny, działa offline</li>
-      </ul>
-      <div class="card__actions">
-        <a href="v2/index.html" target="_blank" class="btn btn--primary">Otwórz V2</a>
-        <a href="v2/mockup-light.html" target="_blank" class="btn btn--ext">Mockup light</a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">Po 2022 każdy newsroom w Europie potrzebował sposobu opowiadania o przepływach gazu, który nie byłby ani depeszą Reutersa ani PDF-em Stratfora. Atlas jest trzecią opcją: otwarty, ze źródłami, ze statusem każdego obiektu (aktywne / uszkodzone / zamknięte / planowane). Najedź na dowolną linię; zobacz kto ją zbudował, kto zamknął, w którym roku, po co. Geopolityka czytana przez to, co naprawdę leży w ziemi.</p>
+          <a href="projects/atlas.html" class="feat__cta">Czytaj case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">240+</div><div class="feat__stat-label">Obiektów infrastruktury</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">7</div><div class="feat__stat-label">Map kontynentalnych</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">90+</div><div class="feat__stat-label">Zmapowanych rurociągów</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">110+</div><div class="feat__stat-label">Terminali LNG</div></div>
+          </div>
+        </aside>
       </div>
     </article>
 
-    <!-- V3 — WIRED -->
-    <article class="card">
-      <div class="card__meta">
-        <span><span class="card__num">V3</span> · Reinvention · <strong>WYBRANE</strong></span>
-        <span>PL + EN · Magazine-style</span>
-      </div>
-      <h3 class="card__hed">Play with knowledge.</h3>
-      <p class="card__dek">Radykalna re-inwencja w stylu magazynu: okładka z bold display, sześć ponumerowanych features, drop caps, pull quotes, ticker.</p>
-      <a href="v1-wired.html" target="_blank" class="card__preview">
-        <img src="screens/landing-v_wired.png" alt="V3 WIRED magazine style">
+    <div class="feat__pullquote reveal">Geopolityka czytana przez to, co naprawdę leży w ziemi.</div>
+
+    <!-- 03 HINTON -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">03</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip">Edukacja</span>
+            <span class="chip red">AI</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">Elementarz <em>noblisty</em> o tym, jak działa AI.</h3>
+          <p class="feat__deck">Piętnaście rozdziałów: Geoffrey Hinton krok po kroku. Trzy edycje wizualne. Dwujęzycznie PL/EN.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/hinton.html">
+        <img src="screens/hinton.png" alt="Hinton AI Portal" loading="lazy" onload="this.parentElement.classList.add('has-img')">
       </a>
-      <div class="card__body">
-        <p>Najwięcej inwestycji, najmocniejsza zmiana pozycjonowania (FutureShow jako studio, nie freelancer). Każdy z sześciu flagship projects ma osobną pełną stronę case study.</p>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">Hinton odszedł z Google, by ostrzegać publiczność przed AI. Portal robi to, na co on już nie ma czasu: siadasz, otwierasz maskę silnika, oglądasz propagację wsteczną, sieci neuronowe i ryzyko egzystencjalne — jego własnymi słowami. Bez marketingu. Bez hype'u. Sam nauczyciel, w otwartym internecie.</p>
+          <a href="projects/hinton.html" class="feat__cta">Czytaj case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">15</div><div class="feat__stat-label">Rozdziałów</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">3</div><div class="feat__stat-label">Edycji</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">EN/PL</div><div class="feat__stat-label">Wersje językowe</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">2024</div><div class="feat__stat-label">Rok Nobla</div></div>
+          </div>
+        </aside>
       </div>
-      <ul class="card__list">
-        <li>FutureShow jako studio, nie freelancer</li>
-        <li>6 case study pages (osobny URL na projekt)</li>
-        <li>Trust marquee z 9 logo klientów</li>
-        <li>OG images + sekcja Approach</li>
-      </ul>
-      <div class="card__actions">
-        <a href="v1-wired-pl.html" target="_blank" class="btn btn--primary">Otwórz V3 PL</a>
-        <a href="v1-wired.html" target="_blank" class="btn">EN</a>
-        <a href="projects/cardiosim.html" target="_blank" class="btn btn--ext">Case study</a>
+    </article>
+
+    <div class="feat__pullquote reveal">Sam nauczyciel, w otwartym internecie.</div>
+
+    <!-- 04 SCHIZOANALIZA -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">04</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip yellow">Filozofia</span>
+            <span class="chip">Edukacja</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">Anty-Edyp, <em>jako mapa.</em></h3>
+          <p class="feat__deck">Alternatywa dla psychoanalizy — <em>nie kolejna szkoła terapeutyczna,</em> lecz praktyka analityczna obejmująca wszystkie pola społeczne.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/schizoanaliza.html">
+        <img src="screens/schizoanaliza.png" alt="Schizoanaliza" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      </a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">Schizoanaliza nie jest kolejną szkołą terapeutyczną. Jest praktyką analityczną obejmującą wszystkie pola społeczne — rodzinę, ekonomię, sztukę, miasto, politykę tożsamości. <em>Anty-Edyp</em> (1972) i <em>Tysiąc plateau</em> (1980) Deleuze'a i Guattariego — dwa tomy, które ze swojej natury wymagają nielinearnej lektury — tu dostają to z powrotem: konstelacja 45 pojęć, oś argumentacji, 50 pytań quizowych, trzy maszyny społeczne.</p>
+          <a href="projects/schizoanaliza.html" class="feat__cta">Czytaj case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">45</div><div class="feat__stat-label">Pojęć</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">50+</div><div class="feat__stat-label">Pytań w quizie</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">3</div><div class="feat__stat-label">Maszyn społecznych</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">2</div><div class="feat__stat-label">Tomów źródłowych</div></div>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <div class="feat__pullquote reveal">Nie kolejna szkoła terapeutyczna. Praktyka analityczna obejmująca wszystkie pola społeczne.</div>
+
+    <!-- 05 SECTIO AUREA -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">05</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip yellow">Sztuka</span>
+            <span class="chip">Redakcja</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title"><em>Dwunastościan,</em> w który można wejść.</h3>
+          <p class="feat__deck">Sectio Aurea — interaktywny atlas 3D Złotej Liczby. Dwanaście komnat, siedem grywalnych pomieszczeń, progresja przez złoto i rangi. Z traktatu Matili C. Ghyki (1931) zrobiliśmy współczesny obiekt do przejścia.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/sectio-aurea.html">
+        <img src="screens/sectio.png" alt="Sectio Aurea" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      </a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">„Złota Liczba" Ghyki to 400-stronicowy traktat o liczbie, proporcji, pięknie i kosmosie. Praktycznie nie do przeczytania od początku do końca. Sectio Aurea daje mu nową strukturę: dwunastościan-nawigator 3D, każda z dwunastu pięciokątnych ścian otwiera komnatę. Siedem z nich jest w pełni grywalnych — Liczba (audio), Proporcja, Pentada (shader), Bryły, Ogród, Loża (konstelacja), Probierz (gra-mit) — z walutą-złotem, rangami i odznakami. Filozofia piękna, wreszcie do przejścia.</p>
+          <a href="projects/sectio-aurea.html" class="feat__cta">Czytaj case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">12</div><div class="feat__stat-label">Komnat</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">7</div><div class="feat__stat-label">Grywalnych pomieszczeń</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">3D</div><div class="feat__stat-label">Nawigator</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">1931</div><div class="feat__stat-label">Rok źródła</div></div>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <div class="feat__pullquote reveal">Filozofia piękna, wreszcie do przejścia.</div>
+
+    <!-- 06 MATRYCA -->
+    <article class="feat reveal">
+      <header class="feat__head">
+        <div class="feat__num">06</div>
+        <div class="feat__title-area">
+          <div class="feat__chip-row">
+            <span class="chip">Śledztwo</span>
+            <span class="chip red">Big Tech</span>
+            <span class="chip outline">2026</span>
+          </div>
+          <h3 class="feat__title">Indeks afer <em>Big Techu.</em></h3>
+          <p class="feat__deck">33 udokumentowane sprawy: nadużycia platform, naruszenia prywatności, antymonopol, praktyki pracownicze. Wyszukiwalne, porównywalne, ze źródłami. PL/EN.</p>
+        </div>
+      </header>
+      <a class="feat__image" href="projects/matryca.html">
+        <img src="screens/matryca.png" alt="Matryca" loading="lazy" onload="this.parentElement.classList.add('has-img')">
+      </a>
+      <div class="feat__body">
+        <div>
+          <p class="feat__body-text">Kto pisze pracę o władzy platform, nie musi zaczynać od strony pierwszej każdej historii. Matryca to indeks, którego nie ma nigdzie indziej: każda sprawa zmapowana z dowodami, wynikiem, powtarzalnym wzorcem. Raz zbudowane, na zawsze utrzymywane. Wolne do cytowania.</p>
+          <a href="projects/matryca.html" class="feat__cta">Czytaj case study</a>
+        </div>
+        <aside class="feat__aside">
+          <div class="feat__aside-grid">
+            <div class="feat__stat"><div class="feat__stat-num red">33</div><div class="feat__stat-label">Spraw</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">PL/EN</div><div class="feat__stat-label">Wersje językowe</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">Live</div><div class="feat__stat-label">Aktualizacje</div></div>
+            <div class="feat__stat"><div class="feat__stat-num">5</div><div class="feat__stat-label">Wejść w dane</div></div>
+          </div>
+        </aside>
       </div>
     </article>
 
   </div>
+</section>
 
-  <section class="notes">
-    <div class="notes__label">
-      Komentarz redakcji<br>
-      <strong>Jak czytać</strong>
+<!-- BANNER -->
+<section class="banner">
+  <div class="banner__inner">
+    <div class="banner__text reveal">Pracujesz nad <em>czymś trudnym,</em><br>do czego publiczność nie ma jeszcze wejścia?</div>
+    <a href="#contact" class="btn-banner reveal" style="--i:1">Zacznij projekt →</a>
+  </div>
+</section>
+
+<!-- OTHERS -->
+<section class="archive" id="archive">
+  <div class="archive__inner">
+    <div class="archive__head">
+      <h2 class="archive__title">Więcej ze studia</h2>
+      <button class="archive__toggle" id="moreToggle">Pokaż jeszcze 15</button>
     </div>
-    <div class="notes__body">
-      <p>Wszystkie trzy wersje korzystają z tej samej warstwy treści: te same projekty, ci sami klienci, ta sama propozycja wartości. Różni je <strong>powierzchnia</strong> — typografia, kolor, rytm, ton głosu.</p>
-      <p><strong>V0</strong> to status quo: nic nie ruszamy, żyjemy z tym co jest.<br>
-      <strong>V2</strong> to bezpieczna ewolucja: ten sam pomysł, dorobiona dyscyplina.<br>
-      <strong>V3</strong> to inwestycja w nową tożsamość: studio z punktem widzenia, gotowe do rozmowy z poważnym klientem.</p>
-      <p>Decyzja kierunku to nie decyzja „ładności", lecz <strong>do kogo mówimy</strong>. V0 / V2 lepiej obsługują klienta tech / scaleup. V3 lepiej dla klienta instytucjonalnego, kulturalnego, korporacyjnego z brand consciousness.</p>
+    <div class="archive__list" id="moreList">
+      <ul>
+        <li><span class="yr">2026</span><span class="nm">MNEMO <em>architektura pamięci · osobisty graf wiedzy</em></span><span class="tg">Lab · Nowe</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Mondrian / Malewicz <em>interaktywny tryptyk 3D · 42 cytaty</em></span><span class="tg">Sztuka · Nowe</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">SEJM — Symulator wpływów <em>silnik TF-IDF na 3 834 głosach</em></span><span class="tg">Lab · Nowe</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Złota Liczba — kompendium Ghyki <em>obszerne wydanie z aneksami</em></span><span class="tg">Redakcja</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Świtkowski — Okultyzm i magja (1939) <em>kompendium</em></span><span class="tg">Redakcja</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Digital Cosmos <em>immersyjny 3D WebGL</em></span><span class="tg">Lab</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Cosmos Catalogue <em>biblioteka technik 3D</em></span><span class="tg">Lab</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Cambridge Analytica — Oś czasu <em>chronologia śledcza</em></span><span class="tg">Śledztwo</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">40 największych polskich afer <em>1988–2026, atlas powiązań</em></span><span class="tg">Śledztwo</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Panama Papers — wizualizacja <em>sieć firm-słupów</em></span><span class="tg">Śledztwo</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Habermas — gra edukacyjna <em>graf rozdziałów</em></span><span class="tg">Edukacja</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Symulacja grawitacyjna N-ciał <em>28 000 cząstek</em></span><span class="tg">Symulacja</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">FutureShow Films — reel AI <em>10+ shortów</em></span><span class="tg">Film</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Archiwum Jana Świdzińskiego <em>sztuka kontekstualna</em></span><span class="tg">Archiwum</span><span class="ar">→</span></li>
+        <li><span class="yr">2026</span><span class="nm">Archiwum Bronisława Przyłuskiego <em>archiwum kultury</em></span><span class="tg">Archiwum</span><span class="ar">→</span></li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="foot">
-    <div>© FutureShow Studio · 2026 · Wszelkie prawa zastrzeżone</div>
-    <div><a href="mailto:futureshow@proton.me">futureshow@proton.me</a></div>
-  </footer>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__big">Masz <em>złożony temat,</em><br>do którego publiczność <span class="underline">nie znajduje</span><br>wejścia?</div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:futureshow@proton.me">futureshow@proton.me</a></li>
+          <li>Warszawa / zdalnie</li>
+          <li>Otwarte na nowe projekty</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Prace</h4>
+        <ul>
+          <li><a href="#features">Wybrane</a></li>
+          <li><a href="#archive">Archiwum</a></li>
+          <li><a href="#">Proces</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#">O studio</a></li>
+          <li><a href="#">Metoda</a></li>
+          <li><a href="#">Prasa</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Profile</h4>
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Vimeo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div>© Studio FutureShow 2026 · Baw się wiedzą.</div>
+      <div>Prywatność · Cookies · Impressum</div>
+    </div>
+  </div>
+</footer>
 
-</div>
+<script>
+(()=>{
+  const c=document.getElementById('cursor');
+  let x=window.innerWidth/2,y=window.innerHeight/2,tx=x,ty=y;
+  window.addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY});
+  const tick=()=>{x+=(tx-x)*0.25;y+=(ty-y)*0.25;c.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%)`;requestAnimationFrame(tick)};
+  tick();
+  document.querySelectorAll('a,button,[data-hover]').forEach(el=>{
+    el.addEventListener('pointerenter',()=>c.classList.add('hover'));
+    el.addEventListener('pointerleave',()=>c.classList.remove('hover'));
+  });
+})();
 
+(()=>{
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:0.05});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  window.addEventListener('load',()=>{
+    setTimeout(()=>{
+      document.querySelectorAll('.reveal:not(.in)').forEach(el=>{
+        const r=el.getBoundingClientRect();
+        if(r.top<window.innerHeight && r.bottom>0) el.classList.add('in');
+      });
+    },150);
+  });
+})();
+
+(()=>{
+  const btn=document.getElementById('moreToggle'),list=document.getElementById('moreList');
+  btn.addEventListener('click',()=>{
+    const open=list.classList.toggle('open');
+    btn.classList.toggle('open',open);
+    btn.firstChild.textContent=open?'Pokaż mniej':'Pokaż jeszcze 15';
+  });
+})();
+</script>
 </body>
 </html>

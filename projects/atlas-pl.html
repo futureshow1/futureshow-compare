@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Naftowo-Gazowy — Case study · FutureShow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<meta property="og:title" content="Atlas Naftowo-Gazowy — Gdzie naprawdę przepływa światowa energia.">
+<meta property="og:description" content="Siedem interaktywnych map. 240+ rurociągów, pól wydobywczych, terminali LNG, punktów kontroli. Ze statusem: uszkodzone, zamknięte, aktywne, planowane.">
+<meta property="og:image" content="https://futureshow1.github.io/futureshow-mockup/screens/og-atlas.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://futureshow1.github.io/futureshow-mockup/projects/atlas-pl.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atlas Naftowo-Gazowy — Gdzie naprawdę przepływa światowa energia.">
+<meta name="twitter:description" content="Siedem interaktywnych map. 240+ rurociągów, pól wydobywczych, terminali LNG, punktów kontroli. Ze statusem: uszkodzone, zamknięte, aktywne, planowane.">
+<meta name="twitter:image" content="https://futureshow1.github.io/futureshow-mockup/screens/og-atlas.png">
+<meta name="description" content="Siedem interaktywnych map. 240+ rurociągów, pól wydobywczych, terminali LNG, punktów kontroli. Ze statusem: uszkodzone, zamknięte, aktywne, planowane.">
+<link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<nav class="nav">
+  <a href="../v1-wired-pl.html" class="nav__brand">FutureShow</a>
+  <a href="../v1-wired-pl.html" class="nav__back">Wszystkie prace</a>
+  <a href="atlas.html" class="lang-toggle">EN</a>
+  <a href="https://futureshow1.github.io/oil-gas-atlas/" target="_blank" class="nav__cta">Otwórz atlas</a>
+</nav>
+
+<header class="cs-hero">
+  <div class="cs-hero__inner">
+    <div class="cs-hero__masthead reveal">
+      <div><span class="num">FEAT. 02</span> &nbsp;&nbsp;&nbsp; Wyd. I · 2026 · <strong>Architektura interaktywnych narracji</strong></div>
+      <div>Śledztwo danych</div>
+    </div>
+    <div class="cs-hero__main">
+      <div class="cs-hero__headline-wrap reveal" style="--i:1">
+        <div class="cs-hero__chip-row">
+          <span class="chip yellow">Śledztwo</span>
+          <span class="chip">Geopolityka</span>
+          <span class="chip">Otwarte dane</span>
+          <span class="chip outline">2026</span>
+        </div>
+        <h1>Gdzie<br><span class="outline">naprawdę płyną</span><br>ropa i <em>gaz.</em></h1>
+      </div>
+      <aside class="cs-hero__sidebar reveal" style="--i:2">
+        <p class="cs-hero__deck">Siedem interaktywnych map. 240+ rurociągów, pól wydobywczych, terminali LNG, punktów kontroli. <em>Ze statusem.</em> Ze źródłami. Otwarte.</p>
+        <div class="cs-hero__byline">Studio <strong>FutureShow</strong> · zał. 2025 · Dla newsroomów, NGO, działów polityki i badaczy</div>
+        <div class="cs-hero__cta-row">
+          <a href="https://futureshow1.github.io/oil-gas-atlas/" target="_blank" class="btn-red">Otwórz atlas →</a>
+          <a href="../v1-wired.html" class="btn-outline-light">Wszystkie prace</a>
+        </div>
+      </aside>
+    </div>
+    <div class="cs-hero__ticker reveal" style="--i:3">
+      <div class="cs-hero__ticker-track">
+      <span>Realizacja 02 · Globalny Atlas Naftowo-Gazowy</span>
+      <span class="dot">●</span>
+      <span>7 interaktywnych map · świat + 6 kontynentów</span>
+      <span class="dot">●</span>
+      <span>240+ obiektów infrastruktury zmapowanych</span>
+      <span class="dot">●</span>
+      <span>Status: aktywne · uszkodzone · zamknięte · planowane</span>
+      <span class="dot">●</span>
+      <span>Darmowe, ze źródłami, Leaflet.js</span>
+      <span class="dot">●</span>
+      <span>Od komunikatu prasowego do tego, co leży w ziemi</span>
+      <span class="dot">●</span>
+      <span>Feat. 02 · Global Oil &amp; Gas Atlas</span>
+      <span class="dot">●</span>
+      <span>7 interactive maps · world + 6 continents</span>
+      <span class="dot">●</span>
+      <span>240+ pieces of infrastructure mapped</span>
+      <span class="dot">●</span>
+      <span>Status enum: active · damaged · shut · proposed</span>
+      <span class="dot">●</span>
+      <span>Free, source-cited, Leaflet.js powered</span>
+      <span class="dot">●</span>
+      <span>From the press release to what's on the ground</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<figure class="cs-image">
+  <img src="../screens/atlas.png" alt="Global Oil &amp; Gas Atlas — world map view with all infrastructure">
+</figure>
+
+<section class="cs-stats">
+  <div class="cs-stats__inner">
+    <div><div class="cs-stat__num red">240+</div><div class="cs-stat__label">Obiektów infrastruktury</div></div>
+    <div><div class="cs-stat__num">7</div><div class="cs-stat__label">Map kontynentalnych</div></div>
+    <div><div class="cs-stat__num">90+</div><div class="cs-stat__label">Zmapowanych rurociągów</div></div>
+    <div><div class="cs-stat__num yellow">110+</div><div class="cs-stat__label">Terminali LNG</div></div>
+  </div>
+</section>
+
+<div class="cs-body">
+  <p>Po 2022 każdy newsroom w Europie potrzebował sposobu opowiadania o przepływach gazu, który nie byłby ani depeszą Reutersa, ani PDF-em Stratfora. Redaktorzy zaczęli pytać o „mapę Nord Stream" i dostawali w odpowiedzi statyczne infografiki sprzed trzech miesięcy.</p>
+  <p>Atlas jest trzecią opcją: otwarty, ze źródłami, ze statusem każdego obiektu. Najedź na dowolną linię; zobacz kto ją zbudował, kto zamknął, w którym roku, po co. Geopolityka czytana przez to, co naprawdę leży w ziemi — nie przez to, co napisał komunikat prasowy.</p>
+</div>
+
+<section class="cs-section">
+  <div class="cs-section__head">
+    <div class="cs-section__num">01 / Brief</div>
+    <h2 class="cs-section__title">Nikt nie miał <em>żywej</em> mapy.</h2>
+  </div>
+  <div class="cs-section__body">
+    <div class="cs-section__meta">Spust<br>Kryzys energetyczny<br>Europa · 2022–24</div>
+    <div>
+      <p>Źródła istniały — IEA, EIA, Global Energy Monitor — ale jako PDF-y, arkusze albo dashboardy za paywallem. Prawie nic nie było <strong>wizualizacją, którą można dać młodemu reporterowi</strong> tak, by w dwadzieścia minut zrobił z niej mapę do publikacji.</p>
+      <p>Brief, który dałem sobie sam: pokryć każdy ważny element infrastruktury naftowo-gazowej istotny geopolitycznie w 2026, na klikalnej mapie, ze statusem (aktywne / uszkodzone / zamknięte / planowane) jako pojęciem pierwszej klasy. Bez loginu. Bez paywallu. Bez klucza API.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-section__head">
+    <div class="cs-section__num">02 / Metoda</div>
+    <h2 class="cs-section__title">Status jako <em>pierwszorzędne</em> pole danych.</h2>
+  </div>
+  <div class="cs-section__body">
+    <div class="cs-section__meta">Model danych<br>Współrzędne WGS84<br>Status<br>Rok budowy<br>Operator</div>
+    <div>
+      <p>Każdy rurociąg ma: punkty trasy, przepustowość, długość, rok budowy, operatora, aktualny status i krótką notkę („Sabotaż wrzesień 2022. Trzy z czterech linii pękły.").</p>
+      <p>Status steruje zarówno kolorem, jak i kreską: ciągła = aktywne, przerywana = ograniczone, wyblakła = zamknięte, kropkowana = planowane, łamana = uszkodzone. Dzięki temu jednym spojrzeniem na mapę Europy widzisz, co działa, co stoi, a co jest tylko na papierze.</p>
+      <p>Zmiany statusu są wersjonowane. Kiedy Drużba zamknęła się w grudniu 2024, stała się jednym commitem — nie przeprojektowaniem.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-section__head">
+    <div class="cs-section__num">03 / Efekt</div>
+    <h2 class="cs-section__title">Siedem map, jeden model.</h2>
+  </div>
+  <div class="cs-section__body">
+    <div class="cs-section__meta">Pokrycie<br>Mapa świata<br>Europa<br>Azja<br>Ameryka Płn.<br>Ameryka Płd.<br>Afryka<br>Oceania</div>
+    <div>
+      <p>Mapa świata to punkt wejścia; każdy kontynent ma własną stronę szczegółową z kontekstem regionalnym (np. Europa eksponuje tranzyt ukraiński, Drużbę, Nord Stream; Azja — Power of Siberia, punkty kontroli na Bliskim Wschodzie).</p>
+      <p>Pokrycie na premierze: <strong>90+ rurociągów, 80+ pól wydobywczych, 70+ terminali LNG, 12 strategicznych punktów kontroli.</strong> Mobile layout poprawiony w połowie 2026 — zwijany panel informacji. Na telefonie priorytetem jest mapa, nie legenda.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-section__head">
+    <div class="cs-section__num">04 / Stack</div>
+    <h2 class="cs-section__title">Narzędzia.</h2>
+  </div>
+  <div class="cs-section__body">
+    <div class="cs-section__meta">Tech<br>Leaflet.js v1.9<br>Kafle CartoDB Dark<br>Czysty JS</div>
+    <div>
+      <p>Leaflet dla warstwy mapy. CartoDB Dark dla kafli — płaska, neutralna mapa bazowa, która nie konkuruje z danymi. Wszystkie dane w plikach JSON obok HTML, serwowane jako statyki z GitHub Pages.</p>
+      <p>Bez backendu. Bez build stepu. Koszt utrzymania: zero. Czas na fork i własny hosting: poniżej pięciu minut.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cs-pullquote">
+  <div class="cs-pullquote__inner">
+    Geopolityka czytana przez to, co naprawdę leży w ziemi.
+    <div class="cs-pullquote__cite">— Atlas, jedną linią</div>
+  </div>
+</div>
+
+<section class="cs-launch">
+  <h2>Otwórz <em>atlas.</em></h2>
+  <p>Wybierz kontynent ze strony głównej. Najedź na dowolną linię, by zobaczyć szczegóły. Filtruj po typie (rurociągi / pola / LNG) lub po statusie (aktywne / zamknięte / uszkodzone / planowane).</p>
+  <a href="https://futureshow1.github.io/oil-gas-atlas/" target="_blank" class="cs-launch-btn">Otwórz Atlas Naftowo-Gazowy</a>
+</section>
+
+<section class="cs-next">
+  <div class="cs-next__inner">
+    <div class="cs-next__label">Następne case study</div>
+    <a href="hinton-pl.html" class="cs-next__link">03 — Elementarz noblisty o AI</a>
+  </div>
+</section>
+
+<footer class="cs-footer">
+  <div class="cs-footer__inner">
+    <div>© Studio FutureShow 2026 · Baw się wiedzą.</div>
+    <div><a href="../v1-wired-pl.html">Wszystkie prace</a> · <a href="mailto:futureshow@proton.me">futureshow@proton.me</a></div>
+  </div>
+</footer>
+
+<script>
+(()=>{const c=document.getElementById('cursor');let x=innerWidth/2,y=innerHeight/2,tx=x,ty=y;onpointermove=e=>{tx=e.clientX;ty=e.clientY};const t=()=>{x+=(tx-x)*0.25;y+=(ty-y)*0.25;c.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%)`;requestAnimationFrame(t)};t();document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('pointerenter',()=>c.classList.add('hover'));el.addEventListener('pointerleave',()=>c.classList.remove('hover'))})})();
+(()=>{const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.05});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));onload=()=>setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)el.classList.add('in')}),150)})();
+</script>
+</body>
+</html>

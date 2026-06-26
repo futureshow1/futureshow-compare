@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio — FutureShow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<meta property="og:title" content="Studio — A studio of one, scaled with AI.">
+<meta property="og:description" content="FutureShow is a one-person studio for interactive narratives, founded by Jan Lubicz Przyłuski in Warsaw. Built with AI as creative partner; deployed as zero-dependency web apps.">
+<meta property="og:image" content="https://futureshow1.github.io/futureshow-mockup/screens/og-cardiosim.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://futureshow1.github.io/futureshow-mockup/studio.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Studio — A studio of one, scaled with AI.">
+<meta name="twitter:description" content="FutureShow is a one-person studio for interactive narratives, founded by Jan Lubicz Przyłuski in Warsaw. Built with AI as creative partner; deployed as zero-dependency web apps.">
+<meta name="description" content="FutureShow is a one-person studio for interactive narratives, founded by Jan Lubicz Przyłuski in Warsaw. Built with AI as creative partner; deployed as zero-dependency web apps.">
+<link rel="stylesheet" href="projects/case-study.css">
+<style>
+  .lang-toggle{font-family:var(--mono);font-size:0.66rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:7px 12px;border:1px solid var(--ink);color:var(--ink);background:transparent;margin-right:14px;transition:all .2s}
+  .lang-toggle:hover{background:var(--ink);color:var(--paper)}
+  .nav__right{display:flex;align-items:center}
+  .studio-bio{max-width:1280px;margin:0 auto;padding:80px 36px;border-top:1px solid var(--ink)}
+  .studio-bio__head{display:grid;grid-template-columns:200px 1fr;gap:60px;margin-bottom:48px;align-items:baseline}
+  .studio-bio__num{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:14px}
+  .studio-bio__num::before{content:'';display:inline-block;width:24px;height:1px;background:currentColor}
+  .studio-bio__title{font-family:var(--display);font-size:clamp(2rem,4vw,3.4rem);text-transform:uppercase;line-height:0.95;letter-spacing:-0.025em;color:var(--ink)}
+  .studio-bio__title em{color:var(--red);font-style:normal}
+  .studio-bio__body{display:grid;grid-template-columns:200px 1fr;gap:60px}
+  .studio-bio__meta{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-mute)}
+  .studio-bio__name{font-family:var(--display);font-size:1.8rem;text-transform:uppercase;letter-spacing:-0.02em;color:var(--ink);margin-bottom:8px}
+  .studio-bio__role{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--ink);margin-bottom:32px;line-height:1.4}
+  .studio-bio dl{display:grid;grid-template-columns:160px 1fr;gap:14px 28px;margin-top:32px;border-top:1px solid var(--rule);padding-top:24px}
+  .studio-bio dt{font-family:var(--mono);font-size:0.66rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);padding-top:4px}
+  .studio-bio dd{font-size:0.98rem;line-height:1.6;color:#222;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+  .studio-bio dl > *:nth-last-child(-n+2){border-bottom:none}
+  .principles{max-width:1280px;margin:0 auto;padding:80px 36px;border-top:1px solid var(--ink);background:var(--paper2)}
+  .principles__head{display:grid;grid-template-columns:200px 1fr;gap:60px;margin-bottom:48px;align-items:baseline}
+  .principles__num{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:14px}
+  .principles__num::before{content:'';display:inline-block;width:24px;height:1px;background:currentColor}
+  .principles__title{font-family:var(--display);font-size:clamp(2rem,4vw,3.4rem);text-transform:uppercase;line-height:0.95;letter-spacing:-0.025em;color:var(--ink)}
+  .principles__title em{color:var(--red);font-style:normal}
+  .principles__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;border-top:2px solid var(--ink);padding-top:36px}
+  .principle__num{font-family:var(--display);font-size:1.8rem;line-height:1;-webkit-text-stroke:1.2px var(--ink);color:transparent;margin-bottom:14px}
+  .principle h3{font-family:var(--display);font-size:clamp(1.1rem,1.6vw,1.4rem);text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:10px;color:var(--ink)}
+  .principle p{font-size:0.92rem;line-height:1.55;color:#222}
+  .contact{background:var(--ink);color:var(--paper);padding:120px 36px;text-align:center}
+  .contact h2{font-family:var(--display);font-size:clamp(2.2rem,5vw,4rem);text-transform:uppercase;line-height:0.95;letter-spacing:-0.03em;margin-bottom:18px}
+  .contact h2 em{color:var(--yellow);font-style:normal}
+  .contact__deck{font-family:var(--serif);font-size:1.25rem;font-style:italic;color:rgba(250,250,247,0.75);max-width:50ch;margin:0 auto 40px}
+  .contact__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:780px;margin:0 auto 40px}
+  .contact__cell{border-top:1px solid rgba(250,250,247,0.2);padding-top:20px;text-align:left}
+  .contact__label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,250,247,0.55);margin-bottom:8px}
+  .contact__value{font-family:var(--serif);font-size:1.1rem;color:var(--paper);font-style:italic}
+  .contact__value a{color:var(--paper);border-bottom:1px solid rgba(250,250,247,0.3);transition:border-color .2s}
+  .contact__value a:hover{border-color:var(--yellow)}
+  .contact__btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:0.85rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:20px 36px;background:var(--red);color:var(--paper);transition:all .25s;border:1px solid var(--red);margin-top:14px}
+  .contact__btn:hover{background:var(--yellow);color:var(--ink);border-color:var(--yellow);transform:translateY(-2px)}
+  @media(max-width:900px){
+    .studio-bio,.principles{padding:50px 20px}
+    .studio-bio__head,.studio-bio__body,.principles__head{grid-template-columns:1fr;gap:16px}
+    .studio-bio dl{grid-template-columns:1fr}
+    .studio-bio dt{padding-top:0;border-bottom:none}
+    .principles__grid{grid-template-columns:1fr 1fr;gap:24px}
+    .contact{padding:60px 24px}
+    .contact__grid{grid-template-columns:1fr;gap:18px}
+  }
+  @media(max-width:600px){
+    .principles__grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<nav class="nav">
+  <a href="v1-wired.html" class="nav__brand">FutureShow</a>
+  <a href="v1-wired.html" class="nav__back">All work</a>
+  <div class="nav__right">
+    <a href="studio-pl.html" class="lang-toggle">PL ↔ EN</a>
+    <a href="mailto:futureshow@proton.me" class="nav__cta">Start a project</a>
+  </div>
+</nav>
+
+<header class="cs-hero">
+  <div class="cs-hero__inner">
+    <div class="cs-hero__masthead reveal">
+      <div><span class="num">STUDIO</span> &nbsp;&nbsp;&nbsp; Vol. I · 2026 · <strong>Architecture of Interactive Narratives</strong></div>
+      <div>About the studio</div>
+    </div>
+    <div class="cs-hero__main">
+      <div class="cs-hero__headline-wrap reveal" style="--i:1">
+        <div class="cs-hero__chip-row">
+          <span class="chip red">Studio</span>
+          <span class="chip">One person</span>
+          <span class="chip">Warsaw</span>
+          <span class="chip outline">Est. 2025</span>
+        </div>
+        <h1>Studio of <span class="outline">one,</span><br>scaled<br>with <em>AI.</em></h1>
+      </div>
+      <aside class="cs-hero__sidebar reveal" style="--i:2">
+        <p class="cs-hero__deck">FutureShow is a one-person studio for interactive narratives, founded by <em>Jan Lubicz Przyłuski</em> in Warsaw. Built with AI as creative partner; deployed as zero-dependency web apps.</p>
+        <div class="cs-hero__byline">Studio <strong>FutureShow</strong> · Est. 2025 · For institutions, NGOs, publishers &amp; cultural producers</div>
+        <div class="cs-hero__cta-row">
+          <a href="mailto:futureshow@proton.me" class="btn-red">Start a project →</a>
+          <a href="v1-wired.html" class="btn-outline-light">All work</a>
+        </div>
+      </aside>
+    </div>
+    <div class="cs-hero__ticker reveal" style="--i:3">
+      <div class="cs-hero__ticker-track">
+      <span>Studio · FutureShow · Warsaw</span>
+      <span class="dot">●</span>
+      <span>Founded 2025 · Jan Lubicz Przyłuski</span>
+      <span class="dot">●</span>
+      <span>One human · one studio · AI as partner</span>
+      <span class="dot">●</span>
+      <span>Six flagships shipped in twelve months</span>
+      <span class="dot">●</span>
+      <span>Zero-dependency · open data · free to cite</span>
+      <span class="dot">●</span>
+      <span>Open for commissions, partnerships, residencies</span>
+      <span class="dot">●</span>
+      <span>Studio · FutureShow · Warsaw</span>
+      <span class="dot">●</span>
+      <span>Founded 2025 · Jan Lubicz Przyłuski</span>
+      <span class="dot">●</span>
+      <span>One human · one studio · AI as partner</span>
+      <span class="dot">●</span>
+      <span>Six flagships shipped in twelve months</span>
+      <span class="dot">●</span>
+      <span>Zero-dependency · open data · free to cite</span>
+      <span class="dot">●</span>
+      <span>Open for commissions, partnerships, residencies</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="cs-stats">
+  <div class="cs-stats__inner">
+    <div><div class="cs-stat__num red">1</div><div class="cs-stat__label">Person</div></div>
+    <div><div class="cs-stat__num">25+</div><div class="cs-stat__label">Years in film &amp; media</div></div>
+    <div><div class="cs-stat__num">6</div><div class="cs-stat__label">Flagships in 12 months</div></div>
+    <div><div class="cs-stat__num yellow">2023</div><div class="cs-stat__label">AI partnership began</div></div>
+  </div>
+</section>
+
+<div class="cs-body">
+  <p>FutureShow is a deliberate experiment in scale: how much can one experienced author ship when the assistant is an LLM rather than a junior dev? The answer turned out to be: a flagship every two months, indexed and cited.</p>
+  <p>Each project starts from a real institutional brief — a teaching hospital, a press desk, a philosophy seminar, a policy NGO. It ends as a working object, served from GitHub Pages, free to use, free to fork, written to last ten years without a build chain.</p>
+</div>
+
+<section class="studio-bio">
+  <div class="studio-bio__head">
+    <div class="studio-bio__num">01 / Founder</div>
+    <h2 class="studio-bio__title">Jan Lubicz <em>Przyłuski.</em></h2>
+  </div>
+  <div class="studio-bio__body">
+    <div class="studio-bio__meta">Based<br>Warsaw, PL<br>Remote-friendly<br>EN / PL working languages</div>
+    <div>
+      <div class="studio-bio__name">Jan Lubicz Przyłuski</div>
+      <div class="studio-bio__role">Visual artist, film director, cultural anthropologist. 25+ years in experimental film, theatre and digital media.</div>
+      <dl>
+        <dt>Film</dt>
+        <dd>Editor of <em>Glass Trap</em> — nominated for the European Film Award 2009, Best Short Documentary.</dd>
+        <dt>Theatre</dt>
+        <dd>Video projections for Krystian Lupa's internationally toured productions (Beijing, Hong Kong, Reims).</dd>
+        <dt>Book</dt>
+        <dd><em>Sztuka Akcji</em> — a history and hermeneutics of Polish performance art. Polish Minister of Culture Award, 2007.</dd>
+        <dt>Lectures</dt>
+        <dd>Charles University Prague, Bezalel Academy Tel Aviv, CCA Tel Aviv, POLIN Museum of the History of Polish Jews, International Cultural Centre Kraków.</dd>
+        <dt>AI since 2023</dt>
+        <dd>CS50 Harvard for technical foundations. Claude Code as production partner across every flagship in this volume.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="principles">
+  <div class="principles__head">
+    <div class="principles__num">02 / Approach</div>
+    <h2 class="principles__title">Four <em>rules.</em></h2>
+  </div>
+  <div class="principles__grid">
+    <div class="principle">
+      <div class="principle__num">01</div>
+      <h3>Direct</h3>
+      <p>No agencies, no account layers. The person who writes the code is the person who reads your brief.</p>
+    </div>
+    <div class="principle">
+      <div class="principle__num">02</div>
+      <h3>Browser-native</h3>
+      <p>HTML, CSS, vanilla JS, Canvas, three.js. No app store. No login wall. Works on the laptop you already have.</p>
+    </div>
+    <div class="principle">
+      <div class="principle__num">03</div>
+      <h3>Yours to keep</h3>
+      <p>Static files, in your repo, with your domain. No SaaS lock-in. No invoice in the second year for the same thing.</p>
+    </div>
+    <div class="principle">
+      <div class="principle__num">04</div>
+      <h3>Fast to ship</h3>
+      <p>Brief to working prototype in days, not months. AI as partner compresses the cycle; the editorial judgment stays human.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cs-pullquote">
+  <div class="cs-pullquote__inner">
+    Built with AI. Edited by a human who's been doing this for 25 years.
+    <div class="cs-pullquote__cite">— The studio, in one line</div>
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <h2>Open for <em>new projects.</em></h2>
+  <p class="contact__deck">Commissions, partnerships, residencies. If your institution has a difficult subject and an audience that deserves better than a PDF, write.</p>
+  <div class="contact__grid">
+    <div class="contact__cell">
+      <div class="contact__label">Email</div>
+      <div class="contact__value"><a href="mailto:futureshow@proton.me">futureshow@proton.me</a></div>
+    </div>
+    <div class="contact__cell">
+      <div class="contact__label">Location</div>
+      <div class="contact__value">Warsaw / remote</div>
+    </div>
+    <div class="contact__cell">
+      <div class="contact__label">Status</div>
+      <div class="contact__value">Open for new projects</div>
+    </div>
+  </div>
+  <a href="mailto:futureshow@proton.me" class="contact__btn">Write to the studio</a>
+</section>
+
+<footer class="cs-footer">
+  <div class="cs-footer__inner">
+    <div>© FutureShow Studio 2026 · Play with knowledge.</div>
+    <div><a href="v1-wired.html">All work</a> · <a href="studio-pl.html">PL</a> · <a href="mailto:futureshow@proton.me">futureshow@proton.me</a></div>
+  </div>
+</footer>
+
+<script>
+(()=>{const c=document.getElementById('cursor');let x=innerWidth/2,y=innerHeight/2,tx=x,ty=y;onpointermove=e=>{tx=e.clientX;ty=e.clientY};const t=()=>{x+=(tx-x)*0.25;y+=(ty-y)*0.25;c.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%)`;requestAnimationFrame(t)};t();document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('pointerenter',()=>c.classList.add('hover'));el.addEventListener('pointerleave',()=>c.classList.remove('hover'))})})();
+(()=>{const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.05});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));onload=()=>setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)el.classList.add('in')}),150)})();
+</script>
+</body>
+</html>
